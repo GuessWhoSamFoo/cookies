@@ -4,8 +4,6 @@ import urllib.request
 import re
 import os
 import ast
-import requests
-import sys
 
 
 def search_for_alias(filename):
@@ -60,7 +58,7 @@ def gather_images(filename):
 def test_circular_alias():
     source_dir = '.'
     alias_paths = []
-    alias_ok = 0 
+    alias_ok = 0
     for dir_name, subdir, files in os.walk(source_dir):
         for file_name in files:
             if re.match(r'.*\.md$', file_name):
@@ -70,11 +68,11 @@ def test_circular_alias():
                     alias_paths += aliases
                     alias_ok += _check_duplicate_alias(aliases, dir_name + "/" + file_name)
 
-    local_url = "http://0.0.0.0:4567/docs/"
+    local_url = "http://127.0.0.1:1313/docs/"
     for alias in alias_paths:
         if urllib.request.urlopen(local_url + alias).getcode() == 404:
             print(alias + " is a broken path")
-    return alias_ok
+    assert alias_ok == True
 
 if __name__ == '__main__':
     test_circular_alias()
