@@ -1,0 +1,34 @@
+language: python
+cache: bundler
+matrix:
+    include:
+    - python: "3.6"
+
+before_install:
+    - echo "Installing Hugo 0.29, Node, and gulp"
+    - echo -e "machine github.com\n  login $U\n  password $TOKEN" >> ~/.netrc
+    - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+    - sudo apt install nodejs
+    - wget https://github.com/gohugoio/hugo/releases/download/v0.29/hugo_0.29_Linux-64bit.deb
+    - sudo dpkg -i hugo*.deb
+    - sudo apt install nmap
+    - hugo version
+    - sudo npm install --global gulp-cli
+    - npm install
+
+install:
+    - echo "Install pytest and pip"
+    - pip install -r ci/requirements.txt
+
+before_script:
+    - echo "Run as localhost"
+    - gulp dev &
+    - sleep 7
+
+script:
+    - echo "Running scripts"
+    - curl -4v http://127.0.0.1:1313/docs/
+
+after:
+    - echo "Print versions and skipped tests here"
+
