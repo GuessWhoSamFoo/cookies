@@ -14,8 +14,10 @@ class Docs404Item(Item):
 
 class Docs404Spider(CrawlSpider):
     def __init__(self, *args, **kwargs):
-        logger = logging.getLogger('scrapy.core.engine')
-        logger.setLevel(logging.WARNING)
+        loggers = ['scrapy.core.engine', 'scrapy.downloadermiddlewares.redirect']
+        for l in loggers:
+            logger = logging.getLogger(l)
+            logger.setLevel(logging.WARNING)
         super().__init__(*args, **kwargs)
 
 #    DOWNLOAD_DELAY=0.1

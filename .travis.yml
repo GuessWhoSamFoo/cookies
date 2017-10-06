@@ -1,5 +1,5 @@
 language: python
-cache: bundler
+cache: pip
 matrix:
     include:
     - python: "3.6"
@@ -23,10 +23,10 @@ before_script:
     - echo "Run as localhost"
     - gulp dev &
     - sleep 7
+    - scrapy runspider ci/docs404.py -t csv -o result.csv
 
 script:
     - echo "Running scripts"
-    - scrapy runspider ci/docs404.py -t csv -o result.csv
     - python -m pytest
 
 after:
