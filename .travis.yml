@@ -26,7 +26,7 @@ before_script:
 
 script:
     - echo "Running scripts"
-    - curl -4v http://127.0.0.1:1313/docs/
+    - python -m pytest
 
 after:
     - echo "Print versions and skipped tests here"
