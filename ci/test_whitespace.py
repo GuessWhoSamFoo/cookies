@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import pytest
-
+from contextlib import redirect_stdout
 import regex
 import os
 import fnmatch
@@ -18,8 +18,8 @@ def test_whitespace():
                     match_obj = regex.search(r'[ \t]+$', line)
                     if match_obj:
                         no_whitespace = False
-                        print(str(filename) + ": trailing whitespace at " + str(line_number) + ":" + str(match_obj.start()))
-
+                        with redirect_stdout(open(os.devnull, 'w')):
+                            print(str(filename) + ": trailing whitespace at " + str(line_number) + ":" + str(match_obj.start()))
     assert no_whitespace == True
 
 if __name__ == "__main__":

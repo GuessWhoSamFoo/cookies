@@ -26,6 +26,7 @@ before_script:
 
 script:
     - echo "Running scripts"
+    - scrapy runspider ci/docs404.py -t csv -o result.csv
     - python -m pytest
 
 after:
