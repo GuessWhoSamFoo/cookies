@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import urllib.request
+from urllib.error import HTTPError
 import re
 import os
 import ast
@@ -41,6 +42,7 @@ def _check_duplicate_alias(alias_paths, absolute_file_path):
                 print("Circular alias '{}' in file: {}".format(alias, absolute_file_path))
     return duplicate
 
+
 def gather_images(filename):
     """
     TODO: Parse nested bracket syntax
@@ -58,7 +60,7 @@ def gather_images(filename):
 def test_circular_alias():
     source_dir = '.'
     alias_paths = []
-    alias_ok = 0
+    alias_ok = True
     for dir_name, subdir, files in os.walk(source_dir):
         for file_name in files:
             if re.match(r'.*\.md$', file_name):
@@ -66,13 +68,15 @@ def test_circular_alias():
                 aliases = search_for_alias(dir_name + "/" + file_name)
                 if aliases:
                     alias_paths += aliases
-                    alias_ok += _check_duplicate_alias(aliases, dir_name + "/" + file_name)
-
+                    alias_ok += False
     local_url = "http://127.0.0.1:1313/docs/"
     for alias in alias_paths:
-        if urllib.request.urlopen(local_url + alias).getcode() == 404:
+        try:
+            urllib.request.urlopen(local_url + alias).getcode()
+        except HTTPError:
             print(alias + " is a broken path")
     assert alias_ok == True
+
 
 if __name__ == '__main__':
     test_circular_alias()
