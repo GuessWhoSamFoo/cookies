@@ -18,7 +18,9 @@ LOCALHOST = "http://127.0.0.1:1313/docs/"
 @pytest.fixture(scope='module', autouse=True)
 def md_index(path='.', extension='*.md'):
     index = []
+    exclude = ['node_modules']
     for root, dirnames, filenames in os.walk(path):
+        dirnames[:] = [d for d in dirnames if d not in exclude]
         for filename in fnmatch.filter(filenames, extension):
             index.append(os.path.join(root, filename))
     return index

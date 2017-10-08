@@ -10,7 +10,6 @@ matrix:
 
 before_install:
     - echo "Installing Hugo 0.29, Node, and gulp"
-    - cd ..
     - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
     - sudo apt install nodejs
     - wget https://github.com/gohugoio/hugo/releases/download/v0.29/hugo_0.29_Linux-64bit.deb
@@ -18,7 +17,6 @@ before_install:
     - hugo version
     - sudo npm install --global gulp-cli
     - npm install
-    - cd cookies
 
 install:
     - echo "Install pytest and pip"
