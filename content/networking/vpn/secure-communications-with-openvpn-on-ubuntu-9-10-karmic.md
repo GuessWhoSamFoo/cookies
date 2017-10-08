@@ -234,7 +234,7 @@ iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A FORWARD -s 10.8.0.0/24 -j ACCEPT
 iptables -A FORWARD -j REJECT
 iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
-    
+
 exit 0
 
 {{< /file-excerpt >}}
@@ -245,7 +245,7 @@ This will enable all client traffic *except* DNS queries to be forwarded through
 {{< file-excerpt "/etc/apt/sources.list" >}}
 #
 # universe repositories
-deb http://us.archive.ubuntu.com/ubuntu/ karmic universe 
+deb http://us.archive.ubuntu.com/ubuntu/ karmic universe
 deb-src http://us.archive.ubuntu.com/ubuntu/ karmic universe
 deb http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
 deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe

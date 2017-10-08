@@ -49,7 +49,7 @@ The steps in this guide require root privileges. Be sure to run the steps below 
 3. Open the configuration file `/etc/default/subsonic`:
 
     {{< file "/etc/default/subsonic" >}}
-# 
+#
 # This is the configuration file for the Subsonic service
 # (/etc/init.d/subsonic)
 #
@@ -64,7 +64,7 @@ The steps in this guide require root privileges. Be sure to run the steps below 
 # the following:
 #
 # SUBSONIC_ARGS="--port=80 --https-port=443 --max-memory=200"
-        
+
 SUBSONIC_ARGS="--max-memory=150"
 
 # The user which should run the Subsonic process. Default "root".
@@ -88,9 +88,9 @@ SUBSONIC_USER=root
 # the following:
 #
 # SUBSONIC_ARGS="--port=80 --https-port=443 --max-memory=200"
-        
+
 SUBSONIC_ARGS="--https-port=8443 --max-memory=150"
-        
+
 SUBSONIC_USER=subsonic
 
 {{< /file-excerpt >}}
@@ -117,7 +117,7 @@ If you have a firewall set up on your Linode, be sure to edit the permissions to
 
     ![Subsonic untrusted website](/docs/assets/untrusted-connection.png)
 
-3.  The first time you access your Subsonic server in your browser, you will see the following: 
+3.  The first time you access your Subsonic server in your browser, you will see the following:
 
     ![First time Subsonic access](/docs/assets/subsonic-firstlogin.png)
 
@@ -125,7 +125,7 @@ If you have a firewall set up on your Linode, be sure to edit the permissions to
 
     ![First time Subsonic access](/docs/assets/subsonic-gettingstarted.png)
 
-5. Create a password for your admin account. You can also set up any other accounts at this time. 
+5. Create a password for your admin account. You can also set up any other accounts at this time.
 
     {{< note >}}
 Passwords in the Subsonic database are stored in hex format, but not encrypted.

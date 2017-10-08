@@ -53,7 +53,7 @@ From the SteamCMD guide, one additional step is needed specifically for Black Me
 1.  Execute SteamCMD:
 
         cd ~/Steam && ./steamcmd.sh
-        
+
 2.  Login as anonymous:
 
 		login anonymous
@@ -138,7 +138,7 @@ Currently, there are 10 official maps in Black Mesa Dedicated Server:
 *   dm_stalkyard
 *   dm_subtransit
 *   dm_undertow
-      
+
 Three additional official maps are available in the Steam Workshop:
 *   [dm_boom](http://steamcommunity.com/sharedfiles/filedetails/?id=432070352)
 *   [dm_rail](http://steamcommunity.com/sharedfiles/filedetails/?id=432072942)
@@ -186,7 +186,7 @@ dm_custom
 
 {{< /file-excerpt >}}
 
-    
+
 To put a custom map in the rotation, simply write its name; for example: if you have the map **dm_custom.bsp**, you need to write **dm_custom** inside **mapcycle.txt**.
 
 ## Connect to Your Server
@@ -194,7 +194,7 @@ To put a custom map in the rotation, simply write its name; for example: if you 
 1.  Open Black Mesa, and click on the **PLAY ONLINE** option:
 
 	[![Black Mesa Main Menu.](/docs/assets/black_mesa_menu_small.png)](/docs/assets/black_mesa_menu.png)
-   
+
 2.  Find your server in the server list:
 
 	[![Black Mesa Server Browser.](/docs/assets/black_mesa_server_browser_small.png)](/docs/assets/black_mesa_server_browser.png)
@@ -220,7 +220,7 @@ This script automatically starts a Black Mesa Dedicated Server into a **Screen s
 cd "$HOME/Steam/steamapps/common/Black Mesa Dedicated Server"
 screen -S "BMDS" -d -m
 screen -r "BMDS" -X stuff "./srcds_run -game bms +map gasworks +maxplayers 24\n"
-	
+
 
 {{< /file >}}
 
@@ -245,7 +245,7 @@ You can read the entire list of parameters on the [Valve Wiki](https://developer
 1.  Go into the **bms** folder:
 
 		cd "/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/bms/"
-   
+
 2.  Download **MetaMod**:
 
 		wget http://www.metamodsource.net/mmsdrop/1.10/mmsource-1.10.7-git951-linux.tar.gz
@@ -276,7 +276,7 @@ It is recommended that you install the **SourceMod** add-on. It provides useful 
 1.  Go into the **bms** folder:
 
 		cd "/home/steam/Steam/steamapps/common/Black Mesa Dedicated Server/bms/"
-   
+
 2.  Download **SourceMod**:
 
 		wget https://www.sourcemod.net/smdrop/1.8/sourcemod-1.8.0-git5829-linux.tar.gz

@@ -114,6 +114,6 @@ Insert the following job into the crontab:
 
 Save the crontab, and issue the following command to start `fcron` for the first time:
 
-    /etc/init.d/fcron start 
+    /etc/init.d/fcron start
 
 Your Planet generated site will refresh every 10 minutes. Congratulations!

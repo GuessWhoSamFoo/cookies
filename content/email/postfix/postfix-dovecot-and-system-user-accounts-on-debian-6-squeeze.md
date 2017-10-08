@@ -63,11 +63,11 @@ Create the `/etc/postfix/sasl/smtpd.conf` file, and insert the following line:
 smtpd_tls_cert_file=/etc/ssl/certs/postfix.pem
 smtpd_tls_key_file=/etc/ssl/private/postfix.key
 
-smtp_use_tls = yes                                                                                               
-smtpd_use_tls = yes                                                                                              
-smtp_tls_note_starttls_offer = yes                                                                               
-smtpd_tls_loglevel = 1                                                                                           
-smtpd_tls_received_header = yes                                                                                  
+smtp_use_tls = yes
+smtpd_use_tls = yes
+smtp_tls_note_starttls_offer = yes
+smtpd_tls_loglevel = 1
+smtpd_tls_received_header = yes
 
 smtpd_sasl_type = dovecot
 smtpd_sasl_path = private/auth

@@ -10,6 +10,6 @@ title: Linode API
 show_in_lists: true
 ---
 
-The Linode API is a programmatic interface that allows you to interact with many of the [Linode Manager's](https://manager.linode.com/) features. To learn more, please visit the Linode API web page: 
+The Linode API is a programmatic interface that allows you to interact with many of the [Linode Manager's](https://manager.linode.com/) features. To learn more, please visit the Linode API web page:
 
 <https://www.linode.com/api/>

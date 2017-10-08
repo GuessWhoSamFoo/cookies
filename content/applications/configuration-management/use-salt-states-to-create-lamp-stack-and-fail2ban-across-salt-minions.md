@@ -16,10 +16,10 @@ title: Use Salt States to Create LAMP Stack and Fail2ban Across Salt minions
 Salt States can install and define a server setup on other servers. This tutorial demonstrates the use of Salt States to create a LAMP stack across all Salt Minions.
 
 ## Configure the Salt Master
-Before configuration, install a Salt Master and Salt Minions with the Linode [Install Salt](/docs/applications/salt/install-salt) guide. This tutorial is written for Debian 8, but can easily be adjusted for other Linux Distributions. 
+Before configuration, install a Salt Master and Salt Minions with the Linode [Install Salt](/docs/applications/salt/install-salt) guide. This tutorial is written for Debian 8, but can easily be adjusted for other Linux Distributions.
 
 1.  Open the `/etc/salt/master` file. Then search for **file_roots**, optionally read the surrounding "File Server settings" section, and edit the following:
-    
+
     {{< file "/etc/salt/master" >}}
 # Example:
   file_roots:
@@ -37,12 +37,12 @@ Copy the above text exactly to ensure the proper two-space nesting of YAML forma
 
         mkdir /etc/salt/base
 
-The Salt Master's configuration file has now been adjusted for a new base directory. The base directory typically contains the SLS files that create a tree like organization for Salt States pertaining to that directory. Additional directories, similar to the base directory, could be created with additional SLS files for different Salt State categories. 
+The Salt Master's configuration file has now been adjusted for a new base directory. The base directory typically contains the SLS files that create a tree like organization for Salt States pertaining to that directory. Additional directories, similar to the base directory, could be created with additional SLS files for different Salt State categories.
 
-## Create the Top and Additional SLS Files 
+## Create the Top and Additional SLS Files
 The [top file](https://docs.saltstack.com/en/latest/ref/states/top.html) creates the top level organization for Salt States and Minions within the directory. Other SLS files typically correspond to the top file listings.
 
-As mentioned in the note above, each of these configuration files requires specific spacing. To ensure consistency, copy the examples below, including 
+As mentioned in the note above, each of these configuration files requires specific spacing. To ensure consistency, copy the examples below, including
 
 1.  Create the `/etc/salt/base/top.sls` file and add the following. Again, ensure exact formatting for the YAML two space nesting.
 
@@ -55,7 +55,7 @@ base:
 {{< /file >}}
 
 
-2.  Create the `/etc/salt/base/lamp.sls` file referred to in Step 1, and add the following: 
+2.  Create the `/etc/salt/base/lamp.sls` file referred to in Step 1, and add the following:
 
     {{< file "/etc/salt/base/lamp.sls" >}}
 lamp-stack:
@@ -91,7 +91,7 @@ fail2ban:
         salt '*' state.highstate
 
     This process will take a few minutes. If successful, a report will be displayed with a summary similar to the following:
-    
+
         Summary
         ------------
         Succeeded: 2 (changed=2)

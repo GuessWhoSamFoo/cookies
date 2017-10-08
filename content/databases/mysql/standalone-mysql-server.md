@@ -67,7 +67,7 @@ Using MySQL on a separate database server is very similar to running a local dat
 For example, in [WordPress](/docs/web-applications/cms-guides/wordpress/) database settings are contained in the `wp-config.php` file, and the hostname is specified in the following format:
 
 {{< file-excerpt "wp-config.php" php >}}
-/** MySQL hostname */ 
+/** MySQL hostname */
 define('DB_HOST', 'mysql');
 
 {{< /file-excerpt >}}

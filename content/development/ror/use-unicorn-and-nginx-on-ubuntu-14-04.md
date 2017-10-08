@@ -29,7 +29,7 @@ Unicorn is an HTTP server, just like Passenger or Puma. Since Unicorn cannot be 
 
 ## Before You Begin
 
-Before starting this guide, make sure that  you have read through and completed our [Getting Started](/docs/getting-started) and [Securing Your Server](/docs/security/securing-your-server/) guides. 
+Before starting this guide, make sure that  you have read through and completed our [Getting Started](/docs/getting-started) and [Securing Your Server](/docs/security/securing-your-server/) guides.
 
 {{< note >}}
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
@@ -54,7 +54,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 
         wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.0.tar.gz
 
-3.  Unpack the tarball:	
+3.  Unpack the tarball:
 
         tar -xzvf ruby-2.3.0.tar.gz
 
@@ -62,7 +62,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 
         cd ruby-2.3.0
 
-5.  Configure and install Ruby from source:	
+5.  Configure and install Ruby from source:
 
         ./configure
         make

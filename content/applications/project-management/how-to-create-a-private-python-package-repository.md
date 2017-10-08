@@ -20,11 +20,11 @@ external_resources:
 
 # How does Python Handle Package Management?
 
-Package management in Python is available through a variety of different tools. 
+Package management in Python is available through a variety of different tools.
 
-`Pip` remains one of the most popular tool choices because it manages full lists of packages and corresponding version numbers, which fosters precise duplication of entire package groups in a distinct, separate environment. `Pip` virtually eliminates manual installs and updates of software packages to operating systems. 
+`Pip` remains one of the most popular tool choices because it manages full lists of packages and corresponding version numbers, which fosters precise duplication of entire package groups in a distinct, separate environment. `Pip` virtually eliminates manual installs and updates of software packages to operating systems.
 
-PyPI (Python Package Index) is a public repository of user-submitted packages that can be installed using `pip install package`. This guide breaks down the basic scaffolding of a Python package, then using PyPiServer, creates a private repository by uploading the package to a Linode. 
+PyPI (Python Package Index) is a public repository of user-submitted packages that can be installed using `pip install package`. This guide breaks down the basic scaffolding of a Python package, then using PyPiServer, creates a private repository by uploading the package to a Linode.
 
 ## Before You Begin
 

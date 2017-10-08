@@ -36,7 +36,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 2.  Update your system:
 
         sudo apt-get update && sudo apt-get upgrade -y
-        
+
 3.  Set up a working LAMP stack. Please see the [LAMP on Debian 7](/docs/websites/lamp/lamp-server-on-debian-7-wheezy) guide if needed.
 
     {{< note >}}
@@ -48,7 +48,7 @@ If you have installed the `php-suhosin` package, there are some known issues whe
 5.  Install the `mcrypt` PHP module:
 
         sudo apt-get install mcrypt
-        
+
 6.  Restart Apache:
 
         sudo service apache2 restart

@@ -25,7 +25,7 @@ Make sure your `/etc/hosts` file contains sensible values. In the example file b
 
 {{< file "/etc/hosts" >}}
 ## main & restricted repositories
-deb http://us.archive.ubuntu.com/ubuntu/ hardy main restricted         
+deb http://us.archive.ubuntu.com/ubuntu/ hardy main restricted
 deb-src http://us.archive.ubuntu.com/ubuntu/ hardy main restricted
 
 deb http://security.ubuntu.com/ubuntu hardy-security main restricted
@@ -134,7 +134,7 @@ Next, create example.org (`/etc/apache2/sites-available/example.org`) so that it
 
 {{< file "/etc/apache2/sites-available/example.org" apache >}}
 <VirtualHost 12.34.56.78:80>
-     ServerAdmin webmaster@example.org     
+     ServerAdmin webmaster@example.org
      ServerName example.org
      ServerAlias www.example.org
      DocumentRoot /srv/www/example.org/public_html/

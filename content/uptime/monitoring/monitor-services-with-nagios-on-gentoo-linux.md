@@ -67,7 +67,7 @@ define contact{
     contact_name nagiosadmin ; Short name of user use generic-contact
     ; Inherit default values from generic-contact template (defined above)
     alias John Doe ; Full name of user
-    email nagiosuser@example.com> ; <<***** CHANGE THIS TO YOUR EMAIL ADDRESS ****** 
+    email nagiosuser@example.com> ; <<***** CHANGE THIS TO YOUR EMAIL ADDRESS ******
 }
 
 {{< /file-excerpt >}}
@@ -90,7 +90,7 @@ Issue the following commands to ensure that Nagios is started when your system b
 
 Run the following command to check your Nagios configuration file for errors:
 
-    nagios -v /etc/nagios/nagios.cfg 
+    nagios -v /etc/nagios/nagios.cfg
 
 Any errors will be shown in red. If everything is okay, you may issue the following command to start Nagios for the first time:
 

@@ -42,7 +42,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 
 ## Download and Verify OSSEC
 
-Debian 7 does not have an installation candidate for OSSEC in its repository, so it will need to be downloaded from the project's [download page](http://ossec.github.io/downloads.html). 
+Debian 7 does not have an installation candidate for OSSEC in its repository, so it will need to be downloaded from the project's [download page](http://ossec.github.io/downloads.html).
 
 1.  Download the latest OSSEC tarball (2.8.3 at the time of this guide's publication):
 
@@ -283,7 +283,7 @@ For a Linux system, the default list of files and directories to ignore are:
 
 {{< file-excerpt "ossec.conf" >}}
 <!-- Files/directories to ignore -->
-<ignore>/etc/mtab</ignore>  
+<ignore>/etc/mtab</ignore>
 <ignore>/etc/mnttab</ignore>
 <ignore>/etc/hosts.deny</ignore>
 <ignore>/etc/mail/statistics</ignore>

@@ -10,7 +10,7 @@ modified: 2015-02-18
 modified_by:
   name: James Stewart
 published: 2015-02-18
-title: Set Up MariaDB Clusters with Galera Debian and Ubuntu 
+title: Set Up MariaDB Clusters with Galera Debian and Ubuntu
 external_resources:
  - '[MariaDB Foundation: Installing MariaDB Galera Cluster on Debian/Ubuntu](https://blog.mariadb.org/installing-mariadb-galera-cluster-on-debian-ubuntu/)'
 ---
@@ -37,7 +37,7 @@ This guide assumes that your Linodes are each configured with a [Private IP Addr
 		  sudo add-apt-repository 'deb http://mirror3.layerjet.com/mariadb/repo/5.5/debian wheezy main'
 
 	* Ubuntu Repository:
-	
+
 		  add-apt-repository 'deb http://mirror3.layerjet.com/mariadb/repo/5.5/ubuntu trusty main'
 
 2.  Install MariaDB, Galera, and Rsync:

@@ -1,5 +1,9 @@
 language: python
-cache: pip
+cache:
+    pip: true
+    bunlder: true
+    directories:
+    - node_modules
 matrix:
     include:
     - python: "3.6"

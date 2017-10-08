@@ -38,7 +38,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 2.  Update your system:
 
         sudo yum update
-        
+
 3.  Set up a working LAMP stack. Please see the [LAMP on CentOS 6](/docs/websites/lamp/lamp-server-on-centos-6) guide if needed.
 
     {{< note >}}
@@ -50,13 +50,13 @@ If you have installed the `php-suhosin` package, there are some known issues whe
         cd ~
         wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         sudo rpm -ivh epel-release*
-        
+
 5.  Set up Apache with SSL, so your passwords will not be sent over plain text. To do so, go through the [SSL Certificates with Apache on CentOS](/docs/security/ssl/ssl-apache2-centos) guide.
 
 6.  Install the `mycrypt` PHP module:
 
         sudo yum install php-mcrypt
-        
+
 7.  Restart Apache:
 
         sudo service httpd restart
@@ -67,12 +67,12 @@ If you have installed the `php-suhosin` package, there are some known issues whe
 1.  Install phpMyAdmin:
 
         sudo yum install phpmyadmin
-        
+
 2.  For each virtual host that you would like to give access to your PHPMyAdmin installation, you must create a symbolic link from the document root to the phpMyAdmin installation location (`/usr/share/phpmyadmin`):
 
         cd /var/www/example.com/public_html
         sudo ln -s /usr/share/phpmyadmin
-        
+
     This will create a symbolic link named `phpmyadmin` in your document root.
 
 
@@ -97,11 +97,11 @@ $cfg['ForceSSL'] = 'true';
 
 {{< /file-excerpt >}}
 
-    
+
 2.  Restart Apache:
 
         sudo service httpd restart
-        
+
 
 ## Testing Your phpMyAdmin Installation
 

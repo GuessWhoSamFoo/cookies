@@ -25,8 +25,8 @@ Before installing Magento, we must ensure that the `universe` repositories are e
 
 {{< file "/etc/apt/sources.list" >}}
 ## main & restricted repositories
-deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
-deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted 
+deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
 
 deb http://security.ubuntu.com/ubuntu karmic-security main restricted
 deb-src http://security.ubuntu.com/ubuntu karmic-security main restricted

@@ -57,7 +57,7 @@ deb-src http://us.archive.ubuntu.com/ubuntu/ karmic-updates universe
 deb http://security.ubuntu.com/ubuntu karmic-security universe
 deb-src http://security.ubuntu.com/ubuntu karmic-security universe
 
-## multiverse repositories 
+## multiverse repositories
 deb http://us.archive.ubuntu.com/ubuntu/ karmic multiverse
 deb-src http://us.archive.ubuntu.com/ubuntu/ karmic multiverse
 

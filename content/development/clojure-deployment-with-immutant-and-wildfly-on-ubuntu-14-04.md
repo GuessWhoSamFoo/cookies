@@ -229,7 +229,7 @@ To deploy Clojure application with WildFly you will need to install the Immutant
 {{< /file-excerpt >}}
 
 
-    This sets three parameters for Immutant installation: 
+    This sets three parameters for Immutant installation:
 
     1. The destination folder for the WAR file
     2. The context path
