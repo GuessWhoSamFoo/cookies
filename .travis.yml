@@ -18,6 +18,11 @@ before_install:
 
 install:
     - echo "Install pytest and pip"
+    - sudo apt install libyaml-dev
+    - git clone https://github.com/yaml/pyyaml.git 
+    - cd pyyaml.git
+    - python setup.py --without-libyaml install
+    - cd .. 
     - pip install -r ci/requirements.txt
 
 before_script:
