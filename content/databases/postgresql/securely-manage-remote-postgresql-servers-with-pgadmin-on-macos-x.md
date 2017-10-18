@@ -33,7 +33,7 @@ While PostgreSQL supports SSL connections, it is not advisable to instruct it to
     ssh -f -L 5433:127.0.0.1:5432 username@remote-host -N
 
 Although PostgreSQL uses port 5432 for TCP connections, we're using the local port 5433 in case you decide to install PostgreSQL locally later on.
-   
+
 ## Use pgAdmin
 
 1.  Launch pgAdmin and you'll be presented with a default view containing no servers. Click "File -> Add Server" as shown below.
@@ -44,7 +44,7 @@ Although PostgreSQL uses port 5432 for TCP connections, we're using the local po
 
     {{< file-excerpt "/etc/postgresql/9.5/main/postgresql.conf" aconf >}}
 listen_addresses = 'localhost'
-        
+
 port = 5432
 
 {{< /file-excerpt >}}

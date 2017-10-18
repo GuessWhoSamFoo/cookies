@@ -50,9 +50,9 @@ europa
         baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/
         gpgcheck=0
         enabled=1
-    
+
     For a 32-bit system, use the following configuration:
-    
+
         [mongodb]
         name=MongoDB Repository
         baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/i686/
@@ -219,7 +219,7 @@ A `mongod.conf` file was created during the installation. You will use this conf
         rs.conf()
 
     The output should look similar to the following:
-    
+
         rs.conf()
         {
             "_id" : "rs1",

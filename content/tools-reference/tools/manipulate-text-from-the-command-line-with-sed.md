@@ -81,7 +81,7 @@ It's possible to use `sed` to modify streams of text in shell scripts. Consider 
 {{< file "bash function" bash >}}
 txt2text (){
     for i in `ls -1`
-    do 
+    do
         mv $i `echo $i | sed 's/.*\.txt$/.text/'`
     done
 }

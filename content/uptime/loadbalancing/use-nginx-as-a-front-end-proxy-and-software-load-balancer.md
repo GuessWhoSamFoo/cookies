@@ -10,7 +10,7 @@ modified: 2017-03-23
 modified_by:
   name: Linode
 published: 2010-05-11
-title: 'Use Nginx as a Front-end Proxy and Software Load Balancer' 
+title: 'Use Nginx as a Front-end Proxy and Software Load Balancer'
 external_resources:
  - '[nginx Proxy Module](http://wiki.nginx.org/NginxHttpProxyModule)'
  - '[HTTP Upstream Module](http://wiki.nginx.org/NginxHttpUpstreamModule)'
@@ -45,7 +45,7 @@ When a request reaches the nginx front-end proxy server, here's an overview of t
 
 ## Configure Apache for Port Listening
 
-In this section, you'll configure Apache to listen on an alternate port so it can respond to the nginx front end. 
+In this section, you'll configure Apache to listen on an alternate port so it can respond to the nginx front end.
 
 {{< note >}}
 This guide assumes you are using Apache 2.4. Some path names will be slightly different if you are using an older version.
@@ -58,7 +58,7 @@ This guide assumes you are using Apache 2.4. Some path names will be slightly di
     {{< file-excerpt "/etc/apache2/ports.conf" aconf >}}
 NameVirtualHost *:8000
 Listen 8000
-         
+
 <IfModule mod_ssl.c>
   # If you add NameVirtualHost *:443 here, you will also have to change
   # the VirtualHost statement in /etc/apache2/sites-available/default-ssl
@@ -67,7 +67,7 @@ Listen 8000
   # supported by MSIE on Windows XP.
   Listen 443
 </IfModule>
- 
+
 <IfModule mod_gnutls.c>
   Listen 443
 </IfModule>
@@ -84,12 +84,12 @@ Listen 8000
  ServerAdmin webmaster@example.com
  ServerName  www.example.com
  DocumentRoot /var/www/html/example.com
- 
+
  <Directory />
    Options FollowSymLink
    AllowOverride None
  </Directory>
- 
+
  <Directory /var/www/html/example.com>
    Options Indexes FollowSymLinks MultiViews
    AllowOverride None
@@ -175,7 +175,7 @@ server {
     There are some additional `location` directives to add in the `server` section of the `/etc/nginx/sites-available/example.com` file. You will probably need these directives, but it's possible that you may not, depending on your nginx and Apache configuration.
 
 8.  Add a `location` directive to make nginx refuse all requests for files beginning with the characters `.ht`. There's a similar directive in nearly every default Apache configuration. This directive is useful if your Apache deployment relies on settings from `.htaccess` and `.htpasswd`.
-    
+
     {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
 location ~ /\.ht {
     deny  all;
@@ -238,7 +238,7 @@ server {
   }
 
 }
-    
+
 upstream appcluster {
    server linode.example.com:8801;
    server linode.example.com:8802;
@@ -249,7 +249,7 @@ upstream appcluster {
    server galloway.example.com:8803;
    server galloway.example.com:8804;
 }
-    
+
 # [...]
 
 {{< /file-excerpt >}}
@@ -269,7 +269,7 @@ nginx also allows you to control the behavior of the `upstream` resource cluster
 
 {{< file-excerpt "/etc/nginx/sites-available/example.com" nginx >}}
 upstream appcluster {
-   ip_hash; 
+   ip_hash;
    server linode.example.com:8801;
    server linode.example.com:8802;
    server galloway.example.com:8801 down;

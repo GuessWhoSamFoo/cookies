@@ -5,7 +5,7 @@
 To preview the site you need `Hugo` installed, version `0.29` or higher. See: https://gohugo.io/getting-started/installing
 
 To make changes to styles or script, you need Gulp installed, see https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md
- 
+
 ## Build
 
 ### Development

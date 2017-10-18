@@ -25,7 +25,7 @@ Make sure your `/etc/hosts` file contains sensible values. In the example file b
 
 {{< file "/etc/hosts" >}}
 ## main & restricted repositories
-deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
+deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
 deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
 
 deb http://security.ubuntu.com/ubuntu karmic-security main restricted
@@ -110,7 +110,7 @@ First create example.com (`/etc/apache2/sites-available/example.com`) so that it
 
 {{< file "/etc/apache2/sites-available/example.com" apache >}}
 <VirtualHost 12.34.56.78:80>
-         ServerAdmin username@example.com     
+         ServerAdmin username@example.com
      ServerName example.com
      ServerAlias www.example.com
      DocumentRoot /srv/www/example.com/public_html/

@@ -24,7 +24,7 @@ Prepare System and Install TWiki
 Issue the following commands to update your system's package database and ensure that all installed packages are up to date:
 
     apt-get update
-    apt-get upgrade 
+    apt-get upgrade
 
 Issue the following command to install all required dependencies for TWiki:
 
@@ -35,11 +35,11 @@ Issue the following command to install all required dependencies for TWiki:
 At the time of writing the most recent release of TWiki is 5.1.1. Check the [TWiki upstream](http://twiki.org/) to confirm this is the most current version. Issue the following sequence of commands to download TWiki, extract the files, and set the appropriate permissions:
 
     cd /opt
-    wget ​http://sourceforge.net/projects/twiki/files/TWiki%20for%20all%20Platforms/TWiki-5.1.1/TWiki-5.1.1.tgz 
-    tar -zxvf /opt/TWiki-5.1.1.tgz 
-    mkdir -p /srv/www/example.com/ 
-    mv /opt/twiki /srv/www/example.com/twiki 
-    chown -R www-data:www-data /srv/www/example.com/twiki 
+    wget ​http://sourceforge.net/projects/twiki/files/TWiki%20for%20all%20Platforms/TWiki-5.1.1/TWiki-5.1.1.tgz
+    tar -zxvf /opt/TWiki-5.1.1.tgz
+    mkdir -p /srv/www/example.com/
+    mv /opt/twiki /srv/www/example.com/twiki
+    chown -R www-data:www-data /srv/www/example.com/twiki
     cp /srv/www/example.com/twiki/bin/LocalLib.cfg.txt /srv/www/example.com/twiki/bin/LocalLib.cfg
 
 The TWiki files are now installed in the `/srv/www/example.com/` directory. This is not, and should not be, within the public `DocumentRoot` for your site.
@@ -56,9 +56,9 @@ Create a virtual host specification that resembles the following. Modify the ref
        ServerName example.com
        ServerAlias www.example.com
 
-       DocumentRoot /srv/www/example.com/public_html 
+       DocumentRoot /srv/www/example.com/public_html
 
-       ErrorLog /srv/www/example.com/logs/error.log 
+       ErrorLog /srv/www/example.com/logs/error.log
        CustomLog /srv/www/example.com/logs/access.log combined
 
        ScriptAlias /bin "/srv/www/example.com/twiki/bin"

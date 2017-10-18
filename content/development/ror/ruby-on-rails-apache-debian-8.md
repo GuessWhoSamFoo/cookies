@@ -76,7 +76,7 @@ gem install rails --version 3.0.4
     Any other dependencies can be installed mimicking the steps above: Install the needed packages, then the needed gem.
 
 5.  Add `rails` to your $PATH environment variable. Make sure to replace `VERSION` with the version of Ruby you are running:
-        
+
         ls /var/lib/gems
         PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/var/lib/gems/VERSION/bin"
 
@@ -117,7 +117,7 @@ There are a number of strategies for deploying more than one Rails application u
     {{< file-excerpt "/etc/apache2/sites-available/example.com.conf" aconf >}}
 DocumentRoot /var/www/html/example.com/public_html/
 RailsBaseURI /app1
-RailsBaseURI /app2 
+RailsBaseURI /app2
 RailsBaseURI /app3
 
 {{< /file-excerpt >}}

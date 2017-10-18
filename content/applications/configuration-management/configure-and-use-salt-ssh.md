@@ -27,7 +27,7 @@ Please note: Because it uses SSH, Salt SSH is slower than standard Salt with Zer
 
 1.  This guide assumes that you're using an rpm-based system (CentOS, RedHat, Oracle Enterprise Linux) .
 
-2.  Make sure that you have the `salt` and `salt-ssh` packages installed on your master. Check if these packages are installed: 
+2.  Make sure that you have the `salt` and `salt-ssh` packages installed on your master. Check if these packages are installed:
 
         $rpm -q salt
         $rpm -q salt-ssh
@@ -42,7 +42,7 @@ For detailed instruction on how to set up SaltStack repo, please refer to the [S
 
 ## Set Up Salt Roster File
 
-The Roster file contains target system information, connection details and credentials. 
+The Roster file contains target system information, connection details and credentials.
 The Default location for the Roster file is: `/etc/salt/roster`.
 
    {{< note >}}
@@ -143,7 +143,7 @@ If SSH keys weren't deployed, you may receive the `The host key needs to be acce
 Salt SSH executes commands concurrently, the default-maximum is 25 simultaneous connections.
 {{< /note >}}
 
-3.  It is possible to use any execution module with Salt SSH. With execution modules, you can install packages, control services, gather system information, and much more. 
+3.  It is possible to use any execution module with Salt SSH. With execution modules, you can install packages, control services, gather system information, and much more.
 
         [root@master ~]# salt-ssh linode1 pkg.install iftop
         linode1:

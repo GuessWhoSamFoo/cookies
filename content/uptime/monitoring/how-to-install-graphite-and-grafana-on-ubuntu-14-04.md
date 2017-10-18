@@ -65,7 +65,7 @@ retentions = 5s:3h,1m:1d
 [default_1min_for_1day]
 pattern = .*
 retentions = 60s:1d
-    	
+
 
 {{< /file-excerpt >}}
 
@@ -82,7 +82,7 @@ retentions = 60s:1d
 
 	{{< file-excerpt "/etc/default/graphite-carbon" aconf >}}
 CARBON_CACHE_ENABLED=true
-    	
+
 
 {{< /file-excerpt >}}
 
@@ -127,7 +127,7 @@ DATABASES = {
 		'PORT': ''
 		}
 	}
-    	
+
 
 {{< /file-excerpt >}}
 
@@ -138,7 +138,7 @@ DATABASES = {
 USE_REMOTE_USER_AUTHENTICATION = True
 TIME_ZONE = 'Your/Timezone'
 SECRET_KEY = 'somelonganduniquesecretstring'
-    	
+
 
 {{< /file-excerpt >}}
 
@@ -163,8 +163,8 @@ SECRET_KEY = 'somelonganduniquesecretstring'
 2.  Change Graphite's port from 80 to 8080 (port 80 will be used for Grafana later).
 
 	{{< file "/etc/apache2/sites-available/apache2-graphite.conf" aconf >}}
-<VirtualHost *:8080>		
-    	
+<VirtualHost *:8080>
+
 
 {{< /file >}}
 
@@ -174,7 +174,7 @@ SECRET_KEY = 'somelonganduniquesecretstring'
 	{{< file-excerpt "/etc/apache2/ports.conf" aconf >}}
 Listen 80
 Listen 8080
-    	
+
 
 {{< /file-excerpt >}}
 
@@ -229,7 +229,7 @@ host = 127.0.0.1:5432
 name = grafana
 user = graphite
 password = graphiteuserpassword
-    	
+
 
 {{< /file-excerpt >}}
 
@@ -249,7 +249,7 @@ root_url = %(protocol)s://%(domain)s/
 admin_user = admin
 admin_password = SecureAdminPass
 secret_key = somelongrandomstringkey
-    	
+
 
 {{< /file-excerpt >}}
 
@@ -267,7 +267,7 @@ secret_key = somelongrandomstringkey
 	ProxyPassReverse / http://127.0.0.1:3000/
 	ServerName example.com
 </VirtualHost>
-		
+
 
 {{< /file >}}
 

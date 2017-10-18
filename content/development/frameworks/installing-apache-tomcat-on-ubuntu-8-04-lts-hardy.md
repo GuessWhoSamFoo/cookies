@@ -47,7 +47,7 @@ deb-src http://us.archive.ubuntu.com/ubuntu/ hardy multiverse
 
 Update apt to get the necessary package lists:
 
-    apt-get update 
+    apt-get update
 
 Now you are ready to install Sun Java with the following command (acknowledging the license terms):
 
@@ -98,14 +98,14 @@ case $1 in
 start)
         sh /usr/local/tomcat/bin/startup.sh
         ;;
-stop)  
+stop)
         sh /usr/local/tomcat/bin/shutdown.sh
         ;;
 restart)
         sh /usr/local/tomcat/bin/shutdown.sh
         sh /usr/local/tomcat/bin/startup.sh
         ;;
-esac   
+esac
 exit 0
 
 {{< /file >}}

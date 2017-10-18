@@ -94,7 +94,7 @@ To update DST, run the above 4 commands again.
 2.  Once you see this output, the server has been successfully launched:
 
         Telling Client our new session identifier: XXXXXXXXXXXXXXXX
-        ModIndex: Load sequence finished successfully.  
+        ModIndex: Load sequence finished successfully.
         Reset() returning
 
 
@@ -105,7 +105,7 @@ To update DST, run the above 4 commands again.
         !!!! Your Server Will Not Start !!!!
         !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    This is completely normal and we will fix this in the next step. 
+    This is completely normal and we will fix this in the next step.
 
 3.  Press **Control+C** to quit the server. You will return to the linux command prompt.
 
@@ -126,15 +126,15 @@ connection_timeout = 8000
 server_save_slot = 1
 enable_vote_kick = true | false
 pause_when_empty = true | false
- 
+
 [account]
 dedicated_lan_server = false
- 
- 
+
+
 [STEAM]
 DISABLECLOUD = true
- 
- 
+
+
 [MISC]
 CONSOLE_ENABLED = true
 autocompiler_enabled = true
@@ -162,7 +162,7 @@ screen -S "Don't Starve Together Server" ./dontstarve_dedicated_server_nullrende
 
 You will need Don’t Starve Together installed on your personal computer to get your token.
 
-1.  Open up the game on your computer. Once you reach the main menu, press the backtick key (<code>`</code>) on your keyboard. You will see a screen similar to this one: 
+1.  Open up the game on your computer. Once you reach the main menu, press the backtick key (<code>`</code>) on your keyboard. You will see a screen similar to this one:
 
     [![DST Console.](/docs/assets/DSTconsole_resized.png)](/docs/assets/DSTconsole.png)
 
@@ -177,9 +177,9 @@ If you've never before played the game, you first need to click on **Play** and 
     It should look like this:
     [![DST Console with command](/docs/assets/DSTconsolecommand_resized.png)](/docs/assets/DSTconsolecommand.png)
 
-    Once you have done this, press **ENTER** on your keyboard. The console will close, and you can exit the game. Locate the file that has been generated in one of the following directories, depending on your operating system. 
+    Once you have done this, press **ENTER** on your keyboard. The console will close, and you can exit the game. Locate the file that has been generated in one of the following directories, depending on your operating system.
 
-    On Windows, the file is located in: 
+    On Windows, the file is located in:
 
         %USERPROFILE%/My Documents/Klei/DoNotStarveTogether/server_token.txt
 
@@ -191,8 +191,8 @@ If you've never before played the game, you first need to click on **Play** and 
 
         ~/Documents/Klei/DoNotStarveTogether/server_token.txt
 
-    This file is your server token. Do not share it with anyone. 
-    
+    This file is your server token. Do not share it with anyone.
+
 3.  Upload the token file to your Linode. If you're running OS X or Linux, you can use the following command, replacing your IP address and username:
 
          scp ~/Documents/Klei/DoNotStarveTogether/server_token.txt user@12.34.56.78:~/.klei/DoNotStarveTogether/

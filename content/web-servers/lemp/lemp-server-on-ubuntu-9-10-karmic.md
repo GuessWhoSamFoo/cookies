@@ -156,7 +156,7 @@ http {
 
 include /opt/etc/nginx/sites-enabled/*;
 
-# [...]       
+# [...]
 }
 
 {{< /file-excerpt >}}
@@ -170,7 +170,7 @@ http {
 
 include /opt/nginx-sites.conf;
 
-# [...]       
+# [...]
 }
 
 {{< /file-excerpt >}}

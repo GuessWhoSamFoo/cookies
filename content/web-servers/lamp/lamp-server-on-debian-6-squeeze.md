@@ -72,7 +72,7 @@ You can create as many virtual hosting files as you need to support the domains 
 
 {{< file "/etc/apache2/sites-available/example.org" apache >}}
 <VirtualHost *:80>
-     ServerAdmin webmaster@example.org     
+     ServerAdmin webmaster@example.org
      ServerName example.org
      ServerAlias www.example.org
      DocumentRoot /srv/www/example.org/public_html/
@@ -168,7 +168,7 @@ memory_limit = 64M
 error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR
 display_errors = Off
 log_errors = On
-error_log = /var/log/php.log  
+error_log = /var/log/php.log
 register_globals = Off
 
 {{< /file-excerpt >}}

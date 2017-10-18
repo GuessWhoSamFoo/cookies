@@ -101,7 +101,7 @@ The `Location` block tells Apache what to do when a request comes in for a given
         PythonDebug Off
     </Location>
 
-    ErrorLog /srv/logs/error.log 
+    ErrorLog /srv/logs/error.log
     CustomLog /srv/logs/access.log combined
 </VirtualHost>
 

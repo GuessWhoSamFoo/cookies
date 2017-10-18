@@ -73,7 +73,7 @@ confluence.home=/var/lib/confluence
 
 {{< /file-excerpt >}}
 
-    
+
 Edit the `setenv.sh` file, adding the following lines. Adjust the full path to the file and the "JAVA\_HOME" line as necessary to reflect current version numbers.
 
 {{< file-excerpt "/usr/local/confluence/confluence-3.3.1-std/bin/setenv.sh" >}}

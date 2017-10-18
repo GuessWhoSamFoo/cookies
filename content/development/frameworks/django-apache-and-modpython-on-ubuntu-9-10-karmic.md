@@ -29,8 +29,8 @@ The package that contains the Django application is contained in the "universe" 
 
 {{< file "/etc/apt/sources.list" >}}
 ## main & restricted repositories
-deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted         
-deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted 
+deb http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
+deb-src http://us.archive.ubuntu.com/ubuntu/ karmic main restricted
 
 deb http://security.ubuntu.com/ubuntu karmic-security main restricted
 deb-src http://security.ubuntu.com/ubuntu karmic-security main restricted
@@ -114,7 +114,7 @@ The `Location` block tells Apache what to do when a request comes in for a given
         PythonDebug Off
     </Location>
 
-    ErrorLog /srv/logs/error.log 
+    ErrorLog /srv/logs/error.log
     CustomLog /srv/logs/access.log combined
 </VirtualHost>
 

@@ -55,12 +55,12 @@ Users who have been granted "Access" rights on a particular Linode will have acc
 3.  Verify that the Lish SSH gateway's fingerprint is valid. [Click here](#lish-gateway-fingerprints) for more information.
 4.  Enter the password you use to log in to the Linode Manager. You are now at the Lish shell. A list of your Linodes appears, as shown below:
 
-        Linodes located in this data center:         
-        linode241706         Newark, NJ                   
-        linode276072         Newark, NJ                   
+        Linodes located in this data center:
+        linode241706         Newark, NJ
+        linode276072         Newark, NJ
 
-        Linodes located in other data centers:          
-        linode287497         Dallas, TX    
+        Linodes located in other data centers:
+        linode287497         Dallas, TX
 
 	{{< note >}}
 You can add a public SSH key for Lish in the Linode Manager to automatically connect to Lish without a password. See [this section](#adding-your-public-key) for more information.

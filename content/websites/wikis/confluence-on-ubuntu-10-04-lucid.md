@@ -82,7 +82,7 @@ export JAVA_HOME
 
 {{< /file-excerpt >}}
 
-   
+
 Issue the following command to return to a root shell.
 
     exit

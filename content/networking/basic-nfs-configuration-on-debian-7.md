@@ -7,7 +7,7 @@ keywords: ["NFS", "Debian", "network", "file", "system", "Jessie"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 aliases: ['networking/file-transfer/basic-nfs-debian/']
 contributor:
-    
+
 modified: 2014-02-27
 modified_by:
   name: Linode
@@ -44,16 +44,16 @@ Choose one Linode to be your NFS server. Follow the instructions below to config
 2.  Install the NFS server package **nfs-kernel-server**:
 
         sudo apt-get install nfs-kernel-server
-	
+
 3.  Install the Portmapper package **portmap**:
 
         sudo apt-get install portmap
-	
+
 4.  Prevent access to the services used by NFS by default. Use your favorite editor to add the following line to the `/etc/hosts.deny`:
 
     {{< file-excerpt "/etc/hosts.deny" >}}
 rpcbind mountd nfsd statd lockd rquotad : ALL
-	
+
 
 {{< /file-excerpt >}}
 
@@ -64,13 +64,13 @@ rpcbind mountd nfsd statd lockd rquotad : ALL
 rpcbind mountd nfsd statd lockd rquotad : 127.0.0.1 : allow
               rpcbind mountd nfsd statd lockd rquotad : <client linode private ip> : allow
        rpcbind mountd nfsd statd lockd rquotad : ALL : deny
-	
+
 
 {{< /file-excerpt >}}
 
 
      Replace **\<client linode private ip\>** with the current private IP address of your second Linode.
-     
+
 6.  Create a directory in your local filesystem. This directory will be used as the root of the NFS share:
 
         sudo mkdir /var/nfsroot
@@ -78,16 +78,16 @@ rpcbind mountd nfsd statd lockd rquotad : 127.0.0.1 : allow
 7.  Assign appropriate ownership to root of the NFS share:
 
         sudo chown nobody:nogroup /var/nfsroot/
-	
+
 8.  Use your favorite editor to add the following line to the `/etc/exports` file:
 
     {{< file-excerpt "/etc/exports" >}}
 /var/nfsroot	 <client linode private ip>/32(rw,root_squash,subtree_check)
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
     Replace **\<client linode private ip\>** with the current private IP address of your second Linode. Make sure there is no space between the /32 and the opening parenthesis. Also check that there is a blank line at the end of the file.
 
 9.  Update the table of exported file systems with the following command:
@@ -120,7 +120,7 @@ The other Linode will be your NFS client. Follow the instructions below to confi
 
     {{< file-excerpt "/etc/fstab" >}}
 <server linode private ip>:/var/nfsroot /mnt/remotenfs nfs rw,async,hard,intr 0 0
-	
+
 
 {{< /file-excerpt >}}
 

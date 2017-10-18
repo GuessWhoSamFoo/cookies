@@ -108,7 +108,7 @@ define('FS_METHOD', 'direct');
 3.  If using Apache, issue the following commands to ensure that `mod_rewrite` is enabled:
 
         sudo a2enmod rewrite
-    
+
     Restart Apache.
 
     {{< note >}}

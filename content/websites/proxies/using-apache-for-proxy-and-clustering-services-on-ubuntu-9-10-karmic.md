@@ -26,11 +26,11 @@ In this configuration, Apache provides two or more virtual hosts which perform d
 To accomplish this, insert the following configuration directives into your Virtual Hosting configuration:
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<VirtualHost 12.34.56.78:80> 
+<VirtualHost 12.34.56.78:80>
     ServerAdmin admin@example.com
     ServerName static.example.com
     DocumentRoot /srv/www/static.example.com/public_html/
-    ErrorLog /srv/www/static.example.com/logs/error.log 
+    ErrorLog /srv/www/static.example.com/logs/error.log
     CustomLog /srv/www/static.example.com/logs/access.log combined
 </VirtualHost>
 
@@ -95,7 +95,7 @@ Once `mod_proxy` is enabled and configured, ensure that the server is [configure
     ServerAlias www.example.com
     DocumentRoot /srv/www/example.com/public_html/
 
-    ErrorLog /srv/www/example.com/logs/error.log 
+    ErrorLog /srv/www/example.com/logs/error.log
     CustomLog /srv/www/example.com/logs/access.log combined
 
     RewriteEngine On
@@ -142,7 +142,7 @@ The following case presents a more streamlined and simple proxy and rewrite exam
     ServerAlias www.example.com
     DocumentRoot /srv/www/example.com/public_html/
 
-    ErrorLog /srv/www/example.com/logs/error.log 
+    ErrorLog /srv/www/example.com/logs/error.log
     CustomLog /srv/www/example.com/logs/access.log combined
 
     RewriteEngine On
@@ -163,7 +163,7 @@ All of the previous cases presented in this document outline configurations for 
     a2enmod proxy
     a2enmod proxy_http
     a2enmod proxy_balancer
-    /etc/init.d/apache2 restart 
+    /etc/init.d/apache2 restart
 
 Edit the `/etc/apache2/mods-available/proxy.conf` file as described in [this documentation](/docs/web-servers/apache/proxy-configuration/multiple-webservers-proxypass-ubuntu-9.10-karmic#enabling_the_proxy_module). Do not omit to reload Apache again once you have fully configured your virtual host and cluster. Consider the following Apache configuration directives:
 
@@ -172,7 +172,7 @@ Edit the `/etc/apache2/mods-available/proxy.conf` file as described in [this doc
     ServerName example.com
     ServerAlias www.example.com
 
-    ErrorLog /srv/www/example.com/logs/error.log 
+    ErrorLog /srv/www/example.com/logs/error.log
     CustomLog /srv/www/example.com/logs/access.log combined
 
     <Proxy balancer://cluster>
@@ -200,7 +200,7 @@ The `lbmethod=` argument to the `ProxyPass` directive, controls the method by wh
 Apache also contains a "Balancer Manager" interface that you can use to first issue the following command to ensure that Apache's `mod_status` is enabled, and restart the server if needed:
 
     a2enmod status
-    /etc/init.d/apache2 restart 
+    /etc/init.d/apache2 restart
 
 Now include the following location directive in the virtual host where your cluster is configured:
 

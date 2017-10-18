@@ -2,7 +2,7 @@
 author:
   name: Linode
   email: docs@linode.com
-description: 'Installing git on GNU/Linux, MacOSX, and Windows' 
+description: 'Installing git on GNU/Linux, MacOSX, and Windows'
 keywords: ["git", "dvcs", "vcs", "scm", "gitweb"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 aliases: ['linux-tools/version-control/git/','applications/development/git-source-control-management/','development/version-control/git-source-control-management/']
@@ -46,7 +46,7 @@ This guide will use `sudo` wherever possible. Complete the sections of our [Secu
 
 - Arch Linux:
 
-        sudo pacman -Sy git 
+        sudo pacman -Sy git
 
 - Gentoo:
 

@@ -177,9 +177,9 @@ server {
       # [...]
 
       listen 443;
-      ssl on; 
+      ssl on;
       ssl_certificate      /srv/ssl/nginx.pem;
-      ssl_certificate_key  /srv/ssl/nginx.key;  
+      ssl_certificate_key  /srv/ssl/nginx.key;
 
       # [...]
 }
@@ -200,9 +200,9 @@ server {
       listen 12.34.56.78:443;
       server_name example.com;
 
-      ssl on; 
+      ssl on;
       ssl_certificate      /srv/ssl/example.com.pem;
-      ssl_certificate_key  /srv/ssl/example.com.key;  
+      ssl_certificate_key  /srv/ssl/example.com.key;
 
       # [...]
 }
@@ -211,9 +211,9 @@ server {
       listen 12.34.56.79:443;
       server_name example.com;
 
-      ssl on; 
+      ssl on;
       ssl_certificate      /srv/ssl/example.com.pem;
-      ssl_certificate_key  /srv/ssl/example.com.key;  
+      ssl_certificate_key  /srv/ssl/example.com.key;
 
       # [...]
 }
@@ -232,7 +232,7 @@ server {
 
       listen 443 ssl;
       ssl_certificate      /srv/ssl/nginx.pem;
-      ssl_certificate_key  /srv/ssl/nginx.key;  
+      ssl_certificate_key  /srv/ssl/nginx.key;
 
       # [...]
 }
@@ -254,7 +254,7 @@ server {
       server_name example.com;
 
       ssl_certificate      /srv/ssl/example.com.pem;
-      ssl_certificate_key  /srv/ssl/example.com.key;  
+      ssl_certificate_key  /srv/ssl/example.com.key;
 
       # [...]
 }
@@ -264,7 +264,7 @@ server {
       server_name example.com;
 
       ssl_certificate      /srv/ssl/example.com.pem;
-      ssl_certificate_key  /srv/ssl/example.com.key;  
+      ssl_certificate_key  /srv/ssl/example.com.key;
 
       # [...]
 }
@@ -284,16 +284,16 @@ http {
     server {
        listen       12.3.45.6:443;
        server_name      example.com www.example.com;
-       ssl on; 
+       ssl on;
 
        location / {
              root /srv/www/example.com/public_html;
        }
-    }                 
+    }
     server {
        listen       12.3.45.7:443;
        server_name      team.example.com;
-       ssl on; 
+       ssl on;
 
        location / {
              root /srv/www/team.example.com/public_html;
@@ -337,7 +337,7 @@ server {
       server_name example.com;
 
       ssl_certificate      /srv/ssl/example.com.pem;
-      ssl_certificate_key  /srv/ssl/example.com.key;  
+      ssl_certificate_key  /srv/ssl/example.com.key;
 
       # [...]
 }

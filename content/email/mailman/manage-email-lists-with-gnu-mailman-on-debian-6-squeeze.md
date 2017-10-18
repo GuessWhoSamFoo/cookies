@@ -40,7 +40,7 @@ Mailman can be configured to use a number of different mail transfer agents. We 
 
 During the postfix installation, you will want to select "**Internet Site**" as the "General type of mail configuration." You will also want to set the host or domain name for your server as the system name, (e.g. `example.com` or similar.) Now install Mailman with the following command:
 
-    apt-get install mailman 
+    apt-get install mailman
 
 During the Mailman installation, you will be required to specify the languages that you wish your Mailman instance support. Select all required languages before continuing. The installation process will also provide a note regarding the next step of the installation process, which you can accept and allow the installation process to continue.
 
@@ -130,7 +130,7 @@ Ensure that your domains have valid MX and [A Records](/docs/dns-guides/introduc
 
 If you created lists using the `/etc/aliases` method, you will have to recreate those lists by issuing the following commands.:
 
-    /var/lib/mailman/bin/genaliases 
+    /var/lib/mailman/bin/genaliases
     postmap /var/lib/mailman/data/virtual-mailman
 
 From this point forward, you can create new lists by issuing `newlist` commands as root. Additionally, all administration and functions of the Mailman lists can be accomplished by way of the web based interface.

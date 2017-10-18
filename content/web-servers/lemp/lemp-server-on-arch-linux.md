@@ -75,7 +75,7 @@ http {
 
 include /etc/nginx/sites-enabled/*;
 
-# [...]       
+# [...]
 }
 
 {{< /file-excerpt >}}
@@ -89,7 +89,7 @@ http {
 
 include /srv/nginx-sites.conf;
 
-# [...]       
+# [...]
 }
 
 {{< /file-excerpt >}}

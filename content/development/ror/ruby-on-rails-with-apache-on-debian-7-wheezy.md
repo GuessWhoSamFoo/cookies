@@ -105,7 +105,7 @@ There are a number of strategies for deploying more than one Rails application u
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
 DocumentRoot /srv/www/example.com/public_html/
 RailsBaseURI /lollipop
-RailsBaseURI /frogs 
+RailsBaseURI /frogs
 RailsBaseURI /simon
 
 {{< /file-excerpt >}}

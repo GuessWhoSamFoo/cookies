@@ -153,7 +153,7 @@ server {
         index  index.html index.htm;
         if ($http_x_forwarded_proto = "http") {
             rewrite  ^/(.*)$  https://example.com/$1 permanent;
-            }           
+            }
         }
     }
 

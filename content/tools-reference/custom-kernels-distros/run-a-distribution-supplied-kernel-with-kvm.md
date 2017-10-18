@@ -27,7 +27,7 @@ The steps in this section currently apply only to the distributions under *Recom
 2.  Click **Edit** to view a distribution's configuration profile options:
 
     ![Edit the configuration profile](/docs/assets/edit_config_profile_small.png "Edit the configuration profile")
-    
+
 3.  Under **Boot Settings** is a **Kernel** dropdown menu. By default, this will be set to the latest Linode-supplied 64 bit kernel:
 
     ![Our latest 64 bit kernel](/docs/assets/boot-settings-kernel-latest.png "Our latest 64 bit kernel")
@@ -120,7 +120,7 @@ During the installation of `grub` you may be asked which disk image to install t
 {{< /note >}}
 
     You'll see the kernel and other components you just installed and generated in the `/boot` directory. For example:
- 
+
         [root@centos7 ~]# ls /boot
         config-3.10.0-514.el7.x86_64
         grub
@@ -148,7 +148,7 @@ GRUB_DISABLE_OS_PROBER=true
 GRUB_SERIAL_COMMAND="serial --speed=19200 --unit=0 --word=8 --parity=no --stop=1"
 GRUB_DISABLE_LINUX_UUID=true
 GRUB_GFXPAYLOAD_LINUX=text
-	
+
 
 {{< /file-excerpt >}}
 
