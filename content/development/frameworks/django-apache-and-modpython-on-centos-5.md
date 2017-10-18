@@ -122,7 +122,7 @@ The `Location` block tells Apache what to do when a request comes in for a given
         PythonDebug Off
     </Location>
 
-    ErrorLog /srv/www/example.com/logs/error.log 
+    ErrorLog /srv/www/example.com/logs/error.log
     CustomLog /srv/www/example.com/logs/access.log combined
 </VirtualHost>
 
@@ -186,7 +186,7 @@ Because of the way that `mod_python` works, it's necessary to restart the web se
 
 Issue the following command to ensure that the web server will start following the next system reboot cycle:
 
-    chkconfig httpd on 
+    chkconfig httpd on
 
 As the site and your Django application begin receiving additional traffic, there are a number of steps you can take to scale your infrastructure to increase performance. Some of these approaches are fairly simple and straightforward, while others may take much longer.
 

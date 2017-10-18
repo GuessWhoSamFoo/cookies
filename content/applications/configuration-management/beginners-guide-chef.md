@@ -67,14 +67,14 @@ validation_key           '~/chef-repo/.chef/shortname.pem'
 chef_server_url          'https://123.45.67.89/organizations/shortname'
 syntax_check_cache_path  '~/chef-repo/.chef/syntax_check_cache'
 cookbook_path [ '~/chef-repo/cookbooks' ]
-	
+
 
 {{< /file >}}
 
 
 The default `knife.rb` file is defined with the following properties:
 
--	**log_level:** The amount of logging that will be stored in the log file. The default value, `:info`, notes that any informational messages will be logged. Other values include `:debug:`, `:warn`, `:error`, and `:fatal`. 
+-	**log_level:** The amount of logging that will be stored in the log file. The default value, `:info`, notes that any informational messages will be logged. Other values include `:debug:`, `:warn`, `:error`, and `:fatal`.
 -	**log_location:** The location of the log file. The default value, `STOUT` is for *standard output logging*. If set to another value standard output logging will still be performed.
 -	**node_name:**	The username of the person using the workstation. This user will need a valid authorization key located on the workstation.
 -	**client_key:** The location of the user's authorization key.
@@ -124,11 +124,11 @@ description "environment_description"
 cookbook_versions  "cookbook" => "cookbook_version"
 default_attributes "node" => { "attribute" => [ "value", "value", "etc." ] }
 override_attributes "node" => { "attribute" => [ "value", "value", "etc." ] }
-	
+
 
 {{< /file >}}
 
-	
+
 As a JSON:
 
 {{< file "chef-repo/environments/environame.json" json >}}
@@ -146,10 +146,10 @@ As a JSON:
   "override_attributes": {
 
   }
-	
+
 
 {{< /file >}}
-  
+
 
 All nodes are automatically set to the "default" environment upon bootstrap. To change this, the environment should be defined in the `client.rb` file found in `/etc/chef` on the nodes.
 

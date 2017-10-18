@@ -302,7 +302,7 @@ template "/etc/apache2/sites-available/#{sitename}.conf" do
 end
 
 {{< /file-excerpt >}}
-  
+
 
     The `notifies` command names the `:action` to be committed, then the resource, and resource name in square brackets.
 

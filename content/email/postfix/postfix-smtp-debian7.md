@@ -132,7 +132,7 @@ In this section, you will configure the `/etc/postfix/main.cf` file to use the e
 2.  Update the **relayhost** parameter to show your external SMTP relay host. **Important**: If you specified a non-default TCP port in the `sasl_passwd` file, then you must use the same port when configuring the **relayhost** parameter.
 
     {{< file-excerpt "/etc/postfix/main.cf" >}}
-# specify SMTP relay host 
+# specify SMTP relay host
 relayhost = [mail.isp.example]:587
 
 {{< /file-excerpt >}}
@@ -145,13 +145,13 @@ Check the appropriate [Google Apps](#settings-for-google-apps), [Mandrill](#sett
 3.  At the end of the file, add the following parameters to enable authentication:
 
     {{< file-excerpt "/etc/postfix/main.cf" >}}
-# enable SASL authentication 
+# enable SASL authentication
 smtp_sasl_auth_enable = yes
-# disallow methods that allow anonymous authentication. 
+# disallow methods that allow anonymous authentication.
 smtp_sasl_security_options = noanonymous
 # where to find sasl_passwd
 smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
-# Enable STARTTLS encryption 
+# Enable STARTTLS encryption
 smtp_use_tls = yes
 # where to find CA certificates
 smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
@@ -232,7 +232,7 @@ relayhost = [smtp.sendgrid.net]:587
 
 3.  Create the hash db file for Postfix by running the `postmap` command:
 
-        sudo postmap /etc/postfix/sasl_passwd   
+        sudo postmap /etc/postfix/sasl_passwd
 
 4.  Restart Postfix:
 

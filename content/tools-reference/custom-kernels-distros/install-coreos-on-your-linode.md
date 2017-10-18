@@ -52,7 +52,7 @@ CoreOS configures no default way to log in except by supplying an option to the 
     [![Create a new disk](/docs/assets/custom-distro-new-disk_small.png)](/docs/assets/custom-distro-new-disk.png)
 
 3. Label your new disk image and choose an appropriate size. You will probably need to allocate at least **5 GB**. Set the **Type** to **unformatted / raw**.
-  
+
     [![Specify disk name and size](/docs/assets/coreos-disk-image-small.png)](/docs/assets/coreos-disk-image.png)
 
    If you're not sure how big your disk image needs to be, you may wish to choose a small size so that you can grow the disk later. You will not be able to shrink the disk image after it has been generated.
@@ -140,6 +140,6 @@ You can also supply any other options (see `coreos-install -h`). If you do not w
         SSH host key: 60:97:2c:b3:bf:2b:42:71:11:42:93:ff:ba:9f:ca:07 (RSA)
         eth0: 203.0.113.0 2001:db8:0:123::1
 
-        li1010-4 login: 
+        li1010-4 login:
 
 2.  You should now be able to access your Linode via SSH. If you did not specify a user in the cloud-config file, CoreOS's default user is `core`. You should confirm that the host keys match the first time you log in, to reduce your risk from MITM attack.

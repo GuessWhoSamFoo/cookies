@@ -16,7 +16,7 @@ In this guide, you'll learn how to set up a secure mail server with Postfix, Dov
 
 ![Email with Postfix, Dovecot, and MySQL](/docs/assets/email_with_postfix_dovecot_and_mysql.png "Setting up a mail server with Postfix, Dovecot, and MySQL")
 
-For a different Linux distribution or different mail server, review our [email tutorials](/docs/email). 
+For a different Linux distribution or different mail server, review our [email tutorials](/docs/email).
 
 ### Before You Begin
 
@@ -117,7 +117,7 @@ The next steps are to install the required packages on the Linode.
 
 ### Adding Data
 
-Now that the database and tables have been created, add some data to MySQL. 
+Now that the database and tables have been created, add some data to MySQL.
 
 1.  Add the domains to the `virtual_domains` table. Replace the values for `example.com` and `hostname` with your own settings.
 
@@ -133,7 +133,7 @@ Now that the database and tables have been created, add some data to MySQL.
 Note which `id` goes with which domain, the `id` is necessary for the next two steps.
 {{< /note >}}
 
-2.  Add email addresses to the `virtual_users` table. Replace the email address values with the addresses that you wish to configure on the mailserver. Replace the `password` values with strong passwords. 
+2.  Add email addresses to the `virtual_users` table. Replace the email address values with the addresses that you wish to configure on the mailserver. Replace the `password` values with strong passwords.
 
         INSERT INTO `mailserver`.`virtual_users`
           (`id`, `domain_id`, `password` , `email`)
@@ -327,7 +327,7 @@ query = SELECT email FROM virtual_users WHERE email='%s'
 {{< /file >}}
 
 
-7.  Save the changes you've made to the `/etc/postfix/mysql-virtual-email2email.cf` file, and restart Postfix: 
+7.  Save the changes you've made to the `/etc/postfix/mysql-virtual-email2email.cf` file, and restart Postfix:
 
         sudo service postfix restart
 
@@ -379,7 +379,7 @@ smtps     inet  n       -       -       -       -       smtpd
   -o smtpd_sasl_auth_enable=yes
   -o smtpd_client_restrictions=permit_sasl_authenticated,reject
   -o milter_macro_daemon_name=ORIGINATING
-	
+
 
 {{< /file-excerpt >}}
 
@@ -432,7 +432,7 @@ Dovecot allows users to log in and check their email using POP3 and IMAP. In thi
 !include_try /usr/share/dovecot/protocols.d/*.protocol
 protocols = imap pop3 lmtp
 
-# A comma separated list of IPs or hosts where to listen in for connections. 
+# A comma separated list of IPs or hosts where to listen in for connections.
 # "*" listens in all IPv4 interfaces, "::" listens in all IPv6 interfaces.
 # If you want to specify non-default ports or anything more complex,
 # edit conf.d/master.conf.
@@ -454,7 +454,7 @@ protocols = imap pop3 lmtp
 #login_trusted_networks =
 
 # Sepace separated list of login access check sockets (e.g. tcpwrap)
-#login_access_sockets = 
+#login_access_sockets =
 
 # Show more verbose process titles (in ps). Currently shows user name and
 # IP address. Useful for seeing who are actually using the IMAP processes
@@ -562,7 +562,7 @@ disable_plaintext_auth = yes
 
     {{< file-excerpt "/etc/dovecot/conf.d/10-auth.conf" >}}
 auth_mechanisms = plain login
-	
+
 
 {{< /file-excerpt >}}
 
@@ -571,7 +571,7 @@ auth_mechanisms = plain login
 
     {{< file-excerpt "/etc/dovecot/conf.d/10-auth.conf" >}}
 #!include auth-system.conf.ext
-	
+
 
 {{< /file-excerpt >}}
 
@@ -586,7 +586,7 @@ auth_mechanisms = plain login
 #!include auth-checkpassword.conf.ext
 #!include auth-vpopmail.conf.ext
 #!include auth-static.conf.ext
-	
+
 
 {{< /file-excerpt >}}
 
@@ -608,7 +608,7 @@ userdb {
   driver = static
   args = uid=vmail gid=vmail home=/var/mail/vhosts/%d/%n
 	   }
-	
+
 
 {{< /file-excerpt >}}
 
@@ -621,7 +621,7 @@ userdb {
 
     {{< file-excerpt "/etc/dovecot/dovecot-sql.conf.ext" >}}
 driver = mysql
-	
+
 
 {{< /file-excerpt >}}
 
@@ -630,7 +630,7 @@ driver = mysql
 
     {{< file-excerpt "/etc/dovecot/dovecot-sql.conf.ext" >}}
 connect = host=127.0.0.1 dbname=mailserver user=mailuser password=mailuserpass
-	
+
 
 {{< /file-excerpt >}}
 
@@ -639,7 +639,7 @@ connect = host=127.0.0.1 dbname=mailserver user=mailuser password=mailuserpass
 
     {{< file-excerpt "/etc/dovecot/dovecot-sql.conf.ext" >}}
 default_pass_scheme = SHA512-CRYPT
-	
+
 
 {{< /file-excerpt >}}
 
@@ -648,7 +648,7 @@ default_pass_scheme = SHA512-CRYPT
 
     {{< file-excerpt "/etc/dovecot/dovecot-sql.conf.ext" >}}
 password_query = SELECT email as user, password FROM virtual_users WHERE email='%u';
-	
+
 
 {{< /file-excerpt >}}
 
@@ -701,7 +701,7 @@ inet_listener pop3 {
   }
 		  ...
 		  }
-	
+
 
 {{< /file-excerpt >}}
 
@@ -726,7 +726,7 @@ service lmtp {
   #port =
 #}
 		  }
-	
+
 
 {{< /file-excerpt >}}
 
@@ -760,7 +760,7 @@ service auth {
   # Auth process is run as this user.
   user = dovecot
 }
-	
+
 
 {{< /file-excerpt >}}
 
@@ -774,7 +774,7 @@ service auth-worker {
   # $default_internal_user.
   user = vmail
 }
-	
+
 
 {{< /file-excerpt >}}
 
@@ -803,7 +803,7 @@ Click the link to see the final, complete version of <a href="/docs/assets/1241-
     {{< file-excerpt "/etc/dovecot/conf.d/10-ssl.conf" >}}
 ssl_cert = </etc/dovecot/dovecot.pem
 ssl_key = </etc/dovecot/private/dovecot.pem
-	
+
 
 {{< /file-excerpt >}}
 
@@ -826,7 +826,7 @@ ssl = required
 ## Test Email
 
 1.  Set up a test account in an email client to ensure that everything is working. Many clients detect server settings automatically. However, manual configuration requires the following parameters:
-    
+
     -   the full email address, including the `@example.com` part, is the username.
     -   the password should be the one you added to the MySQL table for this email address.
     -   The incoming and outgoing server names must be a domain that resolves to the Linode.
@@ -846,7 +846,7 @@ Mar 22 18:18:15 host dovecot: lmtp(22587, email1@example.com): 5GjrDafYTFE7WAAAB
 Mar 22 18:18:15 host dovecot: lmtp(22587): Disconnect from local: Client quit (in reset)
 Mar 22 18:18:15 host postfix/lmtp[22586]: 2BD192839B: to=<email1@example.com>, relay=host.example.com[private/dovecot-lmtp], delay=0.09, delays=0.03/0.02/0.03/0.01, dsn=2.0.0, status=sent (250 2.0.0 <email1@example.com> 5GjrDafYTFE7WAAABf1gKA Saved)
 Mar 22 18:18:15 host postfix/qmgr[15878]: 2BD192839B: removed
-	
+
 
 {{< /file-excerpt >}}
 
@@ -859,7 +859,7 @@ Mar 22 18:20:29 host postfix/cleanup[22599]: AA10A2839B: message-id=<FB6213FA-6F
 Mar 22 18:20:29 host postfix/qmgr[15878]: AA10A2839B: from=<email1@example.com>, size=920, nrcpt=1 (queue active)
 Mar 22 18:20:29 host postfix/smtp[22601]: AA10A2839B: to=<support@linode.com>, relay=mail1.linode.com[96.126.108.55]:25, delay=0.14, delays=0.08/0.01/0.05/0.01, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as C4232266C9)
 Mar 22 18:20:29 host postfix/qmgr[15878]: AA10A2839B: removed
-	
+
 
 {{< /file-excerpt >}}
 

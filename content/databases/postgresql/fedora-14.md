@@ -40,11 +40,11 @@ As root, restart the Postgresql service:
 
 Resume these instructions as the `postgres` user:
 
-    su - postgres 
+    su - postgres
 
 To grant all privileges on the table "employees" to a user named "alison", issue the following commands:
 
-    psql mytestdb 
+    psql mytestdb
     GRANT ALL ON employees TO alison;
     \q
 

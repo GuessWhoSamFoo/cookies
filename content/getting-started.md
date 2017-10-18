@@ -198,7 +198,7 @@ Ubuntu may prompt you when the Grub package is updated. If prompted, select `kee
     emaint sync
 
 After running a sync, it may end with a message that you should upgrade Portage using a `--oneshot` emerge comand. If so, run the Portage update. Then update the rest of the system:
-    
+
     emerge --uDN @world
 
 ### Slackware

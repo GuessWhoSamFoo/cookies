@@ -28,7 +28,7 @@ Before you get started, make sure you follow the steps outlined in our [Getting 
 
 1.  Update your package repositories and upgrade your installed packages by issuing the following commands:
 
-        apt-get update          
+        apt-get update
         apt-get upgrade --show-upgraded
 
 2.  Issue the following commands to install the default kernel for Ubuntu 13.04, uninstall `grub2`, and install `grub`:
@@ -45,56 +45,56 @@ Before you get started, make sure you follow the steps outlined in our [Getting 
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 timeout 3
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 4.  Change it to match the following excerpt. This will give you a bit of additional time at boot to select your desired kernel, in case you feel the need to go back to an older one in the future.
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 timeout 10
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 5.  Next, locate the line containing `kopt` that resembles the following excerpt:
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 # kopt=root=UUID=de400b9f-2578-488e-8664-250a8455a6fc ro
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 6.  Change it to match the following excerpt:
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 # kopt=root=/dev/xvda console=hvc0 ro quiet
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 7.  Next, locate the line containing `groot` that resembles the following excerpt:
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 # groot=(hd0,0)
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 8.  Change it to match the following excerpt:
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 # groot=(hd0)
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 9.  Issue the following command to update `grub`:
 
         update-grub
@@ -112,7 +112,7 @@ stop on runlevel [!2345]
 
 respawn
 exec /sbin/getty -8 38400 hvc0
-	
+
 
 {{< /file >}}
 
@@ -134,7 +134,7 @@ exec /sbin/getty -8 38400 hvc0
 
 1.  Update your package repositories and upgrade your installed packages by issuing the following commands:
 
-        apt-get update          
+        apt-get update
         apt-get upgrade --show-upgraded
 
 2.  Issue the following commands to install the default kernel for Ubuntu 12.04, uninstall `grub2`, and install `grub`:
@@ -150,34 +150,34 @@ exec /sbin/getty -8 38400 hvc0
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 timeout 3
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 4.  Edit the file to match the following excerpt. This will give you a bit of additional time at boot to select your desired kernel, in case you feel the need to go back to an older one in the future.
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 timeout 10
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 5.  Next, locate the line containing `kopt` that resembles the following excerpt:
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 # kopt=root=UUID=de400b9f-2578-488e-8664-250a8455a6fc ro
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 6.  Edit it to match the following excerpt:
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 kopt=root=/dev/xvda console=hvc0 ro quiet
-	
+
 
 {{< /file-excerpt >}}
 
@@ -186,20 +186,20 @@ kopt=root=/dev/xvda console=hvc0 ro quiet
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 # groot=(hd0,0)
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 8.  Change it to match the following excerpt:
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 # groot=(hd0)
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 9.  Issue the following command to update `grub`:
 
         update-grub
@@ -217,7 +217,7 @@ stop on runlevel [!2345]
 
 respawn
 exec /sbin/getty -8 38400 hvc0
-	
+
 
 {{< /file >}}
 
@@ -240,7 +240,7 @@ exec /sbin/getty -8 38400 hvc0
 
 1.  Update your package repositories and upgrade your installed packages by issuing the following commands:
 
-        apt-get update          
+        apt-get update
         apt-get upgrade --show-upgraded
 
 2.  Issue the following commands to install the default kernel for Ubuntu 10.04 LTS, uninstall `grub2`, and install `grub`:
@@ -257,56 +257,56 @@ exec /sbin/getty -8 38400 hvc0
 
     {{< file "/boot/grub/menu.lst" >}}
 timeout 3
-	
+
 
 {{< /file >}}
 
-	
+
 4.  Edit this line to match the following excerpt. This will give you a bit of additional time at boot to select your desired kernel, in case you feel the need to go back to an older one in the future.
 
     {{< file "/boot/grub/menu.lst" >}}
 timeout 10
-	
+
 
 {{< /file >}}
 
-	
+
 5.  Next, locate the line containing `kopt` that resembles the following excerpt:
 
     {{< file "/boot/grub/menu.lst" >}}
 # kopt=root=UUID=de400b9f-2578-488e-8664-250a8455a6fc ro
-	
+
 
 {{< /file >}}
 
-	
+
 6.  Change it to match the following excerpt:
 
     {{< file "/boot/grub/menu.lst" >}}
 # kopt=root=/dev/xvda console=hvc0 ro quiet
-	
+
 
 {{< /file >}}
 
-	
+
 7.  Next, locate the line containing `groot` that resembles the following excerpt:
 
     {{< file "/boot/grub/menu.lst" >}}
 # groot=de400b9f-2578-488e-8664-250a8455a6fc
-	
+
 
 {{< /file >}}
 
-	
+
 8.  Change it to match the following excerpt:
 
     {{< file "/boot/grub/menu.lst" >}}
 # groot=(hd0)
-	
+
 
 {{< /file >}}
 
-	
+
 9.  Issue the following command to update `grub`:
 
         update-grub
@@ -324,7 +324,7 @@ stop on runlevel [!2345]
 
 respawn
 exec /sbin/getty -8 38400 hvc0
-	
+
 
 {{< /file >}}
 
@@ -347,7 +347,7 @@ exec /sbin/getty -8 38400 hvc0
 
 1.  Update your package repositories and upgrade your installed packages by issuing the following commands:
 
-        apt-get update          
+        apt-get update
         apt-get upgrade --show-upgraded
 
 2.  Issue the following commands to install the default kernel for Debian 7, along with the `grub` bootloader package:
@@ -373,47 +373,47 @@ exec /sbin/getty -8 38400 hvc0
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 timeout 5
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 5.  Change it to match the following excerpt. This will give you a bit of additional time at boot to select your desired kernel, in case you feel the need to go back to an older one in the future.
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 timeout 10
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 6.  Next, locate the line containing `kopt` that resembles the following excerpt:
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 # kopt=root=UUID=de400b9f-2578-488e-8664-250a8455a6fc ro
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 7.  Change it to match the following excerpt:
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 # kopt=root=/dev/xvda console=hvc0 ro quiet
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 8.  Next, locate the line containing `groot=` and verify that it matches the following excerpt:
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 # groot=(hd0)
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 9.  Issue the following command to update `grub`:
 
         update-grub
@@ -436,7 +436,7 @@ timeout 10
 
 1.  Update your package repositories and upgrade your installed packages by issuing the following commands:
 
-        apt-get update          
+        apt-get update
         apt-get upgrade --show-upgraded
 
 2.  Issue the following commands to install the default kernel for Debian 6, along with the `grub` bootloader package:
@@ -462,47 +462,47 @@ timeout 10
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 timeout 5
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 5.  Change it to match the following excerpt. This will give you a bit of additional time at boot to select your desired kernel, in case you feel the need to go back to an older one in the future:
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 timeout 10
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 6.  Next, locate the line containing `kopt` that resembles the following excerpt:
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 # kopt=root=UUID=de400b9f-2578-488e-8664-250a8455a6fc ro
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 7.  Change it to match the following excerpt:
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 # kopt=root=/dev/xvda console=hvc0 ro quiet
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 8.  Next, locate the line containing `groot=` and verify that it matches the following excerpt:
 
     {{< file-excerpt "/boot/grub/menu.lst" >}}
 # groot=(hd0)
-	
+
 
 {{< /file-excerpt >}}
 
-	
+
 9.  Issue the following command to update `grub`:
 
         update-grub
@@ -554,7 +554,7 @@ title CentOS (2.6.32-431.23.3.el6.x86_64)
 	root (hd0)
 	kernel /boot/vmlinuz-2.6.32-431.23.3.el6.x86_64 root=/dev/xvda
 	initrd /boot/initramfs-2.6.32-431.23.3.el6.x86_64.img
-	
+
 
 {{< /file >}}
 
@@ -617,13 +617,13 @@ title CentOS (2.6.32-431.23.3.el6.x86_64)
 
     {{< file "/boot/grub/menu.lst" >}}
 timeout 5
-    	
+
   	title Fedora 17, kernel 3.9.10-100.fc17.x86\_64 root (hd0) kernel /boot/vmlinuz-3.9.10-100.fc17.x86\_64 root=/dev/xvda ro quiet initrd /boot/initramfs-3.9.10-100.fc17.x86\_64.img
-	
+
 
 {{< /file >}}
 
-	
+
 4.  In the Linode Manager, edit your Linode's configuration profile to use either **pv-grub-x86\_32** or **pv-grub-x86\_64** as the **Kernel**, depending on the version of Fedora you have deployed (32-bit or 64-bit).
 5.  Make sure the root device is specified as **xvda**.
 6.  Save your changes by clicking **Save Profile** at the bottom of the page.

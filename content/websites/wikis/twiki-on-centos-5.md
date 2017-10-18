@@ -23,8 +23,8 @@ Prepare System and Install TWiki
 
 Issue the following command to update your system's package database, ensure that all installed packages are up to date, and install :
 
-    yum update 
-    yum install httpd gdal-perl perl-CGI perl-CGI-Session perl-HTML-Tree perl-Error perl-FreezeThaw gd 
+    yum update
+    yum install httpd gdal-perl perl-CGI perl-CGI-Session perl-HTML-Tree perl-Error perl-FreezeThaw gd
 
 ### Install TWiki
 
@@ -32,7 +32,7 @@ At the time of writing the most recent release of TWiki is 5.0.1. Check the [TWi
 
     cd /opt
     wget http://downloads.sourceforge.net/project/twiki/TWiki%20for%20all%20Platforms/TWiki-5.0.1/TWiki-5.0.1.tgz
-    tar -zxvf /opt/TWiki-5.0.1.tgz 
+    tar -zxvf /opt/TWiki-5.0.1.tgz
     mkdir -p /srv/www/example.com/
     mv /opt/twiki /srv/www/example.com/twiki
     chown -R apache /srv/www/example.com/twiki
@@ -52,9 +52,9 @@ Create a virtual host specification that resembles the following. Modify the ref
        ServerName example.com
        ServerAlias www.example.com
 
-       DocumentRoot /srv/www/example.com/public_html 
+       DocumentRoot /srv/www/example.com/public_html
 
-       ErrorLog /srv/www/example.com/logs/error.log 
+       ErrorLog /srv/www/example.com/logs/error.log
        CustomLog /srv/www/example.com/logs/access.log combined
 
        ScriptAlias /bin "/srv/www/example.com/twiki/bin"

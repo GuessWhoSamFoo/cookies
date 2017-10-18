@@ -121,11 +121,11 @@ In this first approach, we'll set up a separate sub-domain and virtual host for 
 With Apache installed, create the following Virtual Host file. Typically these are located in the `/etc/apache2/sites-available/` directory, and named by convention with the name of the virtual host (e.g. `static.example.com`). Be sure to change the `VirtualHost` IP to the IP of your Linode.
 
 {{< file-excerpt "Apache Virtual Host Configuration" apache >}}
-<VirtualHost *:80> 
+<VirtualHost *:80>
      ServerAdmin admin@example.com
      ServerName static.example.com
      DocumentRoot /srv/www/static.example.com/public_html/
-     ErrorLog /srv/www/static.example.com/logs/error.log 
+     ErrorLog /srv/www/static.example.com/logs/error.log
      CustomLog /srv/www/static.example.com/logs/access.log combined
 </VirtualHost>
 
@@ -135,7 +135,7 @@ With Apache installed, create the following Virtual Host file. Typically these a
 Create the necessary directories by issuing the following commands:
 
     mkdir -p /srv/www/static.example.com/public_html/
-    mkdir -p /srv/www/static.example.com/logs/        
+    mkdir -p /srv/www/static.example.com/logs/
 
 Enable the virtual host with the following command. Remember to replace `static.example.com` with the name of the virtual host file:
 
@@ -157,7 +157,7 @@ Seaside applications are all provided by a server running inside the Smalltalk i
     ServerName example.com
     ServerAlias www.example.com
 
-    ErrorLog /srv/www/example.com/logs/error.log 
+    ErrorLog /srv/www/example.com/logs/error.log
     CustomLog /srv/www/example.com/logs/access.log combined
 
     RewriteEngine On
@@ -196,7 +196,7 @@ In this example, all content is provided by the same virtual host. The web serve
     ServerAlias www.example.com
     DocumentRoot /srv/www/example.com/public_html/
 
-    ErrorLog /srv/www/example.com/logs/error.log 
+    ErrorLog /srv/www/example.com/logs/error.log
     CustomLog /srv/www/example.com/logs/access.log combined
 
     RewriteEngine On
@@ -236,11 +236,11 @@ This example expounds on the previous approach, where static content was served 
     ProxyPreserveHost On
     ServerName example.com
     ServerAlias www.example.com
-    ErrorLog /srv/www/example.com/logs/error.log 
+    ErrorLog /srv/www/example.com/logs/error.log
     CustomLog /srv/www/example.com/logs/access.log combined
 
     DocumentRoot /srv/www/example.com/public_html/
-    <Directory /srv/www/example.com/public_html> 
+    <Directory /srv/www/example.com/public_html>
        Order deny,allow
        Allow from all
     </Directory>
@@ -251,12 +251,12 @@ This example expounds on the previous approach, where static content was served 
        BalancerMember http://localhost:8080/seaside/appname/ smax=5 route=seaside1
        BalancerMember http://localhost:8081/seaside/appname/ smax=5 route=seaside2
        BalancerMember http://localhost:8082/seaside/appname/ smax=5 route=seaside3
-    </Proxy> 
+    </Proxy>
 
     RewriteEngine On
     RewriteCond /srv/www/example.com/public_html%{REQUEST_FILENAME} !-f
     RewriteRule  ^/(.*)$ $1 [CO=BALANCEID:balancer.seaside1]
-    RewriteRule  ^/(.*)$ $1 [CO=BALANCEID:balancer.seaside2]           
+    RewriteRule  ^/(.*)$ $1 [CO=BALANCEID:balancer.seaside2]
     RewriteRule  ^/(.*)$ $1 [CO=BALANCEID:balancer.seaside3]
 
 {{< /file-excerpt >}}

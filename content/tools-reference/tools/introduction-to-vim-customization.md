@@ -30,7 +30,7 @@ external_resources:
 
 Vim is one of a handful of text editors ubiquitous in nearly all Unix systems. While an initial learning curve is unavoidable, Vim aims to be a hyperefficient text editor and provides an extensive plug-in system which can be configured to user preferences. It also supports  hundreds of programming languages and file extentions.
 
-This guide details the configuration of the Vim text editor and aims at those who are interested in taking the next step into customization. An array of methods for customizing Vim's execution of certain tasks and response to user input will be introduced, along with a plug-in management system. 
+This guide details the configuration of the Vim text editor and aims at those who are interested in taking the next step into customization. An array of methods for customizing Vim's execution of certain tasks and response to user input will be introduced, along with a plug-in management system.
 
 Upon the completion of this tutorial, you will have fine-tuned your Vim editor to behave more intelligently, as well as acquired exposure to managing external plug-ins.
 
@@ -54,7 +54,7 @@ The configurations in this section will apply system-wide across all user accoun
 Prefixing the `sudo` command is necessary when editing files where read and/or write permissions are not granted to your user account.
 {{< /note >}}
 
-2.  Open the *vimrc* file for editing. The file may syntactically differ between Linux distributions, but the core settings remain the same. In the file below, the segment containing the bulk of the configuration options is shown. Uncomment the lines whose behavior you wish to enable. 
+2.  Open the *vimrc* file for editing. The file may syntactically differ between Linux distributions, but the core settings remain the same. In the file below, the segment containing the bulk of the configuration options is shown. Uncomment the lines whose behavior you wish to enable.
 
 {{< file "/etc/vimrc" vim >}}
 set showcmd› › " Show (partial) command in status line.
@@ -88,8 +88,8 @@ filetype off
 
 " Turn on syntax highlighting.
 syntax on
-  
-" For plug-ins to load correctly. 
+
+" For plug-ins to load correctly.
 filetype plug-in indent on
 
 " Turn off modelines
@@ -101,7 +101,7 @@ set wrap
 nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O>:set invpaste paste?<CR>
 set pastetoggle=<F2>
-  
+
 " Uncomment below to set the max textwidth. Use a value corresponding to the width of your screen.
 " set textwidth=79
 set formatoptions=tcqrn1
@@ -256,6 +256,6 @@ If after this step you receive an error similar to `E117 Unknown Function: plug#
 
 Many additional plug-ins and tools exist to enhance your Vim experience. The Vim official website and online wiki offer additional ways to customize Vim as well as fully documenting its available features and commands. If a visual and interactive approach to creating your .vimrc file is desired, the Vim-Config website simplifies the process and auto generates the file.
 
-One of the best places to search for additional plug-ins is on the VimAwesome website. Most of the plug-ins available for Vim are hosted there in a well-organized and easily searchable environment, along with instructions for installation for all the most popular plug-in management tools. 
+One of the best places to search for additional plug-ins is on the VimAwesome website. Most of the plug-ins available for Vim are hosted there in a well-organized and easily searchable environment, along with instructions for installation for all the most popular plug-in management tools.
 
 Lastly, if you want to gain a deeper understanding of Vim-Plug, the project's Github page is an excellent place to start. Links for all these websites are provided in the *External Resources* section.

@@ -50,8 +50,8 @@ For this installation, you will install Mantis to a directory under the document
 Next, move the `mantisbt-1.2.1` directory to the `public_html` directory under the name `mantis`. Additionally, modify the permissions and ownership of Mantis to enable the proper files to be modified and executed by the web server:
 
     mv mantisbt-1.2.3/ /srv/www/example.com/public_html/mantis
-    chown -R root:root /srv/www/example.com/public_html/mantis/ 
-    chmod -R 755 /srv/www/example.com/public_html/mantis/ 
+    chown -R root:root /srv/www/example.com/public_html/mantis/
+    chmod -R 755 /srv/www/example.com/public_html/mantis/
     chmod 777 /srv/www/example.com/public_html/mantis/
 
 Visit the location of MantisBT in your browser. In this example, the URL would be `http://example.com/mantis`. Follow the installation instructions by providing the credentials to the MySQL database you created in the LAMP guide, or especially for Mantis. For additional information regarding MySQL, see the [MySQL guide](/docs/databases/mysql/debian-5-lenny). At this point Mantis is installed and ready to configure.
@@ -64,7 +64,7 @@ After the installation completes, you will be redirected to the login page. The 
 Next, set the timezone in `config_inc.php`. You can find a list of supported timezones at the [List of Supported Timezones in the PHP Manual](http://php.net/manual/en/timezones.php) page. You'll need to add the `$g_default_timezone` line yourself. This section of the files should look similar to the following:
 
 {{< file "/srv/www/example.com/public\\_html/mantis/config\\_inc.php" php >}}
-<?php   
+<?php
     $g_hostname = 'localhost';
     $g_db_type = 'mysql';
     $g_database_name = 'mantis';

@@ -304,7 +304,7 @@ adminpassword=goaway
 # playlist are in one folder and all have an mp3 extension though there is no
 # reason why you cannot explicitly specify files to use or to reference a tool.
 # See sc_trans.txt - section 7.1 for more information on how playlists work.
- 
+
 # Remember to change this to reference the files you want to use when trying
 # the sc_trans_playlist.conf example which is best tried with full length files
 

@@ -119,7 +119,7 @@ Vagrant.configure('2') do |config|
 
   # Global Configuration
   config.vm.provider :linode do |provider, override|
-            
+
     ...
 
     #Linode Settings
@@ -163,7 +163,7 @@ apt-get update && apt-get upgrade -y
     * Lines 2 and 3 define the hostname.
 
     * Line 4 sets the variable `ip` to the Linode's IP address -- since we will not know IP address until Vagrant launches the Linode.
-    
+
     * Line 5 inserts the IP address into the `/etc/hosts` file to define the fully-qualified domain name.
 
      * Line 6 sets the timezone, and the final line updates the server and server packages.
@@ -201,8 +201,8 @@ service apache2 reload
 
     * Line 2 installs Apache.
 
-    * Lines 3 & 4 create a backup of the `ports.conf` file and replaces it with a file created below. 
-    
+    * Lines 3 & 4 create a backup of the `ports.conf` file and replaces it with a file created below.
+
     * Lines 5 & 6 disable the default host file and enable the one we will create below. Apache is then reloaded to take the configuration changes.
 
 2.  Add the shell script provisioner method to your Vagrantfile, under the line that references `setup.sh`:
@@ -260,7 +260,7 @@ Listen 6789
 
     {{< file-excerpt "~/vagrant-linode/Vagrantfile" ruby >}}
 Vagrant.configure('2') do |config|
-        
+
   ...
 
   # Synced Folders
@@ -274,11 +274,11 @@ end
 
 
     * Line 5 disables syncing for the root folders.
-    
+
     * Line 6 defines the locally-hosted `apache2` folder (`'./apache2'`) and links it to the `/etc/apache2` directory on the Linode. `disabled: false` ensures that it will sync.
     * Line 7 does the same with a yet-to-be-created `./webfiles` directory that can be used to add any website files before booting the instance.
-    
-    
+
+
 7.  Create the `webfiles` folder in your `vagrant-linode` directory:
 
         mkdir ~/vagrant-linode/webfiles

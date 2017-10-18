@@ -50,7 +50,7 @@ deb http://ftp.debian.org/debian/ squeeze non-free
 
 Update apt to get the necessary package lists:
 
-    apt-get update 
+    apt-get update
 
 Now you are ready to install Sun Java with the following command (acknowledging the license terms):
 

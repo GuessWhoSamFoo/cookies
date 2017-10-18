@@ -54,7 +54,7 @@ deb http://backports.debian.org/debian-backports lenny-backports main
 
 Issue the following commands to update your system's package database and all installed packages, and install the backports repository key:
 
-    apt-get update 
+    apt-get update
     apt-get upgrade
     apt-get install debian-backports-keyring
 
@@ -89,7 +89,7 @@ Both of the following subsections assume that you will deploy your ikiwiki site 
 
 Issue the following command to install Apache:
 
-    apt-get install apache2 
+    apt-get install apache2
 
 Create a virtual host that resembles the following example. Be sure to substitute your own domain name for "example.com".
 
@@ -103,7 +103,7 @@ Create a virtual host that resembles the following example. Be sure to substitut
     ErrorLog /srv/www/example.com/logs/error.log
     CustomLog /srv/www/example.com/logs/access.log combined
 
-    AddHandler cgi-script .cgi 
+    AddHandler cgi-script .cgi
     Options FollowSymLinks +ExecCGI
 </VirtualHost>
 
@@ -112,7 +112,7 @@ Create a virtual host that resembles the following example. Be sure to substitut
 
 Issue the following commands to create the required directories, enable the site, and restart the web server. Replace "example.com" with your own domain name, and "username" with the username you created at the beginning of this guide:
 
-    mkdir -p /srv/www/example.com/public_html 
+    mkdir -p /srv/www/example.com/public_html
     mkdir /srv/www/example.com/logs
     chown -R username:username /srv/www/example.com
     a2ensite www.example.com
@@ -139,10 +139,10 @@ require 'syscall.ph';
 
 # this keeps the program alive or something after exec'ing perl scripts
 END() { } BEGIN() { }
-*CORE::GLOBAL::exit = sub { die "fakeexit\nrc=".shift()."\n"; }; 
-eval q{exit}; 
-if ($@) { 
-    exit unless $@ =~ /^fakeexit/; 
+*CORE::GLOBAL::exit = sub { die "fakeexit\nrc=".shift()."\n"; };
+eval q{exit};
+if ($@) {
+    exit unless $@ =~ /^fakeexit/;
 };
 
 &main;
@@ -168,7 +168,7 @@ sub request_loop {
            #processing any STDIN input from WebServer (for CGI-POST actions)
            $stdin_passthrough ='';
            $req_len = 0 + $req_params{'CONTENT_LENGTH'};
-           if (($req_params{'REQUEST_METHOD'} eq 'POST') && ($req_len != 0) ){ 
+           if (($req_params{'REQUEST_METHOD'} eq 'POST') && ($req_len != 0) ){
                 my $bytes_read = 0;
                 while ($bytes_read < $req_len) {
                         my $data = '';
@@ -217,7 +217,7 @@ sub request_loop {
             exec($req_params{SCRIPT_FILENAME});
             die("exec failed");
         }
-            } 
+            }
             else {
                 print("Content-type: text/plain\r\n\r\n");
                 print "Error: No such CGI app - $req_params{SCRIPT_FILENAME} may not ";
@@ -255,7 +255,7 @@ case "$1" in
       echo "Usage: perl-fastcgi {start|stop|restart}"
       exit 1
   ;;
-esac      
+esac
 exit $RETVAL
 
 {{< /file >}}
@@ -317,15 +317,15 @@ Issue the following commands to create a `~/wiki/` directory as a git repository
     mkdir -p ~/wiki ~/wiki/source/ ~/wiki/.ikiwiki/
     cd ~/wiki
     git init
-    cd /srv/git/wiki.git/ 
-    git init --bare 
+    cd /srv/git/wiki.git/
+    git init --bare
 
 Add the following excerpt to `~/wiki/.git/config`:
 
 {{< file-excerpt "~/wiki/.git/config" >}}
 [remote "origin"]
     fetch = +refs/heads/*:refs/remotes/origin/* url = /srv/git/wiki.git
-    
+
 [branch "master"]
     remote = origin merge = refs/heads/master
 
@@ -338,8 +338,8 @@ Issue the following commands to copy the default `basewiki` and `templates` to t
     cp -R /usr/share/ikiwiki/templates ~/wiki/
     cp -R /usr/share/ikiwiki/basewiki ~/wiki/
     wget -O ikiwiki.yaml http://www.linode.com/docs/assets/691-ikiwiki.yaml
-    git add . 
-    git commit -m "initial ikiwiki commit" 
+    git add .
+    git commit -m "initial ikiwiki commit"
     git push origin master
 
 Edit the `~/wiki/ikiwiki.yaml` file to suit the needs of your deployment, paying particular attention to example directory paths and URLs. You should take care to replace all instances of "example.com" with your domain name, and all instances of "username" with the username you created at the beginning of this guide. You may wish to review the [ikiwiki documentation](http://ikiwiki.info) for more information regarding specific configuration directives. Issue the following commands to commit your changes and push them:
@@ -351,7 +351,7 @@ Create content in the `~/wiki/source/index.mdwn` file, for example:
 
 {{< file "~/wiki/source/index.mdwn" >}}
 # Welcome to $wiki
-    
+
 Hello World. What should we call [[this site]]?
 
 {{< /file >}}

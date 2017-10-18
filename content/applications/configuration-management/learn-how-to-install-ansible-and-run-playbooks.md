@@ -48,7 +48,7 @@ Make sure that you have Python 2.x available on the control machine. Ansible is 
 - CentOS/Fedora:
 
       sudo yum install ansible
-    
+
   {{< note >}}
 The EPEL-Release repository may need to be added on certain versions of CentOS, RHEL, and Scientific Linux.
 {{< /note >}}
@@ -97,7 +97,7 @@ You were just able to get a valid connection to your server via Ansible!
 
 You executed an Ansible command against one client, but it would be cumbersome to have to type the host's address every single time, and what if you had several servers you wanted to apply the same configuration to? This is where Ansible's [inventory file](http://docs.ansible.com/ansible/intro_inventory.html) comes into play.
 
-1.  By default, the inventory file is expected to be `/etc/ansible/hosts`. Create that path and file if it does not already exist. 
+1.  By default, the inventory file is expected to be `/etc/ansible/hosts`. Create that path and file if it does not already exist.
 
 
     {{< note >}}
@@ -171,7 +171,7 @@ For example, the following playbook would log in to all servers in the `marketin
       become_method: sudo
 
 {{< /file-excerpt >}}
-      
+
 
 In the playbook above is an example of a task:
 
@@ -232,7 +232,7 @@ The following playbooks are for learning purposes only, and will NOT result in a
 
 - This example will assume a brand new Ubuntu 14.04 LTS server, without any additional configuration already done to the box. The very first order of business will be to add in our public encryption keys so that we can connect without supplying passwords.
 
-- Because Ansible playbooks are idempotent and can be run repeatedly without error, the `user` task checks that a user exists and that the password on file (which the system stores hashed) matches the hash you are supplying. Therefore you cannot (and should not) just put in a plaintext password, you must pre-hash it. 
+- Because Ansible playbooks are idempotent and can be run repeatedly without error, the `user` task checks that a user exists and that the password on file (which the system stores hashed) matches the hash you are supplying. Therefore you cannot (and should not) just put in a plaintext password, you must pre-hash it.
 
 - Create a password hash for Ansible to use when communicating with the servers. An easy method is to use Python's PassLib library, which can be installed with `sudo pip install passlib`.
 
@@ -265,8 +265,8 @@ The following playbooks are for learning purposes only, and will NOT result in a
     NORMAL_USER_NAME: 'yourusername'
   tasks:
     - name: "Create a secondary, non-root user"
-      user: name={{ NORMAL_USER_NAME }} 
-            password='$6$rounds=656000$W.dSlhtSxE2HdSc1$4WbCFM6zQV1hTQYTCqmcddnKrSXIZ9LfWRAjJBervBFG.rH953lTa7rMeZNrN65zPzEONntMtYt9Bw74PvAei0' 
+      user: name={{ NORMAL_USER_NAME }}
+            password='$6$rounds=656000$W.dSlhtSxE2HdSc1$4WbCFM6zQV1hTQYTCqmcddnKrSXIZ9LfWRAjJBervBFG.rH953lTa7rMeZNrN65zPzEONntMtYt9Bw74PvAei0'
             shell=/bin/bash
     - name: Add remote authorized key to allow future passwordless logins
       authorized_key: user={{ NORMAL_USER_NAME }} key="{{ lookup('file', '/Users/localusername/.ssh/id_rsa.pub') }}"
@@ -295,7 +295,7 @@ Let's take care of some common server setup tasks, such as setting the timezone,
   remote_user: yourusername
   become: yes
   become_method: sudo
-  vars: 
+  vars:
     LOCAL_HOSTNAME: 'web01'
     LOCAL_FQDN_NAME: 'www.example.com'
   tasks:
@@ -304,9 +304,9 @@ Let's take care of some common server setup tasks, such as setting the timezone,
     - name: Set up a unique hostname
       hostname: name={{ LOCAL_HOSTNAME }}
     - name: Add the server's domain to the hosts file
-      lineinfile: dest=/etc/hosts 
-                  regexp='.*{{ item }}$' 
-                  line="{{ hostvars[item].ansible_default_ipv4.address }} {{ LOCAL_FQDN_NAME }} {{ LOCAL_HOSTNAME }}" 
+      lineinfile: dest=/etc/hosts
+                  regexp='.*{{ item }}$'
+                  line="{{ hostvars[item].ansible_default_ipv4.address }} {{ LOCAL_FQDN_NAME }} {{ LOCAL_HOSTNAME }}"
                   state=present
       when: hostvars[item].ansible_default_ipv4.address is defined
       with_items: "{{ groups['linode'] }}"
@@ -356,8 +356,8 @@ Finally, let's get a very basic server set up with Apache and PHP, and a test My
                 state=present
 
     - name: Create a new user for connections
-      mysql_user: name=webapp 
-                  password=mypassword 
+      mysql_user: name=webapp
+                  password=mypassword
                   priv=*.*:ALL state=present
 
 {{< /file >}}
@@ -368,7 +368,7 @@ Finally, let's get a very basic server set up with Apache and PHP, and a test My
         ansible-playbook setup_webserver.yml --ask-become-pass
 
     When this playbook finishes, visit your Linode's IP address or FQDN to see the default Ubuntu Apache index page.
-    
+
 3.  Log in via SSH and check to see that the `testDb` has indeed been created:
 
          mysql -u root -p

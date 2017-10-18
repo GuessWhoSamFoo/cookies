@@ -85,7 +85,7 @@ This guide is a high-level overview, and does not discuss runlevels. Read more a
 
         sudo update-rc.d apache2 defaults
         update-rc.d: using dependency based boot sequencing
-        
+
         sudo update-rc.d -f rsyslog remove
         update-rc.d: using dependency based boot sequencing
 
@@ -175,7 +175,7 @@ If you use full-disk encryption, enter your password in the LISH console after a
 
 ## Firewall Rules
 
-If you followed the [Creating a Firewall](/docs/security/securing-your-server#configuring-a-firewall) section of our [Securing your Server](/docs/security/securing-your-server) guide, your firewall rules should already be saved, and loaded on boot automatically. If, however, you've manually configured your `iptables` exceptions live, they may not persist through a server reboot. 
+If you followed the [Creating a Firewall](/docs/security/securing-your-server#configuring-a-firewall) section of our [Securing your Server](/docs/security/securing-your-server) guide, your firewall rules should already be saved, and loaded on boot automatically. If, however, you've manually configured your `iptables` exceptions live, they may not persist through a server reboot.
 
 1.  Ensure that your custom firewall rules are saved:
 

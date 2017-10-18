@@ -285,7 +285,7 @@ You will need to create a `VirtualHost` for your FreePBX installation. By defaul
     ServerAdmin webmaster@e-cabi.net
     ServerName pbx.e-cabi.net
     ServerAlias pbx.e-cabi.net
-    DocumentRoot /var/www/html                        
+    DocumentRoot /var/www/html
 </VirtualHost>
 
 {{< /file >}}

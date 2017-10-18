@@ -55,7 +55,7 @@ Issue the following commands to extract, compile, and install the Nagios Core:
 
     tar -xzvf /opt/nagios-3.2.3.tar.gz
     cd /opt/nagios-3.2.3
-    ./configure --with-command-group=nagcmd 
+    ./configure --with-command-group=nagcmd
     make all
     make install
     make install-init
@@ -71,7 +71,7 @@ define contact{
     contact_name nagiosadmin ; Short name of user use generic-contact
     ; Inherit default values from generic-contact template (defined above)
     alias John Doe ; Full name of user
-    email <someadmin@example.com> ; <<***** CHANGE THIS TO YOUR EMAIL ADDRESS ****** 
+    email <someadmin@example.com> ; <<***** CHANGE THIS TO YOUR EMAIL ADDRESS ******
 }
 
 {{< /file-excerpt >}}
@@ -96,7 +96,7 @@ To install and configure the Nagios plugins, issue the following commands:
 
     cd /opt/
     tar xzf /opt/nagios-plugins-1.4.15.tar.gz
-    cd /opt/nagios-plugins-1.4.15   
+    cd /opt/nagios-plugins-1.4.15
     ./configure --with-nagios-user=nagios --with-nagios-group=nagios
     make
     make install

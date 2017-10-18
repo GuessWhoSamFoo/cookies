@@ -149,7 +149,7 @@ If you want to enforce two-factor authentication globally, you can use the `Auth
 
         sudo systemctl restart sshd
 
-Congratulations! Two-factor authentication is now enabled. When you connect to your Linode via SSH, the authentication process will proceed as follows: 
+Congratulations! Two-factor authentication is now enabled. When you connect to your Linode via SSH, the authentication process will proceed as follows:
 
 ![Two-factor authentication with SSH login.](/docs/assets/two-factor-authentication-diagram.png "Two-factor authentication with SSH login.")
 

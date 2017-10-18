@@ -49,7 +49,7 @@ To check your hostname, run `hostname` and to check your FQDN, run `hostname -f`
         wget https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
         dpkg -i puppetlabs-release-pc1-xenial.deb
         apt update
-        
+
     {{< note >}}
 If you wish to run another Linux distribution as your master server, the initial `.deb` file can be substituted for another distribution based on the following formats:
 
@@ -206,52 +206,52 @@ class accounts {
 
 
     The `init.pp` file initially defines the `accounts` class. It then calls for the `user` resource, where a `username` is defined. The `ensure` value is set to ensure that the user exists (is present). The `home` value should be set to the user's home directory path. `shell` defines the shell type, in this instance the bash shell. `managehome` notes that the home directory should be created. Finally, `gid` sets the primary group for the user.
-    
+
 5.  Although the primary group is set to share the username, the group itself has not been created. Save and exit `init.pp`. Then, create a new file called `groups.pp` and add the following contents. This file will be used to create the user's group. Again, replace `username` with your chosen username:
 
     {{< file "/etc/puppet/modules/accounts/manifests/groups.pp" puppet >}}
 class accounts::groups {
-        
+
   group { 'username':
     ensure  => present,
   }
-          
+
 }
 
 {{< /file >}}
 
-        
+
      Include this file by adding `include groups` to the `init.pp` file, within the `accounts` class:
-     
+
      {{< file-excerpt "/etc/puppet/modules/accounts/manifests/init.pp" puppet >}}
 class accounts {
-        
+
   include groups
-  ... 
+  ...
 }
 
 {{< /file-excerpt >}}
 
-    
+
 6.  This user should have privileges so that administrative tasks can be performed. Because we have agent nodes on both Debian- and Red Hat-based systems, the new user needs to be in the `sudo` group on Debian systems, and the `wheel` group on Red Hat systems. This value can be set dynamically through the use of a selector and *facter*, a program included in Puppet that keeps track of information, or *facts*, about every server. Add a selector statement to the top of the `init.pp` file within the accounts class brackets, defining the two options:
 
     {{< file-excerpt "/etc/puppet/modules/accounts/manifests/init.pp" puppet >}}
 class accounts {
-        
+
   $rootgroup = $osfamily ? {
     'Debian'  => 'sudo',
     'RedHat'  => 'wheel',
     default   => warning('This distribution is not supported by the Accounts module'),
   }
-          
+
   user { 'username':
   ...
-          
+
 }
 
 {{< /file-excerpt >}}
 
-        
+
     This command sequence tells Puppet that within the *accounts* module the variable `$rootgroup` should evaluate, using facter, the operating system family (`$osfamily`), and if the value returned is `Debian`, to set the `$rootgroup` value to `sudo`. If the value returned is `RedHat`, this same value should be set to `wheel`; otherwise, the `default` value will output a warning that the distribution selected is not supported by this module.
 
     {{< note >}}
@@ -273,7 +273,7 @@ user { 'username':
 {{< /file-excerpt >}}
 
 
-    The value `"$rootgroup"` is enclosed in double quotes (") instead of single quotes (') because it is a variable. Any value enclosed within single quotes will be added as typed in your module; anything enclosed in double quotes can accept variables.  
+    The value `"$rootgroup"` is enclosed in double quotes (") instead of single quotes (') because it is a variable. Any value enclosed within single quotes will be added as typed in your module; anything enclosed in double quotes can accept variables.
 
 8.  The final value that needs to be added is the `password`. Since we do not want to use plain text, it should be fed to Puppet as a SHA1 digest, which is supported by default. Set a password from the terminal:
 
@@ -324,7 +324,7 @@ include accounts
 11. While still in the `examples` directory, test the module without making changes:
 
         puppet apply --noop init.pp
-        
+
     {{< note >}}
 The `--noop` parameter prevents Puppet from actually running the module.
 {{< /note >}}
@@ -364,19 +364,19 @@ PermitRootLogin no
 
 {{< /file-excerpt >}}
 
-        
+
 4.  Navigate back to the `manifests` directory and, using `sudo`, create a file called `ssh.pp`. Use the `file` resource to replace the default configuration file with the one managed by Puppet:
 
         cd ../manifests
 
     {{< file "/etc/puppet/modules/accounts/manifests/ssh.pp" puppet >}}
 class accounts::ssh {
-        
+
   file { '/etc/ssh/sshd_config':
     ensure  => present,
     source  => 'puppet:///modules/accounts/sshd_config',
   }
-        
+
 }
 
 {{< /file >}}
@@ -402,7 +402,7 @@ $sshname = $osfamily ? {
     source  => 'puppet:///modules/accounts/sshd_config',
     notify  => Service["$sshname"],
   }
-        
+
   service { "$sshname":
     hasrestart  => true,
   }
@@ -417,14 +417,14 @@ $sshname = $osfamily ? {
 class accounts {
   include groups
   include ssh
-        
+
 ...
 
 {{< /file-excerpt >}}
 
-    
+
     Your complete `init.pp` will look similar to this:
-    
+
     {{< file "/etc/puppet/modules/accounts/manifests/init.pp" puppet >}}
 class accounts {
     include groups
@@ -481,10 +481,10 @@ In this section, we'll configure firewall rules using `iptables`. However, these
 CentOS 7 uses firewalld by default as a controller for iptables. Be sure firewalld is stopped and disabled before starting to work directly with iptables:
 
     sudo systemctl stop firewalld && sudo systemctl disable firewalld
-    
+
     sudo yum install iptables-services
 
-               
+
 1.  On your Puppet master node, install Puppet Lab's firewall module from the Puppet Forge:
 
         sudo puppet module install puppetlabs-firewall
@@ -677,7 +677,7 @@ node 'ubuntuagent.example.com' {
   class { ['firewall::pre', 'firewall::post']: }
 
 }
-        
+
 node 'centosagent.example.com' {
   include accounts
 
@@ -711,4 +711,4 @@ node 'centosagent.example.com' {
 
         sudo iptables -L
 
-Congratulations! You've successfully installed Puppet on a master and two agent nodes. Now that you've confirmed everything is working, you can create additional modules to automate configuration management on your agent nodes. For more information, see [Puppet module fundamentals](https://docs.puppet.com/puppet/latest/reference/modules_fundamentals.html). You can also install and use those modules others have created on the [Puppet Forge](https://docs.puppet.com/puppet/latest/reference/modules_installing.html). 
+Congratulations! You've successfully installed Puppet on a master and two agent nodes. Now that you've confirmed everything is working, you can create additional modules to automate configuration management on your agent nodes. For more information, see [Puppet module fundamentals](https://docs.puppet.com/puppet/latest/reference/modules_fundamentals.html). You can also install and use those modules others have created on the [Puppet Forge](https://docs.puppet.com/puppet/latest/reference/modules_installing.html).

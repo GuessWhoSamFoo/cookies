@@ -101,7 +101,7 @@ Follow these instructions:
 
     {{< file "/etc/apache2/sites-available/example.net" apache >}}
 <VirtualHost *:80>
-     ServerAdmin webmaster@example.net     
+     ServerAdmin webmaster@example.net
      ServerName example.net
      ServerAlias www.example.net
      DocumentRoot /srv/www/example.net/public_html/

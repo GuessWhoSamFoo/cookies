@@ -10,7 +10,7 @@ modified: 2017-08-21
 modified_by:
   name: Linode
 published: 2010-08-23
-title: How to Use the Date Command in Linux 
+title: How to Use the Date Command in Linux
 ---
 
 The `date` command displays the current date and time. It can also be used to display or calculate a date in a format you specify. The super-user (root) can use it to set the system clock.
@@ -96,7 +96,7 @@ Other valid date time strings include: `last-week`, `next-week`, `last-month`, `
 
 ### Seconds from epoch to the provided date/time
 
-    $ date -d "1974-01-04" +"%s" 
+    $ date -d "1974-01-04" +"%s"
     126507600
 
 ### Convert epoch to a date

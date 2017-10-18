@@ -41,7 +41,7 @@ deb http://backports.debian.org/debian-backports lenny-backports main
 
 Issue the following commands to update your system's package database and all installed packages, and install the backports repository's key:
 
-    apt-get update 
+    apt-get update
     apt-get upgrade
     apt-get install debian-backports-keyring
 
@@ -50,7 +50,7 @@ Add the following snippet to the `/etc/apt/preferences` file (you may need to cr
 {{< file-excerpt "/etc/apt/preferences" nginx >}}
 # [...]
 http {
-    include /srv/www/example.com/nginx.conf; 
+    include /srv/www/example.com/nginx.conf;
     passenger_root /opt/passenger-3.0.1;
     passenger_ruby /usr/bin/ruby1.8;
 # [...]

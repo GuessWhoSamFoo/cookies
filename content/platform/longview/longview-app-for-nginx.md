@@ -96,7 +96,7 @@ location http://127.0.0.1/nginx_status
 
 {{< /file >}}
 
-        
+
 4.  Restart Longview:
 
         service longview restart
@@ -196,7 +196,7 @@ location http://127.0.0.1/url-goes-here
 
 {{< /file >}}
 
-        
+
 5.  Restart Longview:
 
         service longview restart

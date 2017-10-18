@@ -58,7 +58,7 @@ This guide is written for a non-root user. Commands that require elevated privil
     The output should be:
 
         Status: active
-        
+
         To                         Action      From
         --                         ------      ----
         [ 1] 22                         ALLOW IN    Anywhere
@@ -75,7 +75,7 @@ If you don't want UFW allowing SSH on port 22 for both IPv4 and IPv6, you can de
 6.  Set the Linode's hostname. We'll call it *seafile* as an example:
 
         sudo hostnamectl set-hostname seafile
-		
+
 7. Add the new hostname to `/etc/hosts`. The second line in the file should look like this:
 
     {{< file-excerpt "/etc/hosts" aconf >}}
@@ -94,7 +94,7 @@ If you don't want UFW allowing SSH on port 22 for both IPv4 and IPv6, you can de
 1.  During Installation, you will be asked to assign a password for the root mysql user. Be sure to install the package `mysql-server-5.7`, not `mysql-server`. This is because an upstream issue causes problems starting the MySQL service if you install by using the `mysql-server` package.
 
         sudo apt install mysql-server-5.7
-    
+
 2.  Run the *mysql_secure_installation* script:
 
         sudo mysql_secure_installation
@@ -118,8 +118,8 @@ If you don't already have an SSL/TLS certificate, you can create one. This certi
 
         sudo apt install nginx
 
-2.  Create the site configuration file. The only line you need to change below is `server_name`. For more HTTPS configuration options, see our guide on [TLS Best Practices with nginx](/docs/web-servers/nginx/nginx-ssl-and-tls-deployment-best-practices).     
-    
+2.  Create the site configuration file. The only line you need to change below is `server_name`. For more HTTPS configuration options, see our guide on [TLS Best Practices with nginx](/docs/web-servers/nginx/nginx-ssl-and-tls-deployment-best-practices).
+
     {{< file "/etc/nginx/sites-available/seafile.conf" aconf >}}
 server{
 	listen 80;
@@ -133,7 +133,7 @@ server{
     ssl_certificate /etc/ssl/cacert.pem;
     ssl_certificate_key /etc/ssl/privkey.pem;
     server_name example.com;
-		
+
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
     add_header   Strict-Transport-Security "max-age=31536000; includeSubdomains";
     add_header   X-Content-Type-Options nosniff;
@@ -141,15 +141,15 @@ server{
     ssl_session_cache shared:SSL:10m;
     ssl_ciphers  "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH !RC4";
     ssl_prefer_server_ciphers   on;
-		        
+
     fastcgi_param   HTTPS               on;
     fastcgi_param   HTTP_SCHEME         https;
-		
+
   location / {
         fastcgi_pass    127.0.0.1:8000;
         fastcgi_param   SCRIPT_FILENAME     $document_root$fastcgi_script_name;
         fastcgi_param   PATH_INFO           $fastcgi_script_name;
-		
+
         fastcgi_param    SERVER_PROTOCOL        $server_protocol;
         fastcgi_param   QUERY_STRING        $query_string;
         fastcgi_param   REQUEST_METHOD      $request_method;
@@ -159,13 +159,13 @@ server{
         fastcgi_param    SERVER_PORT         $server_port;
         fastcgi_param    SERVER_NAME         $server_name;
         fastcgi_param   REMOTE_ADDR         $remote_addr;
-		
+
         access_log      /var/log/nginx/seahub.access.log;
         error_log       /var/log/nginx/seahub.error.log;
         fastcgi_read_timeout 36000;
         client_max_body_size 0;
     }
-		
+
     location /seafhttp {
         rewrite ^/seafhttp(.*)$ $1 break;
         proxy_pass http://127.0.0.1:8082;
@@ -176,7 +176,7 @@ server{
         send_timeout  36000s;
         proxy_request_buffering off;
     }
-		
+
     location /media {
         root /home/sfadmin/sfroot/seafile-server-latest/seahub;
     }
