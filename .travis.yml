@@ -12,7 +12,7 @@ before_install:
     - echo "Installing Hugo 0.29, Node, and gulp"
     - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
     - sudo apt install nodejs
-    - wget https://github.com/gohugoio/hugo/releases/download/v0.29/hugo_0.29_Linux-64bit.deb
+    - wget https://github.com/gohugoio/hugo/releases/download/v0.30.2/hugo_0.30.2_Linux-64bit.deb
     - sudo dpkg -i hugo*.deb
     - hugo version
     - sudo npm install --global gulp-cli
