@@ -41,12 +41,14 @@ class Docs404Spider(CrawlSpider):
 
 
 def test_404():
+    import os
     process = CrawlerProcess({ 'USER_AGENT': 'docs404', 
                                'FEED_URI': 'temp.csv',
                                'FEED_FORMAT': 'csv' })
     process.crawl(Docs404Spider)
     process.start()
     f = open('temp.csv')
+    os.remove('temp.csv')
     assert sum([1 for line in f]) == 1,'404 response in HTML - see scraper logs'
 
 
