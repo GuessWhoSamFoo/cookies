@@ -133,7 +133,7 @@ This Guide is about setting up a new Zimbra Linode, but if you are upgrading an 
 
 6. Configure MX records.
 
-    If you receive an error about a missing MX record as shown below, it means your domain DNS records are not matching what Zimbra expects to find, based on the hostname you configured earlier. Check your `/etc/hostname` file and your [DNS records](/docs/networking/dns/introduction-to-dns-records#mx) to resolve the problem.
+    If you receive an error about a missing MX record as shown below, it means your domain DNS records are not matching what Zimbra expects to find, based on the hostname you configured earlier. Check your `/etc/hostname` file and your [DNS records](/docs/networking/dns/dns-records-an-introduction/#mx) to resolve the problem.
 
         DNS ERROR resolving MX for linodemail.example.com
         It is suggested that the domain name have an MX record configured in DNS
@@ -206,7 +206,7 @@ Since you haven't installed a trusted cert yet, you will likely get a browser wa
 
     If you configured the appropriate DNS records (step 4 of [Set up Your Linode](#set-up-your-linode) above), you should be able to send and receive mail with this account.
 
-##Configuring Your Zimbra Server
+## Configuring Your Zimbra Server
 
 Zimbra provides two ways to manage configuration: a web console and the command line. The command line interface is beyond the scope of this guide but you can find it documented in Appendix A of the Administrator's Guide which is linked to from the Help Center in your admin console.
 
@@ -240,7 +240,7 @@ Your server was configured when you installed, and most of those settings will w
 
 8.  If you made changes to Global Settings, restart your server before continuing.
 
-###Classes of Service
+### Classes of Service
 
 Zimbra installs a default class of service which will be applied to all new accounts. If you don't need to give different capabilities or settings to different groups of users, this default class will be all you need. You can create additional classes and then assign them to users as required to control their privileges, access to features, quotas, and default settings.
 
@@ -260,7 +260,7 @@ Zimbra installs a default class of service which will be applied to all new acco
 
 6.  If needed, you can proceed to add more classes of service and define all these settings for another type of user. Different classes could have different quotas, access to more or fewer features, or perhaps one group gets external IMAP or access to the Briefcase tab. Note that individual user account settings can override the COS settings. New user accounts will be assigned the default COS unless you have defined another and choose it when creating the account.
 
-###User Accounts
+### User Accounts
 
 You received an admin account when you installed Zimbra. The Open Source Edition has no limit on the number of accounts you can have. It is only limited by your server's ability to handle the traffic. If you have been through the **Classes of Service**, creating another account will be a trip through familiar territory, as most of the settings are the same, but applicable to this individual account.
 
@@ -292,11 +292,11 @@ When users forget their passwords, resets are easily accomplished.
 
     ![Change password dialog](/docs/assets/ChangePassword.png)
 
-##Install an SSL Certificate
+## Install an SSL Certificate
 
 Zimbra creates and uses a self-signed SSL security certificate upon installation. If you are planning to offer your email service to others, you will want to install a trusted certificate from a third-party Certificate Authority (CA).
 
-###Create a Certificate Signing Request (CSR)
+### Create a Certificate Signing Request (CSR)
 
 1.  Log in to the Zimbra admin console
 
@@ -312,7 +312,7 @@ Zimbra creates and uses a self-signed SSL security certificate upon installation
 
 7.  Copy the CSR text and finish the Zimbra wizard, return to your CA's website and follow their process to purchase your SSL certificate.
 
-###Install Your Certificate into Zimbra.
+### Install Your Certificate into Zimbra.
 
 1.  In the Zimbra admin console, click the **Configure** menu, then **Certificates**.
 

@@ -18,18 +18,16 @@ The nginx web server is a fast, lightweight server designed to efficiently handl
 
 It is assumed that you've already followed the steps outlined in our [getting started guide](/docs/getting-started/). These steps should be performed via a root login to your Linode over SSH.
 
-Set the Hostname
-----------------
+# Set the Hostname
 
-Before you begin installing and configuring the components described in this guide, please make sure you've followed our instructions for [setting your hostname](/docs/getting-started#sph_set-the-hostname). Issue the following commands to make sure it is set properly:
+Before you begin installing and configuring the components described in this guide, please make sure you've followed our instructions for [setting your hostname](/docs/getting-started#setting-the-hostname). Issue the following commands to make sure it is set properly:
 
     hostname
     hostname -f
 
 The first command should show your short hostname, and the second should show your fully qualified domain name (FQDN).
 
-Install Required Packages
--------------------------
+# Install Required Packages
 
 Issue the following commands to update your system and install the nginx web server, PHP, and compiler tools:
 
@@ -37,8 +35,7 @@ Issue the following commands to update your system and install the nginx web ser
     apt-get upgrade
     apt-get install nginx php5-cli php5-cgi spawn-fcgi
 
-Configure Virtual Hosting
--------------------------
+# Configure Virtual Hosting
 
 ### Create Directories
 
@@ -149,7 +146,7 @@ If you're planning to run applications that support file uploads (images, for ex
 
 To mitigate this issue, you may wish to modify your configuration to include a `try_files` directive. Please note that this fix requires nginx and the php-fcgi workers to reside on the same server.
 
-~~~ nginx
+{{< file-excerpt "/etc/nginx/sites-available/www.example.com" nginx >}}
 location ~ \.php$ {
     try_files $uri =404;
     include /etc/nginx/fastcgi_params;
@@ -157,11 +154,11 @@ location ~ \.php$ {
     fastcgi_index index.php;
     fastcgi_param SCRIPT_FILENAME /srv/www/www.example.com/public_html$fastcgi_script_name;
 }
-~~~
+{{< /file-excerpt >}}
 
 Additionally, it's a good idea to secure any upload directories your applications may use. The following configuration excerpt demonstrates securing an "/images" directory.
 
-~~~ nginx
+{{< file-excerpt "/etc/nginx/sites-available/www.example.com" nginx >}}
 location ~ \.php$ {
     include /etc/nginx/fastcgi_params;
     if ($uri !~ "^/images/") {
@@ -170,7 +167,7 @@ location ~ \.php$ {
     fastcgi_index index.php;
     fastcgi_param SCRIPT_FILENAME /srv/www/www.example.com/public_html$fastcgi_script_name;
 }
-~~~
+{{< /file-excerpt >}}
 
 ### Enable and Start Services
 
@@ -257,8 +254,7 @@ Start php-fastcgi and nginx by issuing the following commands:
     /etc/init.d/php-fastcgi start
     /etc/init.d/nginx start
 
-Test PHP with FastCGI
----------------------
+# Test PHP with FastCGI
 
 Create a file called "test.php" in your site's "public\_html" directory with the following contents:
 
@@ -270,8 +266,7 @@ Create a file called "test.php" in your site's "public\_html" directory with the
 
 When you visit `http://www.example.com/test.php` in your browser, the standard "PHP info" output is shown. Congratulations, you've configured the nginx web server to use PHP-FastCGI for dynamic content!
 
-More Information
-----------------
+# More Information
 
 You may wish to consult the following resources for additional information on this topic. While these are provided in the hope that they will be useful, please note that we cannot vouch for the accuracy or timeliness of externally hosted materials.
 

@@ -12,9 +12,11 @@ published: 2016-04-26
 title: 'How to Upgrade to Ubuntu 16.04 LTS'
 ---
 
+![Upgrade to Ubuntu 16.04](/docs/assets/upgrade-to-ubuntu-16-04/How_to_Upgrade_to_Ubuntu_smg.jpg)
+
 Ubuntu 16.04 is a Long-Term Support (LTS) release that will be supported by Canonical until April 2021. This guide explains how to upgrade your Linode from Ubuntu 14.04 (Trusty Tahr) to Ubuntu 16.04 (Xenial Xerus).
 
- {{< caution >}}
+{{< caution >}}
 Distribution upgrades sometimes yield unpredictable results. If possible, use these steps as an alternative to the upgrade method described in this guide:
 
  - Create a new Linode with the latest disk template

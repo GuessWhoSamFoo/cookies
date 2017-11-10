@@ -16,7 +16,7 @@ external_resources:
 
 Squid is a proxy/cache application with a variety of configurations and uses. This guide will cover using Squid as an HTTP proxy. Please note that unless you follow the last section of the guide [Anonymizing Traffic](#anonymizing-traffic), this will not anonymize your traffic to the outside world, as your originating IP address will still be sent in the X-Forwarded-For header. Additionally, the traffic is not encrypted and will still be visible on your local network. If you are looking for a solution that offers greater security, you may want to look at our guide to [Setting up an SSH Tunnel](/docs/networking/ssh/setting-up-an-ssh-tunnel-with-your-linode-for-safe-browsing) or [Deploy VPN Services with OpenVPN](/docs/networking/vpn/secure-communications-with-openvpn-on-centos-6).
 
- {{< note >}}
+{{< note >}}
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 {{< /note >}}
 
@@ -90,7 +90,6 @@ http_access allow ncsa_users
 
 
 {{< /file-excerpt >}}
-~~~~~
 
 5.  Once you've saved and exited the file, restart Squid:
 
@@ -101,10 +100,7 @@ http_access allow ncsa_users
 
 	{{< file-excerpt "/etc/squid/squid\\_passwd" >}}
 user1:gh48gfno user2:9b83v5hd
-
-
 {{< /file-excerpt >}}
-~
 
 	If you are using Nano, the command `Control+k` will remove the entire line where the cursor rests. Once you've saved and exited the file, restart Squid:
 

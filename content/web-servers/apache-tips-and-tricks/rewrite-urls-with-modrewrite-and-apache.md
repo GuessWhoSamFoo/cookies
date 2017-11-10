@@ -24,7 +24,7 @@ In this guide, you'll learn how to rewrite URLs with mod_rewrite and Apache. Rew
 
 ## Before You Begin
 
-1.  This guide assumes you have followed our [Getting Started](/docs/getting-started) and [Securing Your Server](/docs/security/securing-your-server) guides, and that you have already configured your Apache installation. If you haven't, refer to our [Apache guides](https://www.linode.com/docs/websites/apache/) or [LAMP stack guides](https://www.linode.com/docs/websites/lamp/).
+1.  This guide assumes you have followed our [Getting Started](/docs/getting-started) and [Securing Your Server](/docs/security/securing-your-server) guides, and that you have already configured your Apache installation. If you haven't, refer to our [Apache guides](https://www.linode.com/docs/websites/apache/) or [LAMP stack guides](https://www.linode.com/content/websites/lamp/).
 
 2.  In this guide, we'll be modifying Apache configuration files, so be sure you have the proper permissions to do so.
 

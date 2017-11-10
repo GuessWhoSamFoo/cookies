@@ -5,8 +5,8 @@ author:
 description: 'This guide shows how to install PrestaShop on LAMP (with MariaDB). It also shows how to add a TLS certificate and optimize some of the configurations.'
 keywords: ["prestashop", "ecommerce", "cms"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: Tuesday, August 29th, 2017
-modified: Thursday,September 21st, 2017
+published: 2017-08-29
+modified: 2017-09-21
 modified_by:
   name: Linode
 title: 'How to Install PrestaShop on Ubuntu 16.04'
@@ -270,7 +270,7 @@ max_execution_time = 30
 
 ## Set Up Mail Delivery
 
-Setting up mail delivery in PrestaShop is vital because so much happens through email: customer account confirmations, subscriptions, delivery statuses, order confirmations, etc. Although an email server [like this one](/docs/email/email-with-postfix-dovecot-and-mysql) can be hosted on a Linode, it can be complicated to set up and maintain.
+Setting up mail delivery in PrestaShop is vital because so much happens through email: customer account confirmations, subscriptions, delivery statuses, order confirmations, etc. Although an email server [like this one](/docs/email/postfix/email-with-postfix-dovecot-and-mysql) can be hosted on a Linode, it can be complicated to set up and maintain.
 
 It's also possible to use an all-in-one solution like [Mail-in-a-Box](/docs/email/how-to-create-an-email-server-with-mail-in-a-box), but the easiest approach is to use a dedicated solution like Google's [G Suite](https://gsuite.google.com/) or [Fastmail](https://www.fastmail.com/). This way you can focus on maintaining your store and get dependable email service without worrying about the technical details.
 

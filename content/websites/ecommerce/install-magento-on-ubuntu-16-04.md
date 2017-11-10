@@ -61,7 +61,7 @@ Since Magento will be served by Apache, some additional configuration is needed 
 
         sudo a2enmod rewrite
 
-3.  Modify the virtual host file for your Magento site to resemble the example below. If you have not previously created a virtual host file, do so now and refer to the [Configure Virtual Hosts](/docs/websites/lamp/install-lamp-on-ubuntu-16-04#configure-virtual-hosts) section of the LAMP on Ubuntu 16.04 guide for additional guidance.
+3.  Modify the virtual host file for your Magento site to resemble the example below. If you have not previously created a virtual host file, do so now and refer to the [Configure Virtual Hosts](/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/#configure-virtual-hosts) section of the LAMP on Ubuntu 16.04 guide for additional guidance.
 
     {{< file "/etc/apache2/sites-available/example.com.conf" aconf >}}
 <Directory /var/www/html/example.com/public_html>
@@ -135,15 +135,9 @@ The value for `date.timezone` will vary based on your system's time zone. Refer 
 
 2.  **Optional**: You may want to take this opportunity to create a `phpinfo.php` page to ensure that PHP is active and working properly with Apache:
 
-{{< file >}}
-/var/www/html/example.com/public_html/phpinfo.php
-:
+    {{< file "/var/www/html/example.com/public_html/phpinfo.php" php >}}
+<?php phpinfo(); ?>
 {{< /file >}}
-
-{{< /file-excerpt >}}
- php
-        <?php phpinfo(); ?>
-        ~~~
 
     Once you've visited this page in your browser and confirmed that PHP is working, delete the test page.
 

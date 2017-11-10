@@ -34,15 +34,19 @@ First, you need to configure OpenSSH.
 
 2.  Add or modify the `Subsystem sftp` line to look like the following:
 
-    {{< file-excerpt "/etc/ssh/sshd\\_config" >}}
+    {{< file-excerpt "/etc/ssh/sshd\_config" >}}
+Subsystem sftp internal-sftp
+{{< /file-excerpt >}}
+
+3.  Add this block of settings to the end of the file:
+
+    {{< file-excerpt "/etc/ssh/sshd\_config" >}}
 Match Group filetransfer
     ChrootDirectory %h
     X11Forwarding no
     AllowTcpForwarding no
     ForceCommand internal-sftp
-
 {{< /file-excerpt >}}
-
 
    Save the changes to your file.
 

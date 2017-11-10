@@ -18,28 +18,25 @@ title: 'LEMP Server on Debian 5 (Lenny)'
 
 This document describes a compatible alternative to the "LAMP" (Linux, Apache, MySQL, and PHP) stack, known as "LEMP." The LEMP stack replaces the Apache web server component with nginx (pronounced "engine x," providing the "E" in LEMP,) which can increase the ability of the server to scale in response to demand.
 
-Prior to beginning this guide, please complete the [getting started guide](/docs/getting-started/). If you are new to Linux server administration, you may be interested in our [introduction to Linux concepts guide](/docs/tools-reference/introduction-to-linux-concepts/), [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/docs/using-linux/administration-basics).
+Prior to beginning this guide, please complete the [getting started guide](/docs/getting-started/). If you are new to Linux server administration, you may be interested in our [introduction to Linux concepts guide](/docs/tools-reference/introduction-to-linux-concepts/), [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/content/using-linux/administration-basics).
 
-Set the Hostname
-----------------
+# Set the Hostname
 
-Before you begin installing and configuring the components described in this guide, please make sure you've followed our instructions for [setting your hostname](/docs/getting-started#sph_setting-the-hostname). Issue the following commands to make sure it is set properly:
+Before you begin installing and configuring the components described in this guide, please make sure you've followed our instructions for [setting your hostname](/docs/getting-started#setting-the-hostname). Issue the following commands to make sure it is set properly:
 
     hostname
     hostname -f
 
 The first command should show your short hostname, and the second should show your fully qualified domain name (FQDN).
 
-Prepare System For Deployment
------------------------------
+# Prepare System For Deployment
 
 Before beginning with the installation of this web application stack, issue the following commands to ensure that your system's package database is up to date and that all installed software is running at the latest version:
 
     apt-get update
     apt-get upgrade
 
-Install the Nginx Web Server
-----------------------------
+# Install the Nginx Web Server
 
 There are several viable and popular options for installing the nginx software. The first option retrieves packages from the Debian Project's software repository and provides a stable and tested version of the web server. The second option retrieves packages compiled by the Debian Backports project. Backports packages are more up to date than the stable packages provided by the Debian project, but do not necessarily receive the same kind of updates, support, and maintenance that official packages receive.
 
@@ -59,21 +56,92 @@ This will install version 0.6.33 of the nginx server.
 
 Apart from the difference in the following procedure, installing from stable and backported packages are identical. Edit the `/etc/apt/sources.list` file to add the following line:
 
-{{< file-excerpt "/etc/apt/sources.list" nginx >}}
-server {
-    listen   80;
-    server_name www.example.com example.com;
-    access_log /srv/www/example.com/logs/access.log;
-    error_log /srv/www/example.com/logs/error.log;
-
-    location / {
-        root   /srv/www/example.com/public_html;
-        index  index.html index.htm;
-    }
-}
-
+{{< file-excerpt "/etc/apt/sources.list" >}}
+deb <http://ftp.debian.org/debian> lenny-backports main
 {{< /file-excerpt >}}
 
+Pin the `nginx` package to the `lenny-backports` repository by inserting the following lines in the `/etc/apt/preferences` file (note: you will need to create this file if it doesn't already exist.)
+
+{{< file-excerpt "/etc/apt/preferences" >}}
+Package: nginx Pin: release a=lenny-backports Pin-Priority: 999
+{{< /file-excerpt >}}
+
+Now issue the following commands to update the package manger and install the nginx package and the required dependencies:
+
+    apt-get update
+    apt-get install nginx
+
+At the time of writing, this will install version 0.7.67 of the nginx server. Issue the following command to start nginx for the first time:
+
+    /etc/init.d/nginx start
+
+### Compile nginx from Source
+
+If you want to compile and install nginx from source, issue the following commands to install the prerequisites:
+
+    apt-get install libpcre3-dev build-essential libssl-dev sudo
+
+Check the [nginx download page](http://nginx.org/en/download.html) and ensure that version 1.0.0 is the most recent "stable" version. If not, replace the version specified in the following command sequence with the latest stable version. Issue the following commands to download and install the nginx web server:
+
+    cd /opt/
+    wget http://nginx.org/download/nginx-1.0.0.tar.gz
+    tar -zxvf nginx-1.0.0.tar.gz
+    cd /opt/nginx-1.0.0/
+
+The following `./configure` command will prepare nginx for compilation:
+
+    ./configure --prefix=/opt/nginx --user=nginx --group=nginx --with-http_ssl_module
+
+When the `./configure` command completes it will display the following information regarding the location of important nginx-related files after the installation is completed.
+
+    nginx path prefix: "/opt/nginx"
+    nginx binary file: "/opt/nginx/sbin/nginx"
+    nginx configuration prefix: "/opt/nginx/conf"
+    nginx configuration file: "/opt/nginx/conf/nginx.conf"
+    nginx pid file: "/opt/nginx/logs/nginx.pid"
+    nginx error log file: "/opt/nginx/logs/error.log"
+    nginx http access log file: "/opt/nginx/logs/access.log"
+    nginx http client request body temporary files: "client_body_temp"
+    nginx http proxy temporary files: "proxy_temp"
+    nginx http fastcgi temporary files: "fastcgi_temp"
+
+Issue the following commands to compile and then install the software as specified above:
+
+    make
+    make install
+
+Create a dedicated system user to run the nginx process under by issuing the following command:
+
+    adduser --system --no-create-home --disabled-login --disabled-password --group nginx
+
+Now install and configure the [init script](/docs/assets/549-init-deb.sh) to make it possible to start and stop the web server more easily. Issue the following command sequence:
+
+    wget -O init-deb.sh http://www.linode.com/docs/assets/549-init-deb.sh
+    mv init-deb.sh /etc/init.d/nginx
+    chmod +x /etc/init.d/nginx
+    /usr/sbin/update-rc.d -f nginx defaults
+
+Now, issue the following command to start the web-server:
+
+    /etc/init.d/nginx start
+
+# Configure nginx Virtual Hosting
+
+Regardless of the method you use to install nginx, you will need to configure `server` declarations to specify name-based virtual hosts. There are a number of approaches to organizing configuration files with nginx. Regardless of the organizational strategy, all virtual host configurations are contained within `server` configuration blocks that are in turn contained within the `http` block in the `nginx.conf` file. Consider the following nginx virtual host configuration:
+
+{{< file-excerpt "nginx.conf" >}}
+server {
+	listen   80;
+	server_name www.example.com example.com;
+	access_log /srv/www/example.com/logs/access.log;
+	error_log /srv/www/example.com/logs/error.log;
+
+	location / {
+		root   /srv/www/example.com/public_html;
+		index  index.html index.htm;
+	}
+}
+{{< /file-excerpt >}}
 
 Create the directories referenced in this configuration by issuing the following commands:
 
@@ -128,8 +196,7 @@ Once you've configured and loaded the nginx configuration, restart the web serve
 
 Make sure that the directories referenced in your configuration exist on your file system before restarting.
 
-Deploy PHP with FastCGI
------------------------
+# Deploy PHP with FastCGI
 
 In order to deploy PHP applications, you will need to implement the following "PHP-FastCGI" solution to allow nginx to properly handle and serve pages that contain PHP code. For a more complete introduction to this subject, consider our dedicated guide to [PHP FastCGI with Nginx](/docs/web-servers/nginx/php-fastcgi/debian-5-lenny). Begin the deployment process by issuing the following command to install the required dependencies:
 
@@ -186,7 +253,7 @@ server {
 
 To mitigate this issue, you may wish to modify your configuration to include a `try_files` directive. Please note that this fix requires nginx and the php-fcgi workers to reside on the same server.
 
-~~~ nginx
+{{< file-excerpt "nginx.conf" >}}
 location ~ \.php$ {
     try_files $uri =404;
     include /etc/nginx/fastcgi_params;
@@ -194,11 +261,11 @@ location ~ \.php$ {
     fastcgi_index index.php;
     fastcgi_param SCRIPT_FILENAME /srv/www/example.com/public_html$fastcgi_script_name;
 }
-~~~
+{{< /file-excerpt >}}
 
 Additionally, it's a good idea to secure any upload directories your applications may use. The following configuration excerpt demonstrates securing an "/images" directory.
 
-~~~ nginx
+{{< file-excerpt "nginx.conf" >}}
 location ~ \.php$ {
     include /etc/nginx/fastcgi_params;
     if ($uri !~ "^/images/") {
@@ -207,7 +274,7 @@ location ~ \.php$ {
     fastcgi_index index.php;
     fastcgi_param SCRIPT_FILENAME /srv/www/example.com/public_html$fastcgi_script_name;
 }
-~~~
+{{< /file-excerpt >}}
 
 When you've completed the modifications to the configuration, make sure that the virtual host is enabled and issue the following command to restart the web server:
 
@@ -215,8 +282,7 @@ When you've completed the modifications to the configuration, make sure that the
 
 Congratulations! You can now deploy PHP scripts with your LEMP stack.
 
-Install MySQL Database Server
------------------------------
+# Install MySQL Database Server
 
 The MySQL database engine may be the leading open source relational database engine, and is a popular database solution for web-based applications. Issue the following command to install the MySQL server packages and required PHP support for MySQL:
 
@@ -251,8 +317,7 @@ You may now provide the credentials for the `example` database and the `bagman` 
 
 Congratulations! You now have a fully functional and fully featured LEMP stack for application deployment.
 
-Monitor for Software Updates and Security Notices
--------------------------------------------------
+# Monitor for Software Updates and Security Notices
 
 When running software compiled or installed directly from sources provided by upstream developers, you are responsible for monitoring updates, bug fixes, and security issues. After becoming aware of releases and potential issues, update your software to resolve flaws and prevent possible system compromise. Monitoring releases and maintaining up to date versions of all software is crucial for the security and integrity of a system.
 
@@ -264,8 +329,7 @@ Please follow the announcements, lists, and RSS feeds on the pages linked below 
 
 When upstream sources offer new releases, repeat the instructions for installing nginx, and spawn-fcgi, and recompile your software when needed. These practices are crucial for the ongoing security and functioning of your system.
 
-More Information
-----------------
+# More Information
 
 You may wish to consult the following resources for additional information on this topic. While these are provided in the hope that they will be useful, please note that we cannot vouch for the accuracy or timeliness of externally hosted materials.
 

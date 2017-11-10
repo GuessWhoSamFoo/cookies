@@ -15,7 +15,7 @@ deprecated: true
 ---
 
 {{< caution >}}
-This guide is for legacy Xen Linodes. For newer Linodes, consult our guide on how to [Run a Distribution-Supplied Kernel on a KVM Linode](/docs/tools-reference/custom-kernels-distros/run-a-distribution-supplied-kernel-with-kvm).
+This guide is for legacy Xen Linodes. For newer Linodes, consult our guide on how to [Run a Distribution-Supplied Kernel](/docs/tools-reference/custom-kernels-distros/run-a-distribution-supplied-kernel).
 {{< /caution >}}
 
 PV-GRUB makes it possible to run your own kernel on your Linode, instead of using a host-supplied kernel. This is useful in cases where you'd like to enable specific kernel features, or you'd prefer to handle kernel upgrades directly.
@@ -551,10 +551,9 @@ timeout 10
     {{< file "/boot/grub/menu.lst" >}}
 timeout 5
 title CentOS (2.6.32-431.23.3.el6.x86_64)
-	root (hd0)
-	kernel /boot/vmlinuz-2.6.32-431.23.3.el6.x86_64 root=/dev/xvda
-	initrd /boot/initramfs-2.6.32-431.23.3.el6.x86_64.img
-
+    root (hd0)
+    kernel /boot/vmlinuz-2.6.32-431.23.3.el6.x86_64 root=/dev/xvda
+    initrd /boot/initramfs-2.6.32-431.23.3.el6.x86_64.img
 
 {{< /file >}}
 
@@ -618,8 +617,7 @@ title CentOS (2.6.32-431.23.3.el6.x86_64)
     {{< file "/boot/grub/menu.lst" >}}
 timeout 5
 
-  	title Fedora 17, kernel 3.9.10-100.fc17.x86\_64 root (hd0) kernel /boot/vmlinuz-3.9.10-100.fc17.x86\_64 root=/dev/xvda ro quiet initrd /boot/initramfs-3.9.10-100.fc17.x86\_64.img
-
+title Fedora 17, kernel 3.9.10-100.fc17.x86\_64 root (hd0) kernel /boot/vmlinuz-3.9.10-100.fc17.x86\_64 root=/dev/xvda ro quiet initrd /boot/initramfs-3.9.10-100.fc17.x86\_64.img
 
 {{< /file >}}
 

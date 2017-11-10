@@ -138,7 +138,6 @@ DISABLECLOUD = true
 [MISC]
 CONSOLE_ENABLED = true
 autocompiler_enabled = true
-
 {{< /file >}}
 
 
@@ -149,7 +148,6 @@ autocompiler_enabled = true
 
 cd ./Steam/dstserver/bin
 screen -S "Don't Starve Together Server" ./dontstarve_dedicated_server_nullrenderer
-
 {{< /file >}}
 
     When run, the script will change directories to `~/Steam/dstserver/bin` and execute DST in a [Screen](/docs/networking/ssh/using-gnu-screen-to-manage-persistent-terminal-sessions) session.

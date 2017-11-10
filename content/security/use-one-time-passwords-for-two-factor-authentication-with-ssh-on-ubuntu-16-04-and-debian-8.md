@@ -37,7 +37,7 @@ This guide will explain how to install the necessary software, configure your sy
 
         sudo apt-get update && sudo apt-get upgrade
 
-{{< note >}}
+    {{< note >}}
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 {{< /note >}}
 

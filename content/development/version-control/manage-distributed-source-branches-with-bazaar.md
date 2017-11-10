@@ -20,7 +20,7 @@ Bazaar is a distributed version control system similar to [git](/docs/linux-tool
 
 Like all distributed version control systems, Bazaar can work "offline," and does not require a connection to a central repository to perform commits, consult previous versions of the history, or perform other operations on the local "branch" of project. Publishing "branches" is also straightforward.
 
-This document provides an introduction to all aspects of the Bazaar version control system: beginning with the installation of Bazaar, moving through several standard Bazaar-based workflows and concluding with a review of common Bazaar commands. However, before we begin discussing the use and operating of Bazaar we assume that you have followed our [getting started guide](/docs/getting-started/). If you're new to Linux server administration you may be interested in our [introduction to Linux concepts guide](/docs/tools-reference/introduction-to-linux-concepts), the [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/docs/using-linux/administration-basics).
+This document provides an introduction to all aspects of the Bazaar version control system: beginning with the installation of Bazaar, moving through several standard Bazaar-based workflows and concluding with a review of common Bazaar commands. However, before we begin discussing the use and operating of Bazaar we assume that you have followed our [getting started guide](/docs/getting-started/). If you're new to Linux server administration you may be interested in our [introduction to Linux concepts guide](/docs/tools-reference/introduction-to-linux-concepts), the [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/content/using-linux/administration-basics).
 
 ## Installing Bazaar
 
@@ -58,7 +58,7 @@ The Bazaar developers also provide application builds for [Windows](http://wiki.
 
 ## Using Bazaar to Manage Projects
 
-This section covers many common operations and tasks that you may encounter during typical Bazaar usage. This will guide you through common Bazaar workflows: beginning with branch creation creating a branch, continuing with creating commits to that branch and an overview of common usage scenarios, and finally concluding with branch publication. Consider the following section for a more direct guide to individual [Bazaar commands](#common_bazaar_commands).
+This section covers many common operations and tasks that you may encounter during typical Bazaar usage. This will guide you through common Bazaar workflows: beginning with branch creation creating a branch, continuing with creating commits to that branch and an overview of common usage scenarios, and finally concluding with branch publication. Consider the following section for a more direct guide to individual [Bazaar commands](/docs/development/version-control/manage-distributed-source-branches-with-bazaar#common-bazaar-commands).
 
 ### Initializing a Project and Creating Commits
 

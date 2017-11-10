@@ -28,7 +28,7 @@ Before you enable two-factor authentication in the Linode Manager, you should se
 -   [Google Authenticator](http://support.google.com/accounts/bin/answer.py?hl=en&answer=1066447) (iPhone/Android/BlackBerry)
 -   [Duo Mobile](http://guide.duosecurity.com/third-party-accounts) (iPhone/Android)
 -   [Amazon AWS MFA](https://aws.amazon.com/iam/details/mfa/) (Android)
--   [Authomator](https://appworld.blackberry.com/webstore/content/22517879/?lang=en) (BlackBerry 10)
+-   [Authomator](https://appworld.blackberry.com/webstore/docs/22517879/?lang=en) (BlackBerry 10)
 
 Install one of these applications on your smartphone before continuing.
 
@@ -241,4 +241,4 @@ Organizations that have multiple individuals accessing the same Linode Manager a
 
 ### Forcing Password Expirations
 
-Some organizations have policies that require users to change their passwords every so often. The Linode Manager can be configured to force users to change their passwords every 1, 3, 6, or 12 months. For more information, see the documentation on [Passwords in the Linode Manager](/docs/accounts-and-passwords#sph_passwords).
+Some organizations have policies that require users to change their passwords every so often. The Linode Manager can be configured to force users to change their passwords every 1, 3, 6, or 12 months. For more information, see the documentation on [Passwords in the Linode Manager](/docs/platform/accounts-and-passwords/#passwords).

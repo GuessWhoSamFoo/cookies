@@ -236,7 +236,7 @@ This runs a vmstat every second, twenty times, giving a sample of the current st
      0  0      4  33388  47888 110912    0    0 0     0   89  144  0  0 100  0
      0  0      4  33380  47888 110912    0    0 0     0  181  185  0  0 99  0
 
-The memory and swap columns provide the same kind of information provided by the "[free -m](#check_current_memory_usage)" command, albeit in a slightly harder to understand format. The most relevant information produced by this command is the `wa` column, which is the final column in most implementations. This field displays the amount of time the CPU spends waiting for I/O operations to complete.
+The memory and swap columns provide the same kind of information provided by the "[free -m](#check-current-memory-usage)" command, albeit in a slightly harder to understand format. The most relevant information produced by this command is the `wa` column, which is the final column in most implementations. This field displays the amount of time the CPU spends waiting for I/O operations to complete.
 
 If this number is consistently and considerably higher than 0, you might consider taking measures to address your IO usage. However, if the `vmstat` output resembles the above, you can be sure in the knowledge that you're not experiencing an IO-related issues.
 
@@ -265,7 +265,7 @@ You can quit at any time by pressing the `F10` or `Q` keys. There are a couple o
 
 Web developers and editors often use the FTP protocol to transfer and manage files on a remote system. FTP, however, is very insecure and inefficient for managing the files on a system when you have SSH access.
 
-If you're new to Linux systems administration, consider our "[Tools & Reference](/docs/tools-reference/)" section and articles including: [installing and using WinSCP](/docs/networking/file-transfer/transfer-files-winscp), [using rsync to synchronize files](/docs/linux-tools/utilities/rsync) and [using SSH and the terminal](/docs/using-linux/using-the-terminal).
+If you're new to Linux systems administration, consider our "[Tools & Reference](/docs/tools-reference/)" section and articles including: [installing and using WinSCP](/docs/networking/file-transfer/transfer-files-winscp), [using rsync to synchronize files](/docs/linux-tools/utilities/rsync) and [using SSH and the terminal](/content/using-linux/using-the-terminal).
 
 {{< caution >}}
 If you are giving other users access to upload files to your server, consider the [security implications](/docs/security/basics) of all additional access that you grant to third parties.
@@ -342,7 +342,7 @@ To **delete** a file:
 
 This will delete the `scratch.txt` file from the current directory.
 
-For more information about file system navigation and manipulation, please consider our documentation of [file system navigation](/docs/using-linux/using-the-terminal#file-system-navigation).
+For more information about file system navigation and manipulation, please consider our documentation of [file system navigation](/docs/tools-reference/ssh/using-the-terminal/#file-system-navigation).
 
 ## Package Management
 

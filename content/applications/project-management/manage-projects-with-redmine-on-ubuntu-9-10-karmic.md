@@ -20,18 +20,16 @@ Redmine is a popular open source project management system. Written in Ruby on R
 
 We assume you've already followed the steps outlined in our [getting started guide](/docs/getting-started/). Please make sure you're logged into your Linode as root via an SSH session before proceeding. Throughout this guide, we use the example domain "example.com"; please be sure to substitute your own domain name for each step.
 
-Set the Hostname
-----------------
+# Set the Hostname
 
-Before you begin installing and configuring the components described in this guide, please make sure you've followed our instructions for [setting your hostname](/docs/getting-started#sph_set-the-hostname). Issue the following commands to make sure it is set properly:
+Before you begin installing and configuring the components described in this guide, please make sure you've followed our instructions for [setting your hostname](/docs/getting-started#setting-the-hostname). Issue the following commands to make sure it is set properly:
 
     hostname
     hostname -f
 
 The first command should show your short hostname, and the second should show your fully qualified domain name (FQDN).
 
-Enable Package Repositories
----------------------------
+# Enable Package Repositories
 
 Edit the file /etc/apt/sources.list and uncomment the `universe` repositories if they're not already enabled. Your repository list should resemble this:
 
@@ -61,8 +59,7 @@ Issue the following commands to update your local package database and install a
     apt-get update
     apt-get upgrade --show-upgraded
 
-Nginx Installation and Configuration
-------------------------------------
+# Nginx Installation and Configuration
 
 ### Install Prerequisite Packages
 
@@ -121,8 +118,7 @@ Nginx is now installed in `/opt/nginx`, but we need a way of controlling it. Iss
 
 You can now start, stop, and restart Nginx like any other server daemon.
 
-Proxying Redmine with Apache
-----------------------------
+# Proxying Redmine with Apache
 
 If you're already running Apache on your Linode, you'll need to tell nginx to run on a different port and proxy requests for your Redmine installation back to it. If you're running another web server, you'll need to perform similar steps to modify its configuration to support this. This section is entirely optional, and only applies to Apache users.
 
@@ -132,7 +128,7 @@ Issue the following commands to enable proxy support:
     a2enmod proxy_http
     /etc/init.d/apache2 restart
 
-Configure an Apache virtualhost for your Redmine installation. The example shown below assumes Apache is configured as recommended in our [Ubuntu 9.10 LAMP guide](/docs/lamp-guides/ubuntu-9.10-karmic/). Remember to replace "12.34.56.78" with your Linode's IP address.
+Configure an Apache virtualhost for your Redmine installation. The example shown below assumes Apache is configured as recommended in our [Ubuntu 9.10 LAMP guide](/docs/lamp-guides/ubuntu-9-10-karmic/). Remember to replace "12.34.56.78" with your Linode's IP address.
 
 {{< file "/etc/apache2/sites-available/redmine.example.com" apache >}}
 <VirtualHost 12.34.56.78:80>
@@ -161,8 +157,7 @@ listen 8080;
 {{< /file-excerpt >}}
 
 
-Installing and Configuring Redmine
-----------------------------------
+# Installing and Configuring Redmine
 
 ### Obtain Redmine
 
@@ -316,8 +311,7 @@ Start nginx:
 
 Your Redmine installation should be accessible at `http://redmine.example.com`; if you encounter issues, please refer to your log files for a listing of any errors that may have occurred. The default login is username "admin" and password "admin". Congratulations, you've installed Redmine for project management on your Linode!
 
-Monitor for Software Updates and Security Notices
--------------------------------------------------
+# Monitor for Software Updates and Security Notices
 
 When running software compiled or installed directly from sources provided by upstream developers, you are responsible for monitoring updates, bug fixes, and security issues. After becoming aware of releases and potential issues, update your software to resolve flaws and prevent possible system compromise. Monitoring releases and maintaining up to date versions of all software is crucial for the security and integrity of a system.
 
@@ -328,8 +322,7 @@ Please monitor the Redmine project issue queue and news feed to ensure that you 
 
 When upstream sources offer new releases, repeat the instructions for installing Redmine software as needed. These practices are crucial for the ongoing security and functioning of your system.
 
-More Information
-----------------
+# More Information
 
 You may wish to consult the following resources for additional information on this topic. While these are provided in the hope that they will be useful, please note that we cannot vouch for the accuracy or timeliness of externally hosted materials.
 

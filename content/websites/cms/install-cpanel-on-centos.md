@@ -6,26 +6,28 @@ description: 'Use cPanel to manage services on your CentOS Linode.'
 keywords: ["cpanel", "Linode control panel", "install cpanel", "cpanel centos"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 aliases: ['web-applications/control-panels/cpanel/centos-6/','websites/cms/cpanel-on-centos-6-5/','websites/cms/cpanel-on-centos-5/','websites/cms/cpanel-on-centos/']
-modified: 2016-09-07
+modified: 2017-11-08
 modified_by:
   name: Edward Angert
-published:
+published: 2016-09-07
 title: Install cPanel on CentOS
 external_resources:
  - '[cPanel Home Page](https://www.cpanel.com/)'
  - '[cPanel Support](https://www.cpanel.com/support/)'
 ---
 
+![Install cPanel on CentOS](/docs/assets/install-cpanel-on-centos/Install_cPanel_smg.jpg)
+
 [cPanel](http://cpanel.com) is a commercial web-based control panel for server systems. It can help ease the burden of common system administration tasks such as website creation, database deployment and management, and more. This guide will help you get up and running with cPanel on your CentOS Linode.
 
-<div class="panel panel-warning">
-**Linode does not sell cPanel licenses**
-{{< panel-heading >}}
-<div class="panel-body">
-You'll need to [obtain a VPS license directly from cPanel](https://store.cpanel.net/view/cpanel/license-options) or an authorized distributor. Additionally, Linode does not provide cPanel support, although you may contact [cPanel support](https://www.cpanel.com/support/) directly once you've purchased a license. This product **must** be installed on a freshly deployed CentOS Linode. These instructions should be performed as the `root` user via SSH.
-{{< /panel-heading >}}
 
-</div></div>
+{{< note >}}
+
+**Linode does not sell cPanel licenses**
+
+You'll need to [obtain a VPS license directly from cPanel](https://store.cpanel.net/view/cpanel/license-options) or an authorized distributor. Additionally, Linode does not provide cPanel support, although you may contact [cPanel support](https://www.cpanel.com/support/) directly once you've purchased a license. This product **must** be installed on a freshly deployed CentOS Linode. These instructions should be performed as the `root` user via SSH.
+{{< /note >}}
+
 
 ## DNS Prerequisites
 
@@ -34,6 +36,10 @@ cPanel includes options for hosting your own DNS services. We generally recommen
 Should you wish to provide DNS services, you'll need to add *A records* for your nameservers in your WHM as described in the [DNS on cPanel guide](/docs/websites/cms/set-up-dns-services-on-cpanel/#nameserver-selection).
 
 If you plan to use a domain name for nameservers for which you will also be hosting DNS services, you'll need to ask your domain name registrar to create [DNS glue records](http://en.wikipedia.org/wiki/Domain_Name_System#Circular_dependencies_and_glue_records) based on your Linode's IP addresses before proceeding.
+
+## Kernel Prerequisites
+
+cPanel needs to run on the CentOS kernel. To configure your Linode to boot the CentOS kernel instead of the default Linode kernel, edit the CentOS configuration profile and select GRUB2 from the Boot Settings menu. Save the changes and reboot your Linode. For more information, [see our guide](/docs/tools-reference/custom-kernels-distros/run-a-distribution-supplied-kernel#recommended-distributions) on running the distribution-supplied kernel on a Linode.
 
 ## Install cPanel
 
@@ -130,3 +136,4 @@ Step 5 of the cPanel installation covers configuration options for additional cP
 5. Click on **Finish Setup Wizard**. You will be brought to the *Feature Showcase* page, where you can enable additional features offered by cPanel. After reviewing these options, you can click on **Save Settings** to enable extra features, or **Exit to WHM**.
 
 That's it! cPanel should now be properly configured on your Linode. For product support, please be sure to contact [cPanel support](http://cpanel.net/support.html) with any further questions you may have.
+

@@ -10,4 +10,3 @@ title: Cloud Storage
 show_in_lists: true
 ---
 
-Cloud storage

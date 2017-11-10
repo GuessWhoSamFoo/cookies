@@ -1,33 +1,6 @@
-# DocSmith
+Linode Guides and Tutorials
+====================
 
-### Installation
+This repository contains all the tutorials featured at [linode.com/docs](https://linode.com/docs). Please feel free to contribute by suggesting document improvements, identifying corrections, or submitting updates.
 
-To preview the site you need `Hugo` installed, version `0.29` or higher. See: https://gohugo.io/getting-started/installing
-
-To make changes to styles or script, you need Gulp installed, see https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md
-
-## Build
-
-### Development
-
-For development, use the convenient `dev` task.
-
-```bash
-gulp dev
-```
-
-Will both start a Hugo server and build and reload changes for both Hugo files (content, layouts, static files) and assets such as JavaScript and LESS files.
-
-
-### Production and test
-
-The Gulp task `publish` does everything, i.e. builds assets and the Hugo site and pushes the changed files to the web server.
-
-```bash
-gulp publish --test
-````
-
-
-```bash
-gulp publish --production
-````
+If you'd like to write for us, please apply via our [contributing page](https://linode.com/docs/contribute). Then, see the [Linode Writer's Formatting Guide](https://www.linode.com/docs/linode-writers-formatting-guide) for more information regarding content and formatting.

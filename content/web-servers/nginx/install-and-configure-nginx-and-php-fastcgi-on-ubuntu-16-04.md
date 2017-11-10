@@ -43,10 +43,6 @@ The steps in this guide require root privileges. Be sure to run the steps below 
 
       sudo apt-get update && sudo apt-get upgrade
 
-{{< note >}}
-This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Linux Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
-{{< /note >}}
-
 ## Install nginx, PHP for Processing, and Required Packages
 
 Install the nginx web server and PHP dependencies:

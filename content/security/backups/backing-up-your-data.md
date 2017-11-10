@@ -311,7 +311,7 @@ Windows is a bit different. You'll need to install a lot of tools that are avail
 
 Here's how to set up automatic backups of your Linode to a Windows desktop computer:
 
-1.  Install cwRsync. You can [get the latest free version here](https://www.itefix.no/i2/content/cwrsync-free-edition) (grab the top one, not the server version).
+1.  Install cwRsync. You can [get the latest free version here](https://www.itefix.no/i2/docs/cwrsync-free-edition) (grab the top one, not the server version).
 2.  It's important that the SSH key runs as the same user as cwRsync, so first we'll go to that directory. In the Windows command prompt, navigate to the folder where you installed cwRsync. For example:
 
         cd C:\Program Files (x86)\cwRsync\bin

@@ -18,18 +18,16 @@ The nginx web server is a fast, lightweight server designed to efficiently handl
 
 It is assumed that you've already followed the steps outlined in our [getting started guide](/docs/getting-started/). These steps should be performed via a root login to your Linode over SSH.
 
-Set the Hostname
-----------------
+# Set the Hostname
 
-Before you begin installing and configuring the components described in this guide, please make sure you've followed our instructions for [setting your hostname](/docs/getting-started#sph_set-the-hostname). Issue the following commands to make sure it is set properly:
+Before you begin installing and configuring the components described in this guide, please make sure you've followed our instructions for [setting your hostname](/docs/getting-started#setting-the-hostname). Issue the following commands to make sure it is set properly:
 
     hostname
     hostname -f
 
 The first command should show your short hostname, and the second should show your fully qualified domain name (FQDN).
 
-Install Required Packages
--------------------------
+# Install Required Packages
 
 Issue the following commands to update your system and install the nginx web server, PHP, and compiler tools:
 
@@ -41,8 +39,7 @@ Issue the following commands to update your system and install the nginx web ser
 
 Once the installation process finishes, you may wish to make sure nginx is running by browsing to your Linode's IP address (found on the "Remote Access" tab in the [Linode Manager](http://manager.linode.com//)). You should get the default ngnix page.
 
-Configure Your Site
--------------------
+# Configure Your Site
 
 In this guide, the domain "example.com" will be used for an example site. You should substitute your own domain name in the configuration steps that follow. First, create directories to hold your content and log files:
 
@@ -92,7 +89,7 @@ server {
 
 To mitigate this issue, you may wish to modify your configuration to include a `try_files` directive. Please note that this fix requires nginx and the php-fcgi workers to reside on the same server.
 
-~~~ nginx
+{{< file-excerpt "/etc/nginx/sites-available/www.example.com" nginx >}}
 location ~ \.php$ {
     try_files $uri =404;
     include /etc/nginx/fastcgi_params;
@@ -100,11 +97,11 @@ location ~ \.php$ {
     fastcgi_index index.php;
     fastcgi_param SCRIPT_FILENAME /srv/www/www.example.com/public_html$fastcgi_script_name;
 }
-~~~
+{{< /file-excerpt >}}
 
 Additionally, it's a good idea to secure any upload directories your applications may use. The following configuration excerpt demonstrates securing an "/images" directory.
 
-~~~ nginx
+{{< file-excerpt "/etc/nginx/sites-available/www.example.com" nginx >}}
 location ~ \.php$ {
     include /etc/nginx/fastcgi_params;
     if ($uri !~ "^/images/") {
@@ -113,7 +110,7 @@ location ~ \.php$ {
     fastcgi_index index.php;
     fastcgi_param SCRIPT_FILENAME /srv/www/www.example.com/public_html$fastcgi_script_name;
 }
-~~~
+{{< /file-excerpt >}}
 
 After reviewing your configuration for potential security issues, issue the following commands to enable the site:
 
@@ -123,8 +120,7 @@ After reviewing your configuration for potential security issues, issue the foll
 
 You may wish to create a test HTML page under `/srv/www/www.example.com/public_html/` and view it in your browser to verify that nginx is properly serving your site (PHP will not work yet). Please note that this will require an [entry in DNS](/docs/dns-guides/configuring-dns-with-the-linode-manager) pointing your domain name to your Linode's IP address.
 
-Configure spawn-fcgi
---------------------
+# Configure spawn-fcgi
 
 Issue the following command sequence to download scripts to control spawn-fcgi and php-fastcgi, set privileges, make the init script run at startup, and launch it for the first time:
 
@@ -139,8 +135,7 @@ Issue the following command sequence to download scripts to control spawn-fcgi a
     chkconfig php-fastcgi on
     /etc/init.d/php-fastcgi start
 
-Test PHP with FastCGI
----------------------
+# Test PHP with FastCGI
 
 Create a file called "test.php" in your site's "public\_html" directory with the following contents:
 
@@ -152,8 +147,7 @@ Create a file called "test.php" in your site's "public\_html" directory with the
 
 When you visit `http://www.example.com/test.php` in your browser, the standard "PHP info" output is shown. Congratulations, you've configured the nginx web server to use PHP-FastCGI for dynamic content!
 
-More Information
-----------------
+# More Information
 
 You may wish to consult the following resources for additional information on this topic. While these are provided in the hope that they will be useful, please note that we cannot vouch for the accuracy or timeliness of externally hosted materials.
 

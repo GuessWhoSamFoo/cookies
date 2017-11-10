@@ -21,9 +21,9 @@ external_resources:
 
 OpenVPN, or Open Virtual Private Network, is a tool for creating networking tunnels between and among groups of computers that are not on the same local network. This is useful if you want to remotely access services on a local network without making them publicly accessible. By integrating with OpenSSL, OpenVPN can encrypt all VPN traffic to provide a secure connection between machines.
 
-Before installing OpenVPN, we assume that you have followed our [Getting Started Guide](/docs/getting-started/). If you're new to Linux server administration you may be interested in our [Introduction to Linux Concepts Guide](/docs/tools-reference/introduction-to-linux-concepts), [Beginner's Guide](/docs/beginners-guide/) and [Administration Basics Guide](/docs/using-linux/administration-basics). If you're concerned about securing on your Linode, you might be interested in our [Security Basics](/docs/security/basics) article as well.
+Before installing OpenVPN, we assume that you have followed our [Getting Started Guide](/docs/getting-started/). If you're new to Linux server administration you may be interested in our [Introduction to Linux Concepts Guide](/docs/tools-reference/introduction-to-linux-concepts), [Beginner's Guide](/docs/beginners-guide/) and [Administration Basics Guide](/content/using-linux/administration-basics). If you're concerned about securing on your Linode, you might be interested in our [Security Basics](/content/security/basics) article as well.
 
- {{< note >}}
+{{< note >}}
 For many private networking tasks, we suggest that you consider the functions of the OpenSSH package which can provide easier VPN and VPN-like services. OpenSSH is also installed and configured by default on all Linodes. For example, see [Using SSHFS on Linux and MacOS X](/docs/networking/ssh-filesystems) or our guide on [Setting up an SSH Tunnel](/docs/networking/ssh/setting-up-an-ssh-tunnel-with-your-linode-for-safe-browsing) for more information. Nevertheless, if your deployment requires a more traditional VPN solution like OpenVPN, this document covers the installation and configuration of the OpenVPN software.
 {{< /note >}}
 
@@ -132,7 +132,7 @@ This will be followed by a quantity of seemingly random output. Once it brings y
 
 Move all of the secure keys to their proper locations by following these instructions:
 
-1.  The `/etc/openvpn/easy-rsa/keys/` directory contains all of the keys and certificates for the server and its clients generated using the `easy-rsa` tools. Copy the following certificate and key files to the remote client machines, using **scp** or another [means of transferring](/docs/using-linux/administration-basics#how_to_upload_files_to_a_remote_server):
+1.  The `/etc/openvpn/easy-rsa/keys/` directory contains all of the keys and certificates for the server and its clients generated using the `easy-rsa` tools. Copy the following certificate and key files to the remote client machines, using **scp** or another [means of transferring](/docs/tools-reference/linux-system-administration-basics#upload-files-to-a-remote-server):
 
     -   `ca.crt`
     -   `client1.crt`

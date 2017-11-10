@@ -178,7 +178,6 @@ We'll use three 2GB Linodes with hostnames `galera1`, `galera2`, and `galera3` a
 192.168.1.2    galera1.yourdomain.com    galera1
 192.168.3.4    galera2.yourdomain.com    galera2
 192.168.5.6    galera3.yourdomain.com    galera3
-
 {{< /file-excerpt >}}
 
 
@@ -490,7 +489,7 @@ No additional Linodes will be created in this section, and all configuration wil
     yum install keepalived
 
 {{< caution >}}
-Make sure that [Network Helper](https://www.linode.com/docs/platform/network-helper) is turned **OFF** on your database nodes before proceeding.
+Make sure that [Network Helper](/docs/platform/network-helper) is turned **OFF** on your database nodes before proceeding.
 {{< /caution >}}
 
 ### Configure IP Failover
@@ -671,5 +670,4 @@ For more information on DNS configuration, refer to our [introduction to DNS rec
 
 ## Configuration Management
 
-Because a high availability configuration involves so many different components, you may want to consider additional software to help you manage the cluster and create new nodes when necessary. For more information on the options available for managing your nodes, see our guides on [Salt](https://www.linode.com/docs/applications/salt/install-salt), [Chef](https://www.linode.com/docs/applications/chef/beginners-guide-chef), [Puppet](https://www.linode.com/docs/applications/puppet/set-up-puppet-master-agent), and [Ansible](https://www.linode.com/docs/applications/ansible/getting-started-with-ansible). You can also refer to our guide on [Automating Server Builds](https://www.linode.com/docs/platform/automating-server-builds) for an overview of how to choose a solution that is right for you.
-
+Because a high availability configuration involves so many different components, you may want to consider additional software to help you manage the cluster and create new nodes when necessary. For more information on the options available for managing your nodes, see our guides on [Salt](https://www.linode.com/docs/applications/salt/install-salt), [Chef](https://www.linode.com/docs/applications/chef/beginners-guide-chef), [Puppet](https://www.linode.com/docs/applications/puppet/set-up-puppet-master-agent), and [Ansible](https://www.linode.com/content/applications/ansible/getting-started-with-ansible). You can also refer to our guide on [Automating Server Builds](https://www.linode.com/content/platform/automating-server-builds) for an overview of how to choose a solution that is right for you.

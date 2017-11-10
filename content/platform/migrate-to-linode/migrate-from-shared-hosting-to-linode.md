@@ -17,7 +17,7 @@ title: Migrate from Shared Hosting to Linode
 
 This guide walks you through the steps to migrate your website from a shared hosting provider to a Linode running a LAMP stack. A Linode server gives you much more power and flexibility than a shared host, but these advantages come at the cost of increased complexity and system administration responsibility.
 
-The biggest change between shared hosting and Linode's cloud is that with Linode you have full administrative access to the server without intervention. This means that you will be solely responsible for keeping your software updated and your valuable data backed up. Our [Guides and Tutorials](/docs/) area contains all of the information you'll need for basic [server administration](/docs/tools-reference/linux-system-administration-basics), [security hardening](/docs/security/securing-your-server) and [system backups](/docs/security/backups/backing-up-your-data).
+The biggest change between shared hosting and Linode's cloud is that with Linode you have full administrative access to the server without intervention. This means that you will be solely responsible for keeping your software updated and your valuable data backed up. Our [Guides and Tutorials](/docs/) area contains all of the information you'll need for basic [server administration](/docs/tools-reference/linux-system-administration-basics), [security hardening](/docs/security/securing-your-server) and [system backups](/content/security/backups/backing-up-your-data).
 
 ## Before You Begin
 
@@ -49,7 +49,7 @@ When changing servers, however, you want a shorter TTL to make sure that when yo
 
 4.  Adjust your TTL to its shortest setting. For example, 300 seconds is equal to 5 minutes, so that's a good choice if it's available.
 
-5.  Make sure you wait out the original TTL from Step 3 before actually moving your domain. In the meantime, you can continue through this guide to back up your data, deploy your Linode and upload your website. For more information on domain TTL, see our [DNS guide](/docs/networking/dns/dns-manager#setting-the-time-to-live-or-ttl).
+5.  Make sure you wait out the original TTL from Step 3 before actually moving your domain. In the meantime, you can continue through this guide to back up your data, deploy your Linode and upload your website. For more information on domain TTL, see our [DNS guide](/docs/networking/dns/dns-manager-overview/#set-the-time-to-live-or-ttl).
 
 {{< note >}}
 If you can't shorten your TTL, it's not the end of the world. The first day or two of your transition to Linode may be a little bumpy, but your updated domain information will eventually spread throughout the internet, and in less than a week you won't notice any difference.
@@ -109,7 +109,7 @@ The next step is to build the software environment needed for your site to funct
     *  Distribution: Choose your preferred Linux distro. If you are relatively new to Linux, the newest Ubuntu LTS is a good start because it has five-year release cycles and widely available support.
     *  Deployment Disk Size: Leave the default setting.
     *  Swap Disk: Leave the default setting.
-    *  Root password: Not to be confused with the MySQL root user's password, this root password is the master key to your Linode. You want a strong password here, and ideally, to later remove password access to your Linode in exchange for [SSH key authentication](/docs/security/securing-your-server#using-ssh-key-pair-authentication).
+    *  Root password: Not to be confused with the MySQL root user's password, this root password is the master key to your Linode. You want a strong password here, and ideally, to later remove password access to your Linode in exchange for [SSH key authentication](/docs/security/securing-your-server#create-an-authentication-key-pair).
 
 4.  Click the **Deploy** button. You will be redirected to your Linode's **Dashboard**. Watch the **Host Job Queue**. You should see a number of jobs in progress.
 
@@ -151,7 +151,7 @@ Once you've installed all the underlying software for your Linode, you can uploa
 `example_user` should be the user on your Linode you want to log in as, and `example.com` should be replaced by your domain name.
 {{< /note >}}
 
-    If you have a database, you'll need to upload it to your Linode. If you're more comfortable using a control panel, you may want to [install phpMyAdmin](/docs/search?q=phpmyadmin) at this point. You can also [restore your database](/docs/security/backups/back-up-your-mysql-databases/#restoring-an-entire-dbms-from-backup) using the command line.
+    If you have a database, you'll need to upload it to your Linode. If you're more comfortable using a control panel, you may want to [install phpMyAdmin](/docs/databases/mysql/) at this point. You can also [restore your database](/docs/databases/mysql/back-up-your-mysql-databases/#restoring-an-entire-dbms-from-backup) using the command line.
 
 3.  Now check your website's IP address in your browser. Your website should be displayed.
 

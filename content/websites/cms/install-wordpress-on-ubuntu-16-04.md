@@ -80,8 +80,9 @@ Replace each instance of `example.com` in this guide with your site's domain nam
 
         sudo mv latest.tar.gz wordpress-`date "+%Y-%m-%d"`.tar.gz
 
-5.  Move the WordPress files to your `public_html` folder:
+5.  Create a `public_html` directory to be the root directory for WordPress. Move the WordPress files to your `public_html` folder:
 
+        sudo mkdir /var/www/html/example.com/public_html/
         sudo mv wordpress/* ../public_html/
 
 6.  Give your web server ownership of the `public_html` folder:
@@ -176,15 +177,13 @@ location / {
 
 By default, PHP restricts web uploads to under two megabytes. To allow larger file uploads through the web interface, configure the `upload_max_filesize` setting in `php.ini`:
 
-**Apache**: `/etc/php/7.0/cli/php.ini`
+**Apache**: `/etc/php/7.0/apache2/php.ini`
 **nginx**: `/etc/php/7.0/fpm/php.ini`
 
-{{< file-excerpt >}}
-:  ~~~ php
-   ; Maximum allowed size for uploaded files.
-   ; http://php.net/upload-max-filesize
-   upload_max_filesize = 2M
-   ~~~
+    {{< file-excerpt php >}}
+; Maximum allowed size for uploaded files.
+; http://php.net/upload-max-filesize
+upload_max_filesize = 2M
 {{< /file-excerpt >}}
 
 ## Install Optional PHP Extensions

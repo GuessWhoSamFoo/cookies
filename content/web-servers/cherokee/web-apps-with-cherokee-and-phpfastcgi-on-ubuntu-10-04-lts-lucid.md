@@ -22,18 +22,16 @@ This tutorial explains how to configure Cherokee to serve dynamic content with P
 
 This document assumes that you already have a working and up to date Ubuntu 10.04 system. If you have not followed our [getting started](/docs/getting-started/) guide, it is recommended that you do so prior to following these instructions.
 
-Prerequisites
--------------
+# Prerequisites
 
 Make sure your repositories and packages are up to date by issuing the following commands:
 
     apt-get update
     apt-get upgrade
 
-If you haven't already installed Cherokee, please follow our [Ubuntu 10.04 Cherokee installation](/docs/web-servers/cherokee/installing-cherokee-ubuntu-10.04-lucid) guide before continuing with these instructions.
+If you haven't already installed Cherokee, please follow our [Ubuntu 10.04 Cherokee installation](/docs/web-servers/cherokee/installing-cherokee-ubuntu-10-04-lucid) guide before continuing with these instructions.
 
-Install Required Packages
--------------------------
+# Install Required Packages
 
 Issue the following commands to install support for PHP and FastCGI:
 
@@ -51,8 +49,7 @@ Issue the following sequence of commands to create scripts to control `spawn-fcg
     update-rc.d php-fastcgi defaults
     /etc/init.d/php-fastcgi start
 
-Configure Your Site
--------------------
+# Configure Your Site
 
 Create directories for your site by issuing the following commands. Substitute your domain name for "mydomain.com" in these commands.
 
@@ -60,7 +57,7 @@ Create directories for your site by issuing the following commands. Substitute y
     mkdir /srv/www/mydomain.com/www/logs
     chown -R www-data:www-data /srv/www/mydomain.com
 
-If you haven't already done so, start the Cherokee administration program by issuing the following command. Alternately, you may wish to follow our instructions for [secure Cherokee admin access](/docs/web-servers/cherokee/installing-cherokee-ubuntu-10.04-lucid#secure_admin_panel_access).
+If you haven't already done so, start the Cherokee administration program by issuing the following command. Alternately, you may wish to follow our instructions for [secure Cherokee admin access](/docs/web-servers/cherokee/websites-with-the-cherokee-web-server-on-ubuntu-10-04-lts-lucid/#secure-admin-panel-access).
 
     cherokee-admin -b &
 
@@ -110,8 +107,7 @@ On the "Encoding" tab, enable gzip/deflate compression:
 
 [![PHP-FastCGI gzip/deflate compression settings in Cherokee admin panel on Ubuntu 10.04 LTS](/docs/assets/250-11-cherokee-ubuntu-10-04-virtual-servers-encoding.png)](/docs/assets/250-11-cherokee-ubuntu-10-04-virtual-servers-encoding.png)
 
-Test Your Configuration
------------------------
+# Test Your Configuration
 
 Restart Cherokee by clicking the "Save" button under the left page navigation list. Once Cherokee has restarted, create a test PHP script as follows:
 
@@ -123,8 +119,7 @@ Restart Cherokee by clicking the "Save" button under the left page navigation li
 
 Visit "/test.php" on your site to verfify PHP-FastCGI is operating correctly. You should see the standard PHPInfo page. Congratulations, you've successfully configured PHP-FastCGI for dynamic content using the Cherokee web server!
 
-More Information
-----------------
+# More Information
 
 You may wish to consult the following resources for additional information on this topic. While these are provided in the hope that they will be useful, please note that we cannot vouch for the accuracy or timeliness of externally hosted materials.
 

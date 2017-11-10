@@ -1,10 +1,11 @@
 import pytest
+
 import logging
 import scrapy
-from scrapy.crawler import CrawlerProcess
 from scrapy import Item, Field
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
+from scrapy.crawler import CrawlerProcess
 
 class Docs404Item(Item):
     referer = Field()
@@ -14,12 +15,16 @@ class Docs404Item(Item):
 class Docs404Spider(CrawlSpider):
 
     def __init__(self, *args, **kwargs):
-        loggers = ['scrapy.core.engine', 'scrapy.downloadermiddlewares.redirect']
+        loggers = ['scrapy.core.engine',
+                   'scrapy.downloadermiddlewares.redirect',
+                   'scrapy.spidermiddlewares.offsite',
+                   'scrapy.middleware']
         for l in loggers:
             logger = logging.getLogger(l)
             logger.setLevel(logging.WARNING)
         super().__init__(*args, **kwargs)
 
+#    Delay if server is returning lots of 500s
 #    DOWNLOAD_DELAY=0.1
     name = 'docs404'
     allowed_domains = ['localhost' ]
@@ -27,7 +32,8 @@ class Docs404Spider(CrawlSpider):
     handle_httpstatus_list = [404]
 
     rules = (
-        Rule(LinkExtractor(allow=r'/docs/'), callback='parse_item', follow=True),
+        Rule(LinkExtractor(allow=r'/docs/', deny=r'/docs/contribute'),
+             callback='parse_item', follow=True),
     )
 
     def parse_item(self, response):
@@ -42,7 +48,7 @@ class Docs404Spider(CrawlSpider):
 
 def test_404():
     import os
-    process = CrawlerProcess({ 'USER_AGENT': 'docs404', 
+    process = CrawlerProcess({ 'USER_AGENT': 'docs404',
                                'FEED_URI': 'temp.csv',
                                'FEED_FORMAT': 'csv' })
     process.crawl(Docs404Spider)

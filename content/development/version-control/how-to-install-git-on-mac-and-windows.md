@@ -26,7 +26,7 @@ This guide explains how to install the latest, stable, prepackaged version `git`
 
 For more information about using and configuring Git, see our [Getting Started with Git](/docs/development/version-control/how-to-configure-git/) guide.
 
- {{< note >}}
+{{< note >}}
 This guide will use `sudo` wherever possible. Complete the sections of our [Securing Your Server](/docs/security/securing-your-server) to create a standard user account.
 {{< /note >}}
 

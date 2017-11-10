@@ -105,7 +105,7 @@ In order for Linode's DNS servers to function as slaves, your DNS master server 
 2a01:7e00::a
 {{< /note >}}
 
-If you selected the option to have the DNS Manager insert basic DNS records, those records will be visible, as shown above. If you elected to keep the zone empty, you can start adding DNS records now. Skip to the [Adding DNS Records](#adding-1) section for instructions.
+If you selected the option to have the DNS Manager insert basic DNS records, those records will be visible, as shown above. If you elected to keep the zone empty, you can start adding DNS records now. Skip to the [Adding DNS Records](/docs/networking/dns/dns-manager-overview#add-records) section for instructions.
 
 [![This page lets you add specific DNS records.](/docs/assets/1121-dns9.png)](/docs/assets/1121-dns9.png)
 
@@ -129,7 +129,7 @@ The exact form fields will vary depending on the type of DNS record you select.
     ![This page allows you to create a new A/AAAA record.](/docs/assets/1122-dns10.png)
 
 3.  Enter a hostname in the **Hostname** field.
-4.  Enter the IP address of your server in the **IP Address** field. For instructions, see [Finding the IP Address](/docs/getting-started#finding-the-ip-address).
+4.  Enter the IP address of your server in the **IP Address** field. For instructions, see [Finding the IP Address](/docs/getting-started#find-the-ip-address-of-your-linode).
 5.  From the **TTL** menu, select a time interval. *TTL*, which stands for "time to live," controls how long DNS records are cached by DNS resolvers before the resolver must query the authoritative name servers for new records.
 6.  Click **Save Changes**.
 

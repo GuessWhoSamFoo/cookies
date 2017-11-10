@@ -122,22 +122,21 @@ Longview shows the current number of queries in MySQL's cache.
 
 ### CPU
 
-The **CPU** graph shows the percentage of your Linode's CPU being used by MySQL at the selected time. If you want to see the total CPU use instead, check the [Overview tab](/docs/longview#sph_overview-tab).
+The **CPU** graph shows the percentage of your Linode's CPU being used by MySQL at the selected time. If you want to see the total CPU use instead, check the [Overview tab](/docs/platform/longview/longview#overview-tab).
 
 ### Memory
 
-The **Memory** graph shows the amount of RAM being used by MySQL at the selected time. If you want to see your Linode's total memory use instead, check the [Overview tab](/docs/longview#sph_overview-tab).
+The **Memory** graph shows the amount of RAM being used by MySQL at the selected time. If you want to see your Linode's total memory use instead, check the [Overview tab](/docs/platform/longview/longview#overview-tab).
 
 ### Disk IO
 
-The **Disk IO** graph shows the amount of input to and output from the disk caused by MySQL at the selected time. To see the total IO instead, visit the [Disks tab](/docs/longview#sph_disks-tab).
+The **Disk IO** graph shows the amount of input to and output from the disk caused by MySQL at the selected time. To see the total IO instead, visit the [Disks tab](/docs/platform/longview/longview#disks-tab).
 
 ### Process Count
 
-The **Process Count** graph shows the total number of processes on your Linode spawned by MySQL at the selected time. If you want to see more details, and how this stacks up against the total number of processes on your Linode, see the [Process Explorer tab](/docs/longview#sph_process-explorer-tab).
+The **Process Count** graph shows the total number of processes on your Linode spawned by MySQL at the selected time. If you want to see more details, and how this stacks up against the total number of processes on your Linode, see the [Process Explorer tab](/docs/platform/longview/longview#process-explorer-tab).
 
-Troubleshooting
----------------
+# Troubleshooting
 
 If you don't see Longview data for MySQL, you'll instead get an error on the page and instructions on how to fix it. As a general tip, you can check the `/var/log/linode/longview.log` file for errors as well.
 

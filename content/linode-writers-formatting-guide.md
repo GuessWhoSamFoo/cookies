@@ -6,10 +6,10 @@ description: 'The Linode Guides & Tutorials style guide for article submissions'
 keywords: ["style guide", "format", "formatting", "how to write", "write for us", "write for linode", "linode docs", "submissions"]
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 aliases: ['style-guide/','linode-writers-guide/']
-modified: Friday, June 30, 2017
+modified: 2017 2017-06-30
 modified_by:
   name: Edward Angert
-published: 'Wednesday, January 15th, 2014'
+published: 2014-01-15
 title: Linode Writer's Formatting Guide
 external_resources:
  - '[GitHub Beginners Guide](/docs/github-guide)'
@@ -83,7 +83,6 @@ The *Before You Begin* section is an area for basic prerequisites a reader shoul
 
 {{< /file-excerpt >}}
 
-
 #### Include a Note about Root or Non-Root users
 
 {{< file-excerpt "Guides Written for a Non-Root User" resource >}}
@@ -100,7 +99,6 @@ The steps in this guide require root privileges. Be sure to run the steps below 
 {{< /note >}}
 
 {{< /file-excerpt >}}
-
 
 #### Include a Note about Example Variables
 

@@ -4,7 +4,7 @@ author:
   email: docs@linode.com
 description: 'This guide will help you set up your first Linode.'
 license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-modified: 2017-09-05
+modified: 2017-10-10
 modified_by:
   name: Linode
 published: 2009-07-19
@@ -111,7 +111,7 @@ Communicating with your Linode is usually done using the secure shell (SSH) prot
 
 ### Find the IP Address of Your Linode
 
-Your Linode has a unique *IP address* that identifies it to other devices and users on the internet. For the time being, you'll use the IP address to connect to your server. After you perform some of these initial configuration steps outlined in the Linode Quick Start Guides, you can use [DNS records](/docs/hosting-website#sph_adding-dns-records) to point a domain name at your server and give it a more recognizable and memorable identifier.
+Your Linode has a unique *IP address* that identifies it to other devices and users on the internet. For the time being, you'll use the IP address to connect to your server. After you perform some of these initial configuration steps outlined in the Linode Quick Start Guides, you can use [DNS records](/docs/hosting-website#add-dns-records) to point a domain name at your server and give it a more recognizable and memorable identifier.
 
 Find your Linode's IP address from the [Linode Manager](https://manager.linode.com).
 
@@ -158,9 +158,7 @@ To reconnect via SSH, revoke the key for that IP address.
 
 For Linux and Mac OS X:
 
-~~~
-ssh-keygen -R 123.456.789
-~~~
+    ssh-keygen -R 123.456.789
 
 For Windows, PuTTY users must remove the old host IP addresses manually. PuTTY's known hosts are in the registry entry:
 
@@ -195,7 +193,7 @@ Ubuntu may prompt you when the Grub package is updated. If prompted, select `kee
 
 ### Gentoo
 
-    emaint sync
+    emaint sync -a
 
 After running a sync, it may end with a message that you should upgrade Portage using a `--oneshot` emerge comand. If so, run the Portage update. Then update the rest of the system:
 
@@ -224,6 +222,12 @@ Replace `example_hostname` with one of your choice.
 
     echo "example_hostname" > /etc/hostname
     hostname -F /etc/hostname
+
+{{< note >}}
+Debian and Ubuntu include a line in their hosts file for a loopback domain by default (127.0.1.1), but even though they're closely related, the commands above to set a hostname don't change the loopback domain.
+
+The result is the message when using sudo commands: *sudo: unable to resolve host* . To fix this, add your hostname to the hosts file as shown in the last example [here](/docs/networking/dns/using-your-systems-hosts-file).
+{{< /note >}}
 
 ### CentOS 6
 

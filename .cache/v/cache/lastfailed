@@ -1,0 +1,16 @@
+{
+  "ci/test_404.py::test_404": true,
+  "ci/test_alias.py::test_alias[./content/development/frameworks/webpy-on-ubuntu-10-04-lucid.md]": true,
+  "ci/test_alias.py::test_alias[./content/web-servers/lamp/lamp-server-on-fedora-19.md]": true,
+  "ci/test_alias.py::test_alias[./content/web-servers/lamp/lamp-server-on-gentoo.md]": true,
+  "ci/test_alias.py::test_alias[./content/web-servers/lemp/lemp-server-on-debian-6-squeeze.md]": true,
+  "ci/test_alias.py::test_alias[./content/web-servers/lemp/lemp-stack-on-centos-7-with-fastcgi.md]": true,
+  "ci/test_alias.py::test_alias[./content/websites/cms/install-cpanel-on-centos.md]": true,
+  "ci/test_filename.py::test_filename[./content/applications/configuration-management/use-laravel-forge-to-automate-web-server-creation-on-a-Linode.md]": true,
+  "ci/test_filename.py::test_filename[./content/applications/media-servers/How-to-Install-SHOUTcast-DNAS-Server-on-Linux.md]": true,
+  "ci/test_filename.py::test_filename[./content/databases/postgresql/how-to-access-postgreSQL-database-remotely-using-pgAdmin-on-windows.md]": true,
+  "ci/test_filename.py::test_filename[./content/development/nodejs/Set-Up-and-Install-Nodejs.md]": true,
+  "ci/test_filename.py::test_filename[./content/tools-reference/How-to-grep-for-text-in-files.md]": true,
+  "ci/test_filename.py::test_filename[./content/tools-reference/tools/Use-Nano-Text-Editor-Commands.md]": true,
+  "ci/test_filename.py::test_filename[./content/web-servers/nginx/use-uwsgi-to-deploy-Python-apps-with-nginx-on-ubuntu-12-04.md]": true
+}

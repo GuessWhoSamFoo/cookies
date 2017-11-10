@@ -21,13 +21,13 @@ external_resources:
 
 This document describes a compatible alternative to the **LAMP** (Linux,Apache, MySQL, and PHP) stack, known as **LEMP**. The LEMP stack replaces the Apache web server component (which is the "A" in LAMP) with Nginx (pronounced "engine x", providing the "E" in LEMP). LEMP is comprised of a variety of open source software used to build and run web servers.
 
-Prior to beginning this guide, please complete the [Getting Started guide](/docs/getting-started/). If you are new to Linux server administration, you may be interested in our [introduction to Linux concepts guide](/docs/tools-reference/introduction-to-linux-concepts/), [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/docs/using-linux/administration-basics).
+Prior to beginning this guide, please complete the [Getting Started guide](/docs/getting-started/). If you are new to Linux server administration, you may be interested in our [introduction to Linux concepts guide](/docs/tools-reference/introduction-to-linux-concepts/), [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/content/using-linux/administration-basics).
 
 ![LEMP Server on Debian 7 (Wheezy)](/docs/assets/lemp_server_on_debian_7_wheezy.png "LEMP Server on Debian 7 (Wheezy)2")
 
 ## Set the Hostname
 
-Before you begin installing and configuring the components described in this guide, please make sure you have followed our instructions for [setting your hostname](/docs/getting-started#sph_setting-the-hostname). Issue the following commands to make sure it is set properly:
+Before you begin installing and configuring the components described in this guide, please make sure you have followed our instructions for [setting your hostname](/docs/getting-started#setting-the-hostname). Issue the following commands to make sure it is set properly:
 
     hostname
     hostname -f
@@ -124,7 +124,6 @@ server {
 
 {{< /file >}}
 
-
 In addition, with in the Nginx virtual host file, ensure the `location ~ \.php$ { }` block resembles the one in this example:
 
 {{< file "/etc/nginx/sites-available/example.com" nginx >}}
@@ -134,17 +133,13 @@ location ~ \.php$ {
     fastcgi_index index.php;
     fastcgi_param SCRIPT_FILENAME /srv/www/example.com/public_html$fastcgi_script_name;
 }
-
 {{< /file >}}
-
-
-    > }
 
 **Important security note:** If you are planning to run applications that support file uploads (images, for example), the above configuration may expose you to a security risk by allowing arbitrary code execution. The short explanation for this behavior is that a properly crafted URI which ends in ".php", in combination with a malicious image file that actually contains valid PHP, can result in the image being processed as PHP. For more information on the specifics of this behavior, you may wish to review the information provided on [Neal Poole's blog](https://nealpoole.com/blog/2011/04/setting-up-php-fastcgi-and-nginx-dont-trust-the-tutorials-check-your-configuration/).
 
 To mitigate this issue, you may wish to modify your configuration to include a `try_files` directive. Please note that this fix requires Nginx and the php-fcgi workers to reside on the same server.
 
-~~~ nginx
+{{< file "/etc/nginx/sites-available/example.com" nginx >}}
 location ~ \.php$ {
     try_files $uri =404;
     include /etc/nginx/fastcgi_params;
@@ -152,11 +147,11 @@ location ~ \.php$ {
     fastcgi_index index.php;
     fastcgi_param SCRIPT_FILENAME /srv/www/example.com/public_html$fastcgi_script_name;
 }
-~~~
+{{< /file-excerpt >}}
 
-Additionally, it is a good idea to secure any upload directories your applications may use. The following configuration excerpt demonstrates securing an "/images" directory.
+Additionally, it is a good idea to secure any upload directories your applications may use. The following configuration excerpt demonstrates securing an "/images" directory:
 
-~~~ nginx
+{{< file "/etc/nginx/sites-available/example.com" nginx >}}
 location ~ \.php$ {
     include /etc/nginx/fastcgi_params;
     if ($uri !~ "^/images/") {
@@ -165,7 +160,7 @@ location ~ \.php$ {
     fastcgi_index index.php;
     fastcgi_param SCRIPT_FILENAME /srv/www/example.com/public_html$fastcgi_script_name;
 }
-~~~
+{{< /file-excerpt >}}
 
 When you have completed the modifications to the configuration, make sure that the virtual host is enabled and issue the following command to restart the web server:
 

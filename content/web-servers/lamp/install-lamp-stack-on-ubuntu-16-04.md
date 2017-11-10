@@ -136,6 +136,10 @@ The `ServerAlias` directive allows you to include multiple domain names or subdo
 
         sudo mkdir -p /var/www/html/example.com/{public_html,logs}
 
+    {{< note >}}
+Make sure that you do not put space after comma between `public_html` and `logs` because it will create a folder named `{public_html,` and will cause an error when you will reload Apache.
+{{< /note >}}
+
 4.  Link your virtual host file from the `sites-available` directory to the `sites-enabled` directory:
 
         sudo a2ensite example.com.conf

@@ -15,7 +15,7 @@ external_resources:
  - '[apache.org](http://httpd.apache.org/docs/2.4/upgrading.html)'
 ---
 
-This guide explains the configuration changes needed to update a standard virtual host setup, such as the one presented [here](/docs/hosting-website#sph_configuring-name-based-virtual-hosts), from Apache 2.2 to Apache 2.4. These configuration updates are necessary, because a working Apache 2.2 virtual host setup will break silently when you upgrade to Apache 2.4. We'll also discuss changes the new version of Apache makes to the default virtual host and module configuration.
+This guide explains the configuration changes needed to update a standard virtual host setup, such as the one presented [here](/docs/websites/hosting-a-website/#configure-name-based-virtual-hosts), from Apache 2.2 to Apache 2.4. These configuration updates are necessary, because a working Apache 2.2 virtual host setup will break silently when you upgrade to Apache 2.4. We'll also discuss changes the new version of Apache makes to the default virtual host and module configuration.
 
 ![Updating Virtual Host Settings from Apache 2.2 to Apache 2.4](/docs/assets/updating_virtual_host_settings_tg.png "Updating Virtual Host Settings from Apache 2.2 to Apache 2.4")
 
@@ -115,7 +115,7 @@ If you are utilizing access control rules within your virtual host files, you wi
 
         systemctl reload httpd.service
 
- {{< note >}}
+    {{< note >}}
 For more information on how you can enable or restrict access to your websites with various `Require` lines, see the [Apache website](http://httpd.apache.org/docs/current/howto/access.html). Most users will want to use the `Require all granted` line, but there may be exceptions.
 {{< /note >}}
 

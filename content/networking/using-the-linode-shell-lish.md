@@ -19,7 +19,7 @@ The Linode Shell (*Lish*) provides console access to all of your Linodes. It als
 
 ## Connect to Lish
 
-There are two ways to access Lish. You can use a terminal application to connect to a *Lish SSH gateway*, or you can log in to the [Linode Manager](https://manager.linode.com) and use the Ajax console in your web browser. This section explains both methods.
+There are two ways to access Lish. You can use a terminal application to connect to a *Lish SSH gateway*, or you can log in to the [Linode Manager](https://manager.linode.com) and use the Lish console in your web browser. This section explains both methods.
 
  {{< note >}}
 Lish used to be accessible via a direct SSH connection to your Linode's host machine, but as of May 10, 2013, all users must connect to a Lish SSH gateway to access Lish. For more information, please see [this blog post](https://blog.linode.com/2013/04/30/lish-ssh-gateway/).
@@ -63,7 +63,7 @@ Users who have been granted "Access" rights on a particular Linode will have acc
         linode287497         Dallas, TX
 
 	{{< note >}}
-You can add a public SSH key for Lish in the Linode Manager to automatically connect to Lish without a password. See [this section](#adding-your-public-key) for more information.
+You can add a public SSH key for Lish in the Linode Manager to automatically connect to Lish without a password. See [this section](#add-your-public-key) for more information.
 {{< /note >}}
 
 5.  At the Lish command prompt, type a Linode's name from the list. For example, typing `linode241706` will connect you to the screen console session for that Linode.
@@ -78,9 +78,9 @@ You can also connect to Lish using a web browser. This is useful when you don't 
 1.  Log in to the Linode Manager.
 2.  Select a Linode.
 3.  Click on the **Remote Access** tab.
-4.  In the **Console Access** section, click **Launch Lish Ajax Console**, as shown below.
+4.  In the **Console Access** section, click **Launch Lish Console**, as shown below.
 
-    [![Click Launch Lish Ajax Console.](/docs/assets/1281-manager_lish_ajax_launch.png)](/docs/assets/1281-manager_lish_ajax_launch.png)
+    [![Click Lish via Browser.](/docs/assets/lish-via-browser.png)](/docs/assets/lish-via-browser.png)
 
 5.  The Lish Web Console window appears with your Linode's console, as shown below.
 
@@ -92,7 +92,7 @@ Now you can use the console, or exit to the Lish prompt by pressing **CTRL+A** t
 
 ### Add Your Public Key
 
-If you don't want to enter your password every time you connect to Lish, you can add your public SSH key to the Linode Manager. If you haven't yet created SSH keys, please see our [Public Key Authentication with SSH](/docs/networking/ssh/use-public-key-authentication-with-ssh/) guide for more information.
+If you don't want to enter your password every time you connect to Lish, you can add your public SSH key to the Linode Manager. If you haven't yet created SSH keys, please see our [Public Key Authentication with SSH](/docs/security/use-public-key-authentication-with-ssh/) guide for more information.
 
 1.  Log in to the [Linode Manager](https://manager.linode.com).
 2.  Select the **my profile** link.

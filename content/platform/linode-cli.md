@@ -176,8 +176,8 @@ To start with, most users will want to run the configuration utility:
 
 Once the CLI has your Linode Manager username and password, it will generate and use a new API key automatically.
 
- {{< note >}}
-If you have [two-factor authentication](/docs/linode-manager-security#sph_two-factor-authentication) enabled, you will receive a prompt for the code after entering your password:
+{{< note >}}
+If you have [two-factor authentication](/docs/security/linode-manager-security-controls/#two-factor-authentication) enabled, you will receive a prompt for the code after entering your password:
 
 Two-factor authentication code
 >> 123456
@@ -187,7 +187,7 @@ Enter your code at the prompt, then continue with the configuration tool as desc
 
 You can run the `linode configure` command again if your settings change. New answers will overwrite the old ones in the `/Users/user1/.linodecli/config` file in your user's home directory.
 
- {{< note >}}
+{{< note >}}
 If you don't run the configuration tool, you can add these options manually in the `.linodecli/config` file.
 {{< /note >}}
 

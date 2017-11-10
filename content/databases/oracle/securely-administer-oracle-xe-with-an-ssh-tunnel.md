@@ -12,7 +12,7 @@ modified_by:
 published: 2010-01-28
 title: Securely Administer Oracle XE with an SSH Tunnel
 external_resources:
- - '[Using PuTTY](/docs/networking/using-putty#using_ssh_tunnels)'
+ - '[Using PuTTY](/docs/networking/using-putty)'
  - '[Oracle XE Documentation](http://www.oracle.com/pls/xe102/homepage)'
 ---
 
@@ -46,7 +46,7 @@ Once you've connected to the remote server with this tunnel configuration, you'l
 
 Save the following Perl script to your local home directory as `oracle-tunnel.pl`:
 
-~~~ perl
+    {{< file-excerpt "/etc/mysql/my.cnf" >}}
 #!/usr/bin/perl
 
 # Oracle XE Homepage Tunnel Tool for MacOS X and Linux
@@ -95,7 +95,7 @@ else
  print "Usage: oracle-tunnel.pl [start|stop]\n";
  exit 1;
 }
-~~~
+{{< /file-excerpt >}}
 
 Modify the variables "\$remote\_user" and "\$remote\_host" to reflect your remote user account and server name. Make the script executable by issuing the following command in a terminal window:
 

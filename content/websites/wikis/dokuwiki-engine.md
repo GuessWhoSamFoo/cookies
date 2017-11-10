@@ -20,7 +20,7 @@ DokuWiki is a flexible and extensible wiki engine that aims to be easy to manage
 
 ![DokuWiki Title Graphic](/docs/assets/dokuwiki_title_graphic.png)
 
-Before beginning the installation of DokuWiki, we assume that you have completed the [getting started guide](/docs/getting-started/). If you are new to Linux server administration, you may be interested in our [introduction to Linux concepts guide](/docs/tools-reference/introduction-to-linux-concepts/), [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/docs/using-linux/administration-basics).
+Before beginning the installation of DokuWiki, we assume that you have completed the [getting started guide](/docs/getting-started/). If you are new to Linux server administration, you may be interested in our [introduction to Linux concepts guide](/docs/tools-reference/introduction-to-linux-concepts/), [beginner's guide](/docs/beginners-guide/) and [administration basics guide](/content/using-linux/administration-basics).
 
 ## Install Prerequisites
 

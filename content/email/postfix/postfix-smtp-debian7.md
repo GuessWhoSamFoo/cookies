@@ -45,7 +45,7 @@ Before starting this tutorial, you should have:
 
         sudo apt-get install libsasl2-modules
 
- {{< note >}}
+{{< note >}}
 This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you're not familiar with the `sudo` command, you can check our [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 {{< /note >}}
 
@@ -139,7 +139,7 @@ relayhost = [mail.isp.example]:587
 
 
     {{< note >}}
-Check the appropriate [Google Apps](#settings-for-google-apps), [Mandrill](#settings-for-mandrill), or [SendGrid](#settings-for-sendgrid) section for the details to enter here.
+Check the appropriate [Google Apps](/docs/email/postfix/configure-postfix-to-send-mail-using-gmail-and-google-apps-on-debian-or-ubuntu), [Mandrill](#settings-for-mandrill), or [SendGrid](#settings-for-sendgrid) section for the details to enter here.
 {{< /note >}}
 
 3.  At the end of the file, add the following parameters to enable authentication:

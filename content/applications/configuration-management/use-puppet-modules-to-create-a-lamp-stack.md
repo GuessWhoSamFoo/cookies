@@ -100,7 +100,7 @@ class apache::params {
 }
 
 {{< /file >}}
-~
+
 
     And once we've added the variables that have already been referenced:
 
@@ -118,7 +118,7 @@ class apache::params {
 }
 
 {{< /file >}}
-~
+
 
     {{< note >}}
 For the duration of this guide, when something needs to be added to the parameter list the variables needed for Red Hat and Debian will be provided, but the expanding code will not be shown. A complete copy of `params.pp` can be viewed [here](/docs/assets/params.pp).

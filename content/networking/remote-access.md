@@ -25,7 +25,7 @@ The ability to associate an IP address with a domain name is referred to as *for
 
 Here's how to set reverse DNS for your domain names:
 
- {{< note >}}
+{{< note >}}
 Before setting reverse DNS, verify that you have created a matching forward DNS record for the IP address. For instructions, see [Adding DNS Records](/docs/hosting-website#sph_adding-dns-records). If you use a third-party DNS provider, create the forward DNS record with your provider's management tool.
 {{< /note >}}
 

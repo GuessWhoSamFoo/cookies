@@ -44,7 +44,7 @@ This guide is written for a non-root user. Commands that require elevated privil
 
         sudo apt-get install apache2
 
-    You can now [configure virtual hosting](/docs/web-servers/apache/installation/ubuntu-10.04-lucid#configure_apache_for_named_based_virtual_hosting) in accordance with the needs of your server.
+    You can now [configure virtual hosting](/docs/web-servers/apache/apache-web-server-ubuntu-12-04#configure-virtual-hosting) in accordance with the needs of your server.
 
 2.  Install the PHP CGI binaries:
 

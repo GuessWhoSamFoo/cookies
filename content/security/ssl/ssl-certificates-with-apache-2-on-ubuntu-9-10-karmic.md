@@ -16,10 +16,9 @@ title: 'SSL Certificates with Apache 2 on Ubuntu 9.10 (Karmic)'
 
 
 
-This guide will assist you with enabling SSL for websites served under the Apache web server. We assume you've completed the steps detailed in our [getting started guide](/docs/getting-started/), and that you've successfully set up Apache for serving virtual hosts as outlined in our [Apache 2 on Ubuntu 9.10 (Karmic) guide](/docs/web-servers/apache/installation/ubuntu-9.10-karmic). These steps should be performed via an SSH session to your Linode as the root user.
+This guide will assist you with enabling SSL for websites served under the Apache web server. We assume you've completed the steps detailed in our [getting started guide](/docs/getting-started/), and that you've successfully set up Apache for serving virtual hosts as outlined in our [Apache 2 on Ubuntu 9.10 (Karmic) guide](/docs/web-servers/apache/installation/ubuntu-9-10-karmic). These steps should be performed via an SSH session to your Linode as the root user.
 
-Use a Self-Signed SSL Certificate with Apache
----------------------------------------------
+# Use a Self-Signed SSL Certificate with Apache
 
 These instructions will help you generate a generic self-signed certificate, which may be used to provide SSL service for all name-based hosts on your Linode. Please note that self-signed certificates will generate warnings in a visitor's browser; proceed to "Installing a Commercial SSL Certificate" if you need to set up SSL on a domain using a certificate signed by a commercial SSL provider.
 
@@ -87,8 +86,7 @@ Restart Apache:
 
 You should now be able to visit your site with SSL enabled (after accepting your browser's warnings about the certificate).
 
-Install a Commercial SSL Certificate
-------------------------------------
+# Install a Commercial SSL Certificate
 
 Follow these instructions to get a commercial SSL certificate installed on your server. Please note that commercial SSL certificates require a unique IP address for SSL-enabled sites.
 
@@ -152,9 +150,9 @@ For example, if we downloaded a root cert for Verisign, we would save it to `/et
 
 Next, we'll add an entry to `/etc/apache2/ports.conf` for the IP address you'll be using to host your SSL-enabled site.
 
-~~~ apache
+    {{< file-excerpt "/etc/apache2/ports.conf" apache>}}
 NameVirtualHost 12.34.56.78:443
-~~~
+{{< /file-excerpt >}}
 
 Replace "12.34.56.78" with the IP address of your SSL-enabled site. Next, edit the virtual host configuration file for the site you would like to enable SSL on (www.mydomain.com in our example). Add the following stanza; note that we've essentially reproduced the configuration for the non-SSL version of the site, with the addition of four lines for SSL. This example uses the CA certificate file for a certificate signed by Verisign.
 
@@ -181,18 +179,11 @@ Restart Apache:
 
 You should now be able to visit your site with SSL enabled. Congratulations, you've installed a commercial SSL certificate!
 
-More Information
-----------------
-
-More Information
-----------------
-
-More Information
-----------------
+# More Information
 
 You may wish to consult the following resources for additional information on this topic. While these are provided in the hope that they will be useful, please note that we cannot vouch for the accuracy or timeliness of externally hosted materials.
 
-- [Installing Apache on Ubuntu 9.10 (Karmic)](/docs/web-servers/apache/installation/ubuntu-9.10-karmic)
+- [Installing Apache on Ubuntu 9.10 (Karmic)](/docs/web-servers/apache/installation/ubuntu-9-10-karmic)
 - [Official Apache Documentation](http://httpd.apache.org/docs/2.0/)
 
 

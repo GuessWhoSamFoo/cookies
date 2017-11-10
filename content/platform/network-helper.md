@@ -85,10 +85,8 @@ iface eth0 inet static
     up   ip addr add 12.34.56.78/24 dev eth0 label eth0:1
     down ip addr del 12.34.56.78/24 dev eth0 label eth0:1
     up   ip addr add 192.168.138.44/17 dev eth0 label eth0:2
-    down ip addr del 192.168.138.44/17 dev eth0 label eth0:2
-
+        down ip addr del 192.168.138.44/17 dev eth0 label eth0:2
 {{< /file >}}
-
 
 In addition to the `/etc/network/interfaces` file, Network Helper will create:
 
